@@ -485,7 +485,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   // d = days relative to dinner
   var TASKS=[
     {id:'shop-costco',k:'shop',d:-6,w:'day',t:'Costco: cream, eggs, Yukons, green beans, cold brew (+ wagyu if it\'s on you)'},
-    {id:'shop-tj',k:'shop',d:-6,w:'day',t:"Trader Joe's: 2 butternut squash, cranberries, pomegranates + juice, oranges, shallots, fried onions, mushrooms, leeks, carrots, herbs, onion, garlic"},
+    {id:'shop-tj',k:'shop',d:-6,w:'day',t:"Trader Joe's: 2 butternut squash, cranberries, pomegranates + juice, oranges, fried onions, mushrooms, leeks, carrots, herbs, garlic"},
     {id:'shop-gear',k:'shop',d:-6,w:'day',t:'2-gallon zip bags; set aside a box or big bowl to cover the cake'},
     {id:'shop-chix',k:'shop',d:-3,w:'day',t:'2 air-chilled chickens, about 4 lb each'},
     {id:'cake-infuse',k:'cake',d:-5,w:'eve',t:'Coffee cream: ~880 g cream + ~90 g whole beans, into the fridge'},
@@ -582,7 +582,6 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-pom','Pomegranates (1 for the sauce, 1 spare)','2'],
       ['s-pomjuice','Pomegranate juice, e.g. POM (tart sauce)','¾ cup'],
       ['s-orange','Oranges (zest + ½ cup juice)','2'],
-      ['s-shallot','Shallots: tart sauce 1 + soup ~3','4'],
       ['s-onions','Fried onions (casserole topping)','1 container'],
       ['s-mush','Cremini mushrooms (casserole). Costco packs are about double what you need. Keep them unwashed in their box','12 oz'],
       ['s-leeks','Leeks (soup)','2'],
@@ -590,7 +589,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-thyme','Fresh thyme: sauce 1 sprig, soup 8 sprigs, casserole ~1½ Tbsp leaves','2 packs'],
       ['s-sage','Fresh sage (soup, ~12 leaves)','1 pack'],
       ['s-parsley','Flat-leaf parsley (soup bundle, 2 sprigs; optional)','1 small bunch'],
-      ['s-aromatics','Yellow onion (soup) + garlic (soup 8, casserole 3)','1 + 1 head']
+      ['s-aromatics','Garlic (soup 8, casserole 3)','1 head']
     ]},
     {h:'Tuesday',when:'Chickens only',items:[
       ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2']
@@ -622,6 +621,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ]},
     {h:'Already have',when:'Confirmed',items:[
       ['h-butter','Kerrygold butter: need ~733 g (cake 227, mash 268, casserole 86, soup 85, chicken 28, sauces 28, greasing ~10). Optional: one 8 oz block as a buffer','850 g'],
+      ['h-onion','Minced red onion, frozen: soup ~1½ cups, tart sauce ¼ cup (top up with a fresh onion if short)','~1¾ cups'],
       ['h-choc','Callebaut callets: batter 4 oz, mousse 600 g, soak 2 oz, ganache 12 oz, sides ~300 g','~1.4 kg'],
       ['h-masc','Mascarpone: 9×13 640 g + GF minis 160 g','800 g'],
       ['h-lady','Ladyfingers + GF ladyfingers','32 + 8'],
@@ -674,7 +674,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c1:[['c','Butter, 4-lb pack',1],['y','American cheese'],['p','Mushrooms (in their box), herbs in a damp towel',1]],
         c2:[['p','Green beans',1],['p','Leeks, carrots',1],['y','Grapes, 1 box']],
         door:[['y','Milk, egg whites'],['y','Syrups (incl. blueberry-maple)'],['p','Cold brew, mayo',1],['y','Sauces, Better Than Bouillon']],
-        freezer:[['c','Ice packs, freezing from now',1],['y','Pumpkin purée, stock cubes']]}},
+        freezer:[['c','Ice packs, freezing from now',1],['y','Pumpkin purée, stock cubes, minced red onion']]}},
     {k:'sun',d:-4,label:'Mon',title:'Monday night',
      note:"Brown butter joins shelf 3. If you do rest the cake batter, its covered bowl goes on shelf 3 tonight, but resting is what flattened David's layers, so the plan skips it.",
      z:{top:[['y','Eggs'],['y','Yogurt, jars']],
@@ -685,7 +685,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c1:[['c','Butter'],['y','American cheese'],['p','Mushrooms, herbs']],
         c2:[['p','Green beans'],['p','Leeks, carrots']],
         door:[['y','Milk, egg whites, syrups'],['p','Cold brew, mayo'],['y','Sauces, Better Than Bouillon']],
-        freezer:[['c','Ice packs'],['y','Pumpkin purée, stock cubes']]}},
+        freezer:[['c','Ice packs'],['y','Pumpkin purée, stock cubes, minced red onion']]}},
     {k:'mon',d:-3,label:'Tue',title:'Tuesday night',
      note:'The chickens arrive and go straight to the bottom shelf on a quarter sheet, so nothing drips. Cake layers sit on shelf 3; or freeze them overnight, since firm layers are easier to stack.',
      z:{top:[['y','Eggs'],['y','Yogurt, jars']],
@@ -791,8 +791,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
     {slug:'tart-sauce',site:'finish',onsite:"Loosen with water; stir in the pomegranate seeds.",n:'Cranberry, blueberry + pomegranate sauce',tags:['v','gf'],src:'One tart sauce for the chicken and the wagyu',yield:'~2½ cups',when:'Tue make · Fri finish',vessel:'Deli quart',
      vids:[],
-     ing:[{h:'',items:[['Butter','1 Tbsp'],['Shallot, minced','1'],['Fresh cranberries','12 oz'],['Pomegranate juice (or unsweetened cranberry juice)','¾ cup'],['Your blueberry-maple syrup','½ cup'],['Orange juice + zest','½ cup + 1 orange'],['Thyme','1 sprig'],['Red wine vinegar','2 Tbsp'],['Salt, lots of black pepper','to taste'],['Sugar','only if it needs it'],['Pomegranate seeds (on site)','from 1 pomegranate']]}],
-     steps:[['Tue','Sweat the shallot in the butter until soft.'],
+     ing:[{h:'',items:[['Butter','1 Tbsp'],['Red onion, minced (frozen is fine)','¼ cup'],['Fresh cranberries','12 oz'],['Pomegranate juice (or unsweetened cranberry juice)','¾ cup'],['Your blueberry-maple syrup','½ cup'],['Orange juice + zest','½ cup + 1 orange'],['Thyme','1 sprig'],['Red wine vinegar','2 Tbsp'],['Salt, lots of black pepper','to taste'],['Sugar','only if it needs it'],['Pomegranate seeds (on site)','from 1 pomegranate']]}],
+     steps:[['Tue','Sweat the red onion in the butter until soft.'],
        ['Tue','Add the cranberries, pomegranate juice, syrup, orange juice and zest, and thyme. Simmer 10–15 minutes, until the berries burst.'],
        ['Tue','Pull the thyme. Blend, push through a sieve, and thin with water until it pours.'],
        ['Tue','Finish with the vinegar (it stands in for the bite wine would add), salt and pepper. It should taste sharp first, then fruity. Cool; deli quart.'],
@@ -831,12 +831,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
     {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Wed make · Fri 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → 4-qt Cambro → pumpkin cocotte',
      vids:[['Chef John: roasted butternut squash soup','https://www.youtube.com/watch?v=AlRqh21CfHI'],["Thomas Keller's butternut squash soup (Food52)",'https://www.youtube.com/watch?v=xIeIlWTorl8'],["Keller's written recipe (Food52)",'https://food52.com/recipes/32241-thomas-keller-s-butternut-soup-with-brown-butter-sage-and-nutmeg-creme-fraiche']],
-     ing:[{h:'Roast (Chef John)',items:[['Butternut squash, whole','2 medium (~4½–5 lb)'],['Yellow onion, chopped','1 large'],['Carrots, sliced','1½ cups (~3)'],['Garlic, whole peeled cloves','8'],['Olive oil','2 Tbsp'],['Kosher salt','2 tsp']]},
-          {h:'Pot (Keller)',items:[['Butter','2 Tbsp'],['Leeks, thinly sliced, white and light green','1½ cups (~2)'],['Shallots, thinly sliced','¾ cup (~3)'],['Honey or maple syrup','2–3 Tbsp'],['Water','9 cups'],['Vegetable Better Than Bouillon','3 Tbsp'],['Bouquet garni: thyme, parsley, bay, peppercorns','8 sprigs, 2 sprigs, 2 leaves, ½ tsp']]},
+     ing:[{h:'Roast (Chef John)',items:[['Butternut squash, whole','2 medium (~4½–5 lb)'],['Carrots, sliced','1½ cups (~3)'],['Garlic, whole peeled cloves','8'],['Olive oil','2 Tbsp'],['Kosher salt','2 tsp']]},
+          {h:'Pot (Keller)',items:[['Butter','2 Tbsp'],['Leeks, thinly sliced, white and light green','1½ cups (~2)'],['Red onion, minced (your frozen batch is fine)','~1½ cups'],['Honey or maple syrup','2–3 Tbsp'],['Water','9 cups'],['Vegetable Better Than Bouillon','3 Tbsp'],['Bouquet garni: thyme, parsley, bay, peppercorns','8 sprigs, 2 sprigs, 2 leaves, ½ tsp']]},
           {h:'Brown-butter sage (Chef John)',items:[['Butter','4 Tbsp'],['Sage leaves','a handful (~12)']]},
           {h:'Finish',items:[['Apple cider vinegar','~2 Tbsp'],['Cayenne','a pinch'],['Nutmeg','a pinch'],['Salt','to taste']]}],
-     steps:[['Wed','Oven to 400°F. Halve the squash the way Chef John does: cut off the top, then split it straight down the middle, and scoop out the seeds. Set the halves cut side up on the half sheet, toss the onion, carrots and garlic with the olive oil around them, and salt everything. Roast about 1 hour, until a knife slides into the squash easily and the vegetables are browned.'],
-       ['Wed','Meanwhile, in the 7-qt Dutch oven, sweat the leeks and shallots in 2 Tbsp butter with a pinch of salt over medium, 6–8 minutes, until soft but not coloured (Keller). Stir in the honey or maple for 2–3 minutes.'],
+     steps:[['Wed','Oven to 400°F. Halve the squash the way Chef John does: cut off the top, then split it straight down the middle, and scoop out the seeds. Set the halves cut side up on the half sheet, toss the carrots and garlic with the olive oil around them, and salt everything. Roast about 1 hour, until a knife slides into the squash easily and the vegetables are browned.'],
+       ['Wed','Meanwhile, in the 7-qt Dutch oven, sweat the leeks and the minced red onion (straight from frozen is fine) in 2 Tbsp butter with a pinch of salt over medium, 8–10 minutes, until soft but not coloured (Keller). Frozen onion lets off water, so it needs the extra minutes. Stir in the honey or maple for 2–3 minutes.'],
        ['Wed','Tie the thyme, parsley, bay and peppercorns into a bundle (a leek green or cheesecloth works).'],
        ['Wed','Brown-butter sage: melt 4 Tbsp butter over medium. It foams, then turns golden; turn the heat down a little and catch it at light nutty brown. Off the heat, drop in the sage and let it sizzle.'],
        ['Wed','Whisk the Better Than Bouillon into the water. Into the pot: the squash scooped out of its skin (stray bits of skin are fine; the soup gets strained), the roasted vegetables (scrape the pan), the brown butter with its sage, the stock and the bundle. Bring to a simmer, then cook on low, uncovered, about 45 minutes.'],
@@ -846,7 +846,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Wed','Cool, into a 4-qt Cambro, refrigerate. The cocotte is too wide for the fridge plan, so it travels empty.'],
        ['Fri 2:45','Pour into the cocotte and reheat low, stirring now and then. Taste for salt and vinegar once more, and serve. No garnish.']],
      ahead:['Keeps 3–4 days and gets sweeter after a day in the fridge (Food52 on Keller\'s). Freezes well.'],
-     notes:['No dairy beyond the butter: Keller\'s crème fraîche and Chef John\'s crème fraîche and chives were garnishes, and both are dropped.','Vegetarian and gluten-free with Vegetable Better Than Bouillon.']},
+     notes:['Your frozen minced red onion replaces both the roasted onion (Chef John) and the shallots (Keller). It goes in the pot, not on the roasting tray, where small wet pieces would steam or burn. It can make the soup a shade less bright orange.','No dairy beyond the butter: Keller\'s crème fraîche and Chef John\'s crème fraîche and chives were garnishes, and both are dropped.','Vegetarian and gluten-free with Vegetable Better Than Bouillon.']},
 
     {slug:'tiramisu',site:'ahead',onsite:"Dust with cocoa just before serving.",n:'Pumpkin tiramisu',tags:['v'],src:"Hoffmann's calculator, scaled to 40 biscuits",yield:'9×13 (32 biscuits) + GF minis (8)',when:'Wed pumpkin · Thu AM build · Fri dust',vessel:'9×13 ceramic + glass minis',
      vids:[['Hoffmann: the ultimate tiramisu','https://www.youtube.com/watch?v=o3AMALUTp8o'],["Hoffmann's tiramisu calculator",'https://www.jameshoffmann.co.uk/tiramisu-calculator']],
