@@ -419,7 +419,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {k:'pack',n:'Pack & drive',g:'road'}
   ];
   var DMAP={}; DISHES.forEach(function(x){DMAP[x.k]=x;});
-  var WORD={am:'AM',day:'DAY',pm:'PM',eve:'EVE',late:'LATE'}, WORDER={am:0,day:1,pm:2,eve:3,late:4};
+  var WORD={early:'2 AM',am:'AM',day:'DAY',pm:'PM',eve:'EVE',late:'LATE'}, WORDER={early:-1,am:0,day:1,pm:2,eve:3,late:4};
 
   // d = days relative to dinner
   var TASKS=[
@@ -438,7 +438,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'tira-coffee',k:'tira',d:-1,w:'am',t:'Brew 600 g coffee (10 doubles); sous-vide 10 yolks at 60°C for 30 min; cool both'},
     {id:'tira-build',k:'tira',d:-1,w:'am',t:'Build the 9×13 (32) + gluten-free minis (8); fridge 24 h+'},
     {id:'tira-serve',k:'tira',d:0,w:'pm',t:'Dust with cocoa just before serving'},
-    {id:'chix-brine',k:'chix',d:-2,w:'eve',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; uncovered on racks'},
+    {id:'chix-brine',k:'chix',d:-1,w:'early',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; uncovered on racks'},
     {id:'chix-bag',k:'chix',d:-1,w:'late',t:'Bag each bird flat'},
     {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: braiser + half sheet (see Day-of)'},
     {id:'wagyu-cut',k:'wagyu',d:-1,w:'pm',t:'Cut cold into bite-size pieces; wrap on an eighth sheet'},
@@ -461,7 +461,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var WAITS={
     cake:[{a:-5,b:-4,t:'infusing'},{a:-2,b:-1,t:'setting'}],
     tira:[{a:-1,b:0,t:'resting'}],
-    chix:[{a:-2,b:-1,t:'dry-brining'}]
+    chix:[{a:-1,b:-1,t:'dry-brining'}]
   };
 
   var MORNING=[
@@ -593,26 +593,26 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {d:-5,items:['Coffee-infusing cream (jar)']},
     {d:-4,items:['Coffee cream (infusing)','Brown butter (2 sticks)']},
     {d:-3,items:['Cake (wrapped)','Tart sauce','Pumpkin (thawing)','Chickens (store packaging)','Ice packs → freezer']},
-    {d:-2,items:['Cake, setting in the springform','Soup (in the cocotte)','Gravy, jus, tart sauce','Pumpkin (cooked down)','2 chickens on racks: about two shelves']},
+    {d:-2,items:['Cake, setting in the springform','Soup (in the cocotte)','Gravy, jus, tart sauce','Pumpkin (cooked down)','Chickens (store packaging)']},
     {d:-1,peak:true,items:['Cake (boxed), tiramisu, GF minis','Casserole (9×9)','Mash (4-qt Cambro)','Soup (cocotte)','Chickens (now bagged flat)','Wagyu, pomegranate seeds','Overflow into cooler bags with ice: gravy, jus, tart sauce']}
   ];
 
   // Recipes: steps are [when, text]; ingredients are groups of [item, qty]
   var YT_ATK='https://www.youtube.com/watch?v=IHQirO88vuo', YT_LAG='https://www.youtube.com/watch?v=Z8J2HgaaSgQ', YT_DAVID='https://www.youtube.com/watch?v=dIuBbOV4IR4';
   var RECIPES=[
-    {slug:'chicken',site:'onsite',onsite:"Sear and roast, 1:55–2:50. Prepped and salted Tuesday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Tue eve prep · Thu roast',vessel:'Racks on the half sheet + jelly pan to brine; braiser + half sheet to roast',
+    {slug:'chicken',site:'onsite',onsite:"Sear and roast, 1:55–2:50. Prepped and salted early Wednesday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Wed ~2 AM prep · Thu roast',vessel:'Racks on the half sheet + jelly pan to brine; braiser + half sheet to roast',
      vids:[['ATK: perfect roast chicken',YT_ATK],['Spatchcocking (1:28)',YT_ATK+'&t=88s'],['Salting (3:41)',YT_ATK+'&t=221s'],['Sear, then roast (5:18)',YT_ATK+'&t=318s']],
      ing:[{h:'',items:[['Air-chilled whole chickens, 4–5 lb each','2'],['Diamond Crystal kosher salt','1 tsp (3 g) per lb'],['Butter, melted','2 Tbsp'],['Vegetable oil','1 tsp']]}],
-     steps:[['Tue eve','Spatchcock each bird: cut out the backbone with shears (freeze it for stock), flip it, and press down to crack the breastbone so the breast sits level with the legs.'],
-       ['Tue eve','Tie the ends of the legs together. Loosen the skin over the breasts and legs with your fingers, and poke the fat deposits on the breast with a skewer.'],
-       ['Tue eve','Weigh each bird and salt at 3 g per lb, under and over the skin. Set them uncovered on racks over the half sheet and jelly pan and refrigerate.'],
+     steps:[['Wed 2 AM','Spatchcock each bird: cut out the backbone with shears (freeze it for stock), flip it, and press down to crack the breastbone so the breast sits level with the legs.'],
+       ['Wed 2 AM','Tie the ends of the legs together. Loosen the skin over the breasts and legs with your fingers, and poke the fat deposits on the breast with a skewer.'],
+       ['Wed 2 AM','Weigh each bird and salt at 3 g per lb, under and over the skin. Set them uncovered on racks over the half sheet and jelly pan and refrigerate.'],
        ['Wed night','Slide each bird flat into a 2-gallon bag for the drive.'],
        ['Thu 1:00','Out of the bags; pat dry; brush with melted butter. Bird 1 into the braiser, bird 2 onto the half sheet with a rack.'],
        ['Thu 1:30','Oven to 400°F.'],
        ['Thu 1:55','Bird 2 into the oven; the head start stands in for the sear. Heat the braiser with 1 tsp oil over high until it smokes, then put bird 1 in skin side up so the pan heat hits the legs first.'],
        ['Thu 2:05','Braiser into the oven.'],
        ['Thu ~2:50','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board for at least 15 minutes; it climbs the rest of the way. Save every drop of drippings for the gravy.']],
-     ahead:['ATK salts for at least 12 and ideally 24 hours. Ours get about 40, so stick to the 3 g per lb rate.'],
+     ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Wednesday gives about 36 hours before roasting and about 21 hours uncovered before bagging; stick to the 3 g per lb rate.'],
      notes:['The sear jump-starts the legs, which need more heat than the breast (ATK). Bird 2 has no pan, so it goes in first.','Thighs should read about 170°F. That number is mine, not ATK\'s.','If the host has a 12" skillet, sear both birds.']},
 
     {slug:'gravy',site:'finish',onsite:"Add the drippings and thicken, 2:55.",n:'Gravy',tags:['gf'],src:'Base made ahead, finished with the drippings',yield:'~3½ cups',when:'Tue base · Thu 2:55 finish',vessel:'Deli quart → 2-qt saucepan',
