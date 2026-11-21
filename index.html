@@ -331,7 +331,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         <table>
           <thead><tr><th>Dish</th><th>Made in</th><th>Stored &amp; carried in</th><th>Finished / served in</th></tr></thead>
           <tbody>
-            <tr><td>Chickens</td><td>Half sheet + jelly pan, on racks</td><td>2-gallon zip bags, flat</td><td>12" braiser (bird 1) + half sheet on a rack (bird 2)</td></tr>
+            <tr><td>Chickens</td><td>Half sheet + rack, both birds</td><td>2-gallon zip bags, flat</td><td>12" braiser (bird 1) + half sheet on a rack (bird 2)</td></tr>
             <tr><td>Mash</td><td>Pot + fine sieve</td><td>4-qt Cambro, plastic on the surface</td><td>4-qt Dutch oven</td></tr>
             <tr><td>Soup</td><td>7-qt Dutch oven</td><td>4-qt Cambro (the cocotte travels empty)</td><td>Pumpkin cocotte</td></tr>
             <tr><td>Green bean casserole</td><td>4-qt saucepan for the sauce</td><td>9×9 metal pan, covered</td><td>Same 9×9: metal goes straight from cold into the oven</td></tr>
@@ -499,8 +499,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'tira-coffee',k:'tira',d:-1,w:'am',t:'Brew 600 g coffee (10 doubles); sous-vide 10 yolks at 60°C for 30 min; cool both'},
     {id:'tira-build',k:'tira',d:-1,w:'am',t:'Build the 9×13 (32) + gluten-free minis (8); fridge 24 h+'},
     {id:'tira-serve',k:'tira',d:0,w:'pm',t:'Dust with cocoa just before serving'},
-    {id:'chix-brine',k:'chix',d:-1,w:'early',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; uncovered on racks'},
-    {id:'chix-bag',k:'chix',d:-1,w:'eve',t:'~6 PM: bag each bird flat; into the emptied lower crisper'},
+    {id:'chix-brine',k:'chix',d:-1,w:'early',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; both on the half sheet rack, bottom shelf'},
+    {id:'chix-bag',k:'chix',d:-1,w:'late',t:'~11 PM: bag each bird flat into the lower crisper, then the mash takes the bottom shelf'},
     {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: braiser + half sheet (see Day-of)'},
     {id:'wagyu-cut',k:'wagyu',d:-1,w:'pm',t:'Cut cold into bite-size pieces; wrap on an eighth sheet'},
     {id:'wagyu-sear',k:'wagyu',d:0,w:'pm',t:'Sear in batches from 3:50'},
@@ -586,7 +586,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-onions','Fried onions (casserole topping)','1 container']
     ]},
     {h:'Monday',when:'Perishables',items:[
-      ['s-chix','Air-chilled chickens, 4–5 lb; sell-by after dinner day','2'],
+      ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2'],
       ['s-mush','Cremini mushrooms (casserole)','12 oz'],
       ['s-leeks','Leeks (soup)','2'],
       ['s-carrots','Carrots (soup, 1½ cups sliced)','3'],
@@ -709,19 +709,19 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c2:[['p','Green beans']],
         door:[['y','Kimchi (moved here)',1],['y','Milk, egg whites, syrups, mayo, Better Than Bouillon']],
         freezer:[['c','Ice packs']]}},
-    {k:'wedday',d:-1,label:'Wed day',title:'Wednesday, 2 AM to ~6 PM: the tightest stretch',
-     note:"Both birds are on racks. Bird 1 (jelly roll pan) has the bottom shelf; bird 2 (quarter sheet) shares shelf 3 with the soup Cambro, about 17\" of an ~18\" shelf. The cream moves to the door so nothing ready-to-eat sits next to raw chicken.",
+    {k:'wedday',d:-1,label:'Wed day',title:'Wednesday, 2 AM to ~6 PM: both birds drying',
+     note:"The half sheet fills the bottom shelf front to back, with both birds on its rack head to tail (about 4 lb each). That leaves shelf 3 with room to spare. If the birds come out bigger and won't share, bird 2 goes on the jelly roll pan on shelf 3 next to the soup.",
      z:{top:[['d','Cake, setting'],['d','GF tiramisu minis',1],['y','Eggs']],
         s2:[['d','Tiramisu 9×13, at the front',1],['s','Behind it: gravy, jus, tart sauce, coffee cream, pomegranate seeds',1]],
-        s3:[['r','Bird 2 on the quarter sheet + rack',1],['m','Soup Cambro']],
+        s3:[['m','Soup Cambro'],['c','Heavy cream']],
         deli:[['r','Wagyu, cut and sealed',1]],
-        bottom:[['r','Bird 1 on the jelly roll pan + rack',1]],
+        bottom:[['r','Both birds, head to tail, on the half sheet + rack (fills the shelf)',1]],
         c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs (used this afternoon)']],
         c2:[['p','Green beans (used this afternoon)']],
-        door:[['c','Heavy cream (moved here)',1],['y','Kimchi, milk, syrups, mayo, Better Than Bouillon']],
+        door:[['y','Kimchi, milk, syrups, mayo, Better Than Bouillon']],
         freezer:[['c','Ice packs']]}},
     {k:'wednight',d:-1,label:'Wed night',title:'Wednesday night: bagged, built, packed',
-     note:"Bag the birds around 6 PM (16 hours uncovered is plenty) and lay them flat in the emptied lower crisper. That frees shelf 3 and the bottom shelf for the casserole and the mash. If the bagged birds don't fit the crisper, put them on the bottom shelf on the tray and move the mash to shelf 3.",
+     note:"The casserole joins the soup on shelf 3 around 6 PM, and the cream moves to the door to make room. Bag the birds around 11 PM (about 21 hours uncovered) and lay them flat in the emptied lower crisper; the mash then takes the bottom shelf. If the bagged birds don't fit the crisper, keep them on the bottom shelf on a quarter sheet with the mash beside them.",
      z:{top:[['d','Cake, glazed and boxed',1],['d','GF minis'],['y','Eggs']],
         s2:[['d','Tiramisu 9×13'],['s','Gravy, jus, tart sauce, pomegranate seeds']],
         s3:[['m','Soup Cambro'],['m','Casserole, 9×9',1]],
@@ -729,7 +729,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         bottom:[['m','Mash, 4-qt Cambro',1]],
         c1:[['c','Butter'],['y','Cheese']],
         c2:[['r','Both chickens, bagged flat (wash the drawer after)',1]],
-        door:[['c','Heavy cream (for the mash)'],['y','Milk, syrups, mayo, Better Than Bouillon']],
+        door:[['c','Heavy cream (moved here; for the mash)',1],['y','Milk, syrups, mayo, Better Than Bouillon']],
         freezer:[['c','Ice packs, ready for 7:30 AM']]}}
   ];
   var FCLEAR=[
@@ -739,25 +739,25 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['fc-bottom','Bottom shelf: milk cartons, egg whites and syrups → door. Finish the rice.'],
     ['fc-left','Finish the curry, onsen eggs and leftover sauce by Monday.'],
     ['fc-grapes','Finish one box of grapes.'],
-    ['fc-measure','Measure a shelf: if it is under ~18" wide, the half sheet won\'t fit, so the birds dry on the jelly roll pan and quarter sheet. Check you have racks for those two.']
+    ['fc-measure','The half sheet fits the bottom shelf. Check you have a rack that fits inside it.']
   ];
 
   // Recipes: steps are [when, text]; ingredients are groups of [item, qty]
   var YT_ATK='https://www.youtube.com/watch?v=IHQirO88vuo', YT_LAG='https://www.youtube.com/watch?v=Z8J2HgaaSgQ', YT_DAVID='https://www.youtube.com/watch?v=dIuBbOV4IR4';
   var RECIPES=[
-    {slug:'chicken',site:'onsite',onsite:"Sear and roast, 1:55–2:50. Prepped and salted early Wednesday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Wed ~2 AM prep · Thu roast',vessel:'Racks on the half sheet + jelly pan to brine; braiser + half sheet to roast',
+    {slug:'chicken',site:'onsite',onsite:"Sear and roast, 1:55–2:50. Prepped and salted early Wednesday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Wed ~2 AM prep · Thu roast',vessel:'Rack on the half sheet to brine (both birds); braiser + half sheet to roast',
      vids:[['ATK: perfect roast chicken',YT_ATK],['Spatchcocking (1:28)',YT_ATK+'&t=88s'],['Salting (3:41)',YT_ATK+'&t=221s'],['Sear, then roast (5:18)',YT_ATK+'&t=318s']],
-     ing:[{h:'',items:[['Air-chilled whole chickens, 4–5 lb each','2'],['Diamond Crystal kosher salt','1 tsp (3 g) per lb'],['Butter, melted','2 Tbsp'],['Vegetable oil','1 tsp']]}],
+     ing:[{h:'',items:[['Air-chilled whole chickens, about 4 lb each (two fit one half sheet)','2'],['Diamond Crystal kosher salt','1 tsp (3 g) per lb'],['Butter, melted','2 Tbsp'],['Vegetable oil','1 tsp']]}],
      steps:[['Wed 2 AM','Spatchcock each bird: cut out the backbone with shears (freeze it for stock), flip it, and press down to crack the breastbone so the breast sits level with the legs.'],
        ['Wed 2 AM','Tie the ends of the legs together. Loosen the skin over the breasts and legs with your fingers, and poke the fat deposits on the breast with a skewer.'],
-       ['Wed 2 AM','Weigh each bird and salt at 3 g per lb, under and over the skin. Set them uncovered on racks over the half sheet and jelly pan and refrigerate.'],
-       ['Wed ~6 PM','Slide each bird flat into a 2-gallon bag and lay them in the emptied lower crisper.'],
+       ['Wed 2 AM','Weigh each bird and salt at 3 g per lb, under and over the skin. Set both head to tail, uncovered, on a rack over the half sheet on the bottom shelf. If both do not fit, bird 2 goes on the jelly roll pan on shelf 3.'],
+       ['Wed ~11 PM','Slide each bird flat into a 2-gallon bag and lay them in the emptied lower crisper.'],
        ['Thu 1:00','Out of the bags; pat dry; brush with melted butter. Bird 1 into the braiser, bird 2 onto the half sheet with a rack.'],
        ['Thu 1:30','Oven to 400°F.'],
        ['Thu 1:55','Bird 2 into the oven; the head start stands in for the sear. Heat the braiser with 1 tsp oil over high until it smokes, then put bird 1 in skin side up so the pan heat hits the legs first.'],
        ['Thu 2:05','Braiser into the oven.'],
        ['Thu ~2:50','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board for at least 15 minutes; it climbs the rest of the way. Save every drop of drippings for the gravy.']],
-     ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Wednesday gives about 36 hours before roasting and about 16 hours uncovered before bagging; stick to the 3 g per lb rate.'],
+     ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Wednesday gives about 36 hours before roasting and about 21 hours uncovered before bagging; stick to the 3 g per lb rate.'],
      notes:['The sear jump-starts the legs, which need more heat than the breast (ATK). Bird 2 has no pan, so it goes in first.','Thighs should read about 170°F. That number is mine, not ATK\'s.','If the host has a 12" skillet, sear both birds.']},
 
     {slug:'gravy',site:'finish',onsite:"Add the drippings and thicken, 2:55.",n:'Gravy',tags:['gf'],src:'Base made ahead, finished with the drippings',yield:'~3½ cups',when:'Tue base · Thu 2:55 finish',vessel:'Deli quart → 2-qt saucepan',
