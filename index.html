@@ -486,7 +486,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var TASKS=[
     {id:'shop-costco',k:'shop',d:-6,w:'day',t:'Costco: cream, eggs, Yukons, cold brew (+ wagyu if it\'s on you)'},
     {id:'shop-tj',k:'shop',d:-6,w:'day',t:"Trader Joe's: 2 butternut squash, frozen green beans, cranberries, pomegranates + juice, oranges, fried onions, mushrooms, leeks, carrots, herbs, garlic"},
-    {id:'shop-gear',k:'shop',d:-6,w:'day',t:'2-gallon zip bags; set aside a box or big bowl to cover the cake'},
+    {id:'shop-gear',k:'shop',d:-6,w:'day',t:'Target, after Trader Joe\'s: 2-gallon zip bags, candles, celery salt, pantry gaps; set aside a box or bowl for the cake'},
     {id:'shop-chix',k:'shop',d:-3,w:'day',t:'2 air-chilled chickens, about 4 lb each'},
     {id:'cake-infuse',k:'cake',d:-5,w:'eve',t:'Coffee cream: ~880 g cream + ~90 g whole beans, into the fridge'},
     {id:'cake-bbutter',k:'cake',d:-4,w:'day',t:'Brown 2 sticks of butter; cool and refrigerate'},
@@ -513,7 +513,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'soup-reheat',k:'soup',d:0,w:'pm',t:'Reheat in the pumpkin pot from 2:45'},
     {id:'mash-make',k:'mash',d:-1,w:'late',t:'Cook, mash, sieve; into the 4-qt Cambro'},
     {id:'mash-reheat',k:'mash',d:0,w:'pm',t:'Reheat low in the 4-qt Dutch oven from 2:45'},
-    {id:'gbc-build',k:'gbc',d:-1,w:'pm',t:'Thaw and dry the beans, make the mushroom sauce; fill the 9×9, overflow into glass minis (no topping)'},
+    {id:'gbc-build',k:'gbc',d:-1,w:'pm',t:'Braise half the frozen beans, make the mushroom sauce with the bean broth; fill the 9×9, overflow into glass minis (no topping)'},
     {id:'gbc-bake',k:'gbc',d:0,w:'pm',t:'Bake at 375°F from 3:00; onions on at 3:35'},
     {id:'pack-ice',k:'pack',d:-3,w:'eve',t:'Freeze every ice pack (plus a few water bottles)'},
     {id:'pack-kit',k:'pack',d:-1,w:'late',t:'Pack the bring kit + pans; fridge overflow into cooler bags with ice'},
@@ -578,7 +578,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {h:"Trader Joe's",when:'Today (Sat)',items:[
       ['s-cran','Fresh cranberries','12 oz'],
       ['s-squash','Butternut squash, whole. Keep it on the counter, not in the fridge','2 medium (~4½–5 lb)'],
-      ['s-beans','Frozen whole green beans or haricots verts, not French-cut. Straight into the freezer','2 lb'],
+      ['s-beans','Frozen cut or whole green beans, not French-cut. Straight into the freezer','2 lb'],
       ['s-pom','Pomegranates (1 for the sauce, 1 spare)','2'],
       ['s-pomjuice','Pomegranate juice, e.g. POM (tart sauce)','¾ cup'],
       ['s-orange','Oranges (zest + ½ cup juice)','2'],
@@ -594,10 +594,14 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {h:'Tuesday',when:'Chickens only',items:[
       ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2']
     ]},
-    {h:'Gear',when:'By Thursday',items:[
+    {h:'Target',when:"Today, after Trader Joe's",items:[
       ['s-cakebox','Cake cover, nothing to buy: a spare shipping box at least 11" square and 6" tall, or your biggest bowl upturned','have'],
       ['s-bags','2-gallon zip bags (chickens)','1 box'],
-      ['s-ice','Bag of ice for the cooler bags, Friday morning','1–2'],
+      ['s-candles','Birthday candles + a lighter','1 pack'],
+      ['s-target-gaps','Anything from Pantry check you are short on, and anything Trader Joe\'s was out of','']
+    ]},
+    {h:'Friday morning',when:'On the way',items:[
+      ['s-ice','Bag of ice for the cooler bags','1–2'],
       ['s-wrap','Foil, plastic wrap, parchment, if low','']
     ]},
     {h:'Check you have enough',when:'Pantry',items:[
@@ -609,6 +613,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['p-psugar','Powdered sugar (mousse)','90 g'],
       ['p-flour','Flour: cake 1½ cups + casserole 65 g','~250 g'],
       ['p-cornstarch','Cornstarch (gravy)','~3 Tbsp'],
+      ['p-celerysalt','Celery salt (casserole). Target if Trader Joe\'s has none','1 tsp'],
       ['p-soda','Baking soda 1½ tsp + baking powder ½ tsp (cake)',''],
       ['p-espresso','Instant espresso powder (cake)','1 Tbsp'],
       ['p-vanilla','Vanilla paste: cake 1 Tbsp + mousse 6 g','~1½ Tbsp'],
@@ -625,7 +630,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['h-choc','Callebaut callets: batter 4 oz, mousse 600 g, soak 2 oz, ganache 12 oz, sides ~300 g','~1.4 kg'],
       ['h-masc','Mascarpone: 9×13 640 g + GF minis 160 g','800 g'],
       ['h-lady','Ladyfingers + GF ladyfingers','32 + 8'],
-      ['h-btb','Vegetable Better Than Bouillon: soup 3 Tbsp + casserole 1⅔ tsp','~3½ Tbsp'],
+      ['h-btb','Vegetable Better Than Bouillon: soup 3 Tbsp + casserole 2 tsp','~3⅔ Tbsp'],
       ['h-pumpkin','Pumpkin purée (freezer), before cooking down','~1¼ cups'],
       ['h-parm','Parm (casserole), pecorino','~50 g'],
       ['h-gravy','Chicken stock cubes (gravy)',''],
@@ -813,23 +818,25 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['Keeps 2–3 days. Reheats from cold in about 45 minutes on low.'],
      notes:['5 lb is about ½ lb a head. Lagerstrom says 10 lb feeds 12; Ragusea says 1 lb is 4 sides. Make 6 lb if you want leftovers.']},
 
-    {slug:'casserole',site:'finish',onsite:"Glass minis out at 2:30; bake 3:00–3:40; onions on at 3:35.",n:'Green bean casserole',tags:['v'],src:'Lagerstrom, full batch: 9×9 + glass minis',yield:'9×9 pan + 2–3 glass minis, 10–12 sides',when:'Thu build · Fri 3:00 bake',vessel:'9×9 metal pan + oven-safe glass minis',
-     vids:[['Lagerstrom: green bean casserole (10:52)',YT_LAG+'&t=652s']],
-     ing:[{h:'Beans',items:[['Frozen whole green beans or haricots verts (not French-cut)','2 lb']]},
-          {h:'Mushroom sauce',items:[['Butter','1 stick (115 g)'],['Mushrooms, pulsed fine in a food processor','1 lb'],['Garlic, minced','3–4 cloves'],['Salt','1–2 tsp (10–12 g)'],['Fresh thyme leaves, chopped','2 Tbsp'],['Flour','65 g (½ cup)'],['Water','1⅔ cups'],['Vegetable Better Than Bouillon','1⅔ tsp'],['Heavy cream','125 g (½ cup)'],['Parmesan, grated','50 g'],['Black pepper','1½ tsp']]},
+    {slug:'casserole',site:'finish',onsite:"Glass minis out at 2:30; bake 3:00–3:40; onions on at 3:35; rest until 4:00.",n:'Green bean casserole',tags:['v'],src:"Eric Kim's frozen-bean braise + Lagerstrom's mushroom sauce",yield:'9×9 pan + 2–3 glass minis, 10–12 sides',when:'Thu build · Fri 3:00 bake',vessel:'Saucepan for the beans, 4-qt saucepan for the sauce, big bowl; 9×9 metal pan + oven-safe glass minis',
+     vids:[['Eric Kim: 13 green bean casseroles (final recipe at 14:00)','https://www.youtube.com/watch?v=lhqd47kHZsI&t=840s'],['Lagerstrom: green bean casserole (10:52)',YT_LAG+'&t=652s']],
+     ing:[{h:'Beans + broth (Eric Kim)',items:[['Frozen cut or whole green beans (not French-cut), straight from the bag','2 lb'],['Water','2 cups'],['Vegetable Better Than Bouillon','2 tsp'],['Celery salt','½ tsp'],['Salt, black pepper','a pinch each']]},
+          {h:'Mushroom sauce (Lagerstrom)',items:[['Butter','1 stick (115 g)'],['Mushrooms, pulsed fine in a food processor','1 lb'],['Garlic, minced','3–4 cloves'],['Salt','~1 tsp'],['Fresh thyme leaves, chopped','2 Tbsp'],['Flour','65 g (½ cup)'],['The bean broth, topped up with water','1⅔ cups'],['Heavy cream','125 g (½ cup)'],['Celery salt (Eric Kim)','½ tsp'],['Nutmeg (Eric Kim)','¼ tsp'],['Parmesan, grated','50 g'],['Black pepper','1½ tsp']]},
           {h:'On site',items:[["Trader Joe's fried onions",'~2 cups']]}],
-     steps:[['Thu','Thaw the frozen beans in a colander, rinsing under cool water to speed it up. Drain and pat them very dry with a towel, then tip them into a big bowl. No boiling: frozen beans are already blanched.'],
+     steps:[['Thu','Put half the beans (1 lb), still frozen, in a saucepan with the water, Better Than Bouillon, ½ tsp celery salt, and a pinch of salt and pepper. Lid on and bring to a boil; from frozen this takes a while. Simmer about 15 minutes, until very soft and sweet.'],
+       ['Thu','Drain, saving the broth; it should be about 1½ cups. Top it up with water to 1⅔ cups. Tip the braised beans into a big bowl with the other 1 lb of beans, still frozen.'],
        ['Thu','Melt the butter over medium. Add the mushrooms, garlic and salt and cook 5–6 minutes, until the mushrooms colour.'],
        ['Thu','Stir in the thyme for a minute, then the flour for another, scraping the bottom.'],
-       ['Thu','Whisk the Better Than Bouillon into the water and add it with the cream. Simmer 2–3 minutes until thick; loosen with a splash of water if it gets pasty.'],
-       ['Thu','Pour the sauce over the beans in the bowl and fold in the Parmesan and pepper.'],
+       ['Thu','Whisk in the bean broth, the cream, the other ½ tsp celery salt and the nutmeg. Simmer until it is about as thick as Alfredo sauce, a few minutes.'],
+       ['Thu','Pour the sauce over the beans and fold in the Parmesan and pepper. The frozen half thaws in the hot sauce and keeps some bite; you end up with two textures, soft braised beans and just-cooked ones.'],
        ['Thu','Fill the 9×9 to just below the rim (about ⅔ of the batch) and divide the rest between the glass minis. Cool, cover. No topping yet.'],
        ['Fri 2:30','Glass minis out of the cooler to lose their chill. Glass can crack going straight from cold into a hot oven; the metal pan cannot.'],
        ['Fri 3:00','The 9×9 and the minis into the 375°F oven, foil on.'],
-       ['Fri 3:20','Foil off. Check the minis: smaller dishes heat through faster, so they may be ready before the 9×9.'],
-       ['Fri 3:35','Fried onions on everything; 5 more minutes.']],
+       ['Fri 3:20','Foil off. Check the minis: smaller dishes heat through faster.'],
+       ['Fri 3:35','Fried onions on everything; 5 more minutes.'],
+       ['Fri 3:40','Out to rest until 4:00. Eric Kim rests his 15 minutes so the sauce thickens.']],
      ahead:['Keeps assembled for 2 days.'],
-     notes:['Frozen beans end up a little softer than fresh after the bake, which suits a casserole. Dry them well: extra water thins the sauce.','Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes. Baking from cold under foil is our adaptation.','The glass minis also hold the gluten-free tiramisu, so check you have enough for both.','Not gluten-free: there is flour in the sauce and in the fried onions.']},
+     notes:["The bean broth is the trick from Eric Kim: braising frozen beans hard makes them sweet and gives a flavourful broth, which replaces plain stock in the sauce.","Celery salt is his stand-in for the flavour of canned cream of mushroom soup; here it sits on top of real mushrooms.","He doesn't give his cream amount on camera, so the sauce keeps Lagerstrom's ratios.","Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes; Kim bakes 10 minutes at 350°F. Baking from cold under foil is our adaptation.","The glass minis also hold the gluten-free tiramisu, so check you have enough for both.","Not gluten-free: there is flour in the sauce and in the fried onions."]},
 
     {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Wed make · Fri 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → 4-qt Cambro → pumpkin cocotte',
      vids:[['Chef John: roasted butternut squash soup','https://www.youtube.com/watch?v=AlRqh21CfHI'],["Thomas Keller's butternut squash soup (Food52)",'https://www.youtube.com/watch?v=xIeIlWTorl8'],["Keller's written recipe (Food52)",'https://food52.com/recipes/32241-thomas-keller-s-butternut-soup-with-brown-butter-sage-and-nutmeg-creme-fraiche']],
