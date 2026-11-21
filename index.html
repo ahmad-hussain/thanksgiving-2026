@@ -157,6 +157,34 @@ td:first-child{font-weight:600}
 .note{font-size:.88rem;border-left:0;background:var(--chip);border-radius:10px;padding:10px 12px}
 .menu-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .menu-list li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.moms{display:flex;flex-wrap:wrap;gap:6px}
+.mom{font:inherit;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:6px 12px;display:grid;text-align:left;cursor:pointer;color:var(--ink)}
+.mom span{font-weight:600;font-size:.88rem}
+.mom .d{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);font-weight:500}
+.mom[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.fridge-wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:820px){.fridge-wrap{grid-template-columns:1fr}}
+.fridge{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.42fr);gap:8px;border:2px solid var(--line);border-radius:16px;padding:10px;background:var(--surface)}
+@media (max-width:560px){.fridge{grid-template-columns:1fr}}
+.fr-main{display:grid;gap:6px}
+.zone{border-radius:8px;background:var(--bg);padding:8px 10px;display:grid;gap:6px;align-content:start;min-height:58px}
+.zone.z-top{min-height:108px}
+.zone.z-deli{min-height:44px}
+.zone.z-c1,.zone.z-c2,.fridge-freezer .zone{background:color-mix(in srgb,var(--cold-bg) 45%,var(--bg))}
+.fr-door,.fr-door .zone{height:100%}
+.zl{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.zl b{font-size:.8rem}
+.zl span{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.zi{display:flex;flex-wrap:wrap;gap:5px}
+.fi{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;line-height:1.3;border-radius:6px;padding:3px 8px;background:var(--cb);color:var(--ink)}
+.fi .dot{margin-top:0;width:7px;height:7px}
+.fi.yours{background:var(--chip);color:var(--muted)}
+.fi.yours .dot{background:var(--muted)}
+.fi.new{box-shadow:0 0 0 1.5px var(--c)}
+.fi.empty{background:none;color:var(--muted);font-style:italic}
+.fridge-side{display:grid;gap:12px}
+#fridge-note h3{margin-bottom:6px}
+#fridge-note p{font-size:.92rem}
 .dishgroups{display:grid;gap:28px}
 .dishgroup{display:grid;gap:8px}
 .dishgroup h2{display:flex;align-items:center;gap:9px}
@@ -305,7 +333,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
           <tbody>
             <tr><td>Chickens</td><td>Half sheet + jelly pan, on racks</td><td>2-gallon zip bags, flat</td><td>12" braiser (bird 1) + half sheet on a rack (bird 2)</td></tr>
             <tr><td>Mash</td><td>Pot + fine sieve</td><td>4-qt Cambro, plastic on the surface</td><td>4-qt Dutch oven</td></tr>
-            <tr><td>Soup</td><td>7-qt Dutch oven</td><td>Pumpkin cocotte, lid on (overflow in deli quarts)</td><td>Pumpkin cocotte</td></tr>
+            <tr><td>Soup</td><td>7-qt Dutch oven</td><td>4-qt Cambro (the cocotte travels empty)</td><td>Pumpkin cocotte</td></tr>
             <tr><td>Green bean casserole</td><td>4-qt saucepan for the sauce</td><td>9×9 metal pan, covered</td><td>Same 9×9: metal goes straight from cold into the oven</td></tr>
             <tr><td>Pumpkin tiramisu</td><td>9×13 ceramic</td><td>Same, covered</td><td>Same</td></tr>
             <tr><td>GF tiramisu</td><td>Glass minis</td><td>Same, lidded</td><td>Same</td></tr>
@@ -317,12 +345,45 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
           </tbody>
         </table>
       </div>
-      <p class="note">The soup is about 3 quarts. If the cocotte holds less, keep the extra in deli quarts and top it up as it empties.</p>
+      <p class="note">The soup is about 3½ quarts. If the cocotte holds less, keep the extra warm in a saucepan and top it up as it empties.</p>
     </div>
 
     <div class="block">
-      <h2>Your fridge, night by night</h2>
-      <div class="grid3" id="nights"></div>
+      <h2>Your fridge, day by day</h2>
+      <p class="hint">Mapped onto your side-by-side from the photo; the fresh-food side is about 18" wide. Pick a day. New arrivals are outlined.</p>
+      <div class="moms" id="fridge-moments" role="group" aria-label="Day"></div>
+      <div class="fridge-wrap">
+        <div class="fridge" id="fridge"></div>
+        <div class="fridge-side">
+          <div class="card" id="fridge-note"></div>
+          <div class="fridge-freezer" id="freezer"></div>
+          <div class="legend">
+            <span class="g-stove"><i class="sw"></i>Dessert</span>
+            <span class="g-sauce"><i class="sw"></i>Sauce</span>
+            <span class="g-oven"><i class="sw"></i>Raw meat</span>
+            <span class="g-counter"><i class="sw"></i>Make-ahead dish, produce</span>
+            <span class="g-cold"><i class="sw"></i>Dairy, ice</span>
+            <span><i class="sw" style="background:var(--chip)"></i>Already in there</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="block">
+        <h3>Clear out first</h3>
+        <div class="card"><ul class="checks" id="clear-list"></ul></div>
+      </div>
+      <div class="block">
+        <h3>Rules the map follows</h3>
+        <div class="card"><ul class="plain">
+          <li>Raw chicken lives lowest (bottom shelf, then the crisper), always on a tray.</li>
+          <li>The wagyu stays sealed in the deli drawer. It's eaten rare, so it never sits under chicken.</li>
+          <li>Desserts and sauces get the top two shelves.</li>
+          <li>Hot food goes in within 2 hours: uncovered until cold, then covered.</li>
+          <li>The freezer is the overflow: ice packs from Saturday, and the cake layers overnight if shelf 3 gets crowded.</li>
+        </ul></div>
+      </div>
     </div>
 
     <div class="grid2">
@@ -334,7 +395,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         </div>
         <div class="card night">
           <h3>Cooler bags with ice</h3>
-          <ul><li>Mash, casserole, soup (in the cocotte)</li><li>Gravy, jus, tart sauce</li><li>Cream for reheating the mash</li></ul>
+          <ul><li>Mash, casserole, soup (Cambro)</li><li>Gravy, jus, tart sauce</li><li>Cream for reheating the mash</li></ul>
           <p class="hint">They hold from 7:30 AM until about 2:45 PM. Move whatever fits into the host's fridge, and top the bags up with fresh ice around noon.</p>
         </div>
         <div class="card night">
@@ -439,7 +500,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'tira-build',k:'tira',d:-1,w:'am',t:'Build the 9×13 (32) + gluten-free minis (8); fridge 24 h+'},
     {id:'tira-serve',k:'tira',d:0,w:'pm',t:'Dust with cocoa just before serving'},
     {id:'chix-brine',k:'chix',d:-1,w:'early',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; uncovered on racks'},
-    {id:'chix-bag',k:'chix',d:-1,w:'late',t:'Bag each bird flat'},
+    {id:'chix-bag',k:'chix',d:-1,w:'eve',t:'~6 PM: bag each bird flat; into the emptied lower crisper'},
     {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: braiser + half sheet (see Day-of)'},
     {id:'wagyu-cut',k:'wagyu',d:-1,w:'pm',t:'Cut cold into bite-size pieces; wrap on an eighth sheet'},
     {id:'wagyu-sear',k:'wagyu',d:0,w:'pm',t:'Sear in batches from 3:50'},
@@ -448,7 +509,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'sauce-gravy',k:'sauce',d:-2,w:'pm',t:'Gravy base: chicken stock cubes → ~3 cups, seasoned, left thin'},
     {id:'sauce-jus',k:'sauce',d:-2,w:'pm',t:'Wagyu jus: boil, strain, reduce with wine'},
     {id:'sauce-finish',k:'sauce',d:0,w:'pm',t:'Gravy: drippings in, thicken with cornstarch slurry; warm the jus; seeds into the tart sauce'},
-    {id:'soup-make',k:'soup',d:-2,w:'pm',t:'Roast squash + veg; sweat leeks; brown-butter sage; simmer, blend, strain; into the cocotte'},
+    {id:'soup-make',k:'soup',d:-2,w:'pm',t:'Roast squash + veg; sweat leeks; brown-butter sage; simmer, blend, strain; into a 4-qt Cambro'},
     {id:'soup-reheat',k:'soup',d:0,w:'pm',t:'Reheat in the pumpkin pot from 2:45'},
     {id:'mash-make',k:'mash',d:-1,w:'late',t:'Cook, mash, sieve; into the 4-qt Cambro'},
     {id:'mash-reheat',k:'mash',d:0,w:'pm',t:'Reheat low in the 4-qt Dutch oven from 2:45'},
@@ -465,7 +526,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   };
 
   var MORNING=[
-    ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (in the cocotte), gravy, jus, tart sauce, extra cream.'],
+    ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (Cambro), gravy, jus, tart sauce, extra cream.'],
     ['am-car','8:00','Cake box flat on the car floor, tiramisu beside it, ice packs tucked around both. Pans and bring kit in the trunk.'],
     ['am-leave','8:30','Leave San Jose.'],
     ['am-arrive','10:00','Arrive. Fridge shelf first: chickens, wagyu, cake, tiramisu, then whatever else fits. Spare ice packs into the freezer.'],
@@ -581,7 +642,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['k-therm','Instant-read thermometer'],
     ['k-strain','Small strainer for the drippings'],
     ['k-cloth','Oven mitts, towels, paper towels'],
-    ['k-pans','Braiser, half sheet + rack, 10" cast iron, 4-qt Dutch oven, 2-qt + 1.5-qt saucepans (the cocotte travels with the soup)'],
+    ['k-pans','Braiser, half sheet + rack, 10" cast iron, 4-qt Dutch oven, 2-qt + 1.5-qt saucepans, pumpkin cocotte (empty, for the soup)'],
     ['k-salt','Kosher salt, flaky salt, pepper mill'],
     ['k-dust','Cocoa + a small sieve for dusting'],
     ['k-candles','Birthday candles + lighter'],
@@ -589,12 +650,96 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['k-left','Empty deli containers for leftovers']
   ];
 
-  var NIGHTS=[
-    {d:-5,items:['Coffee-infusing cream (jar)']},
-    {d:-4,items:['Coffee cream (infusing)','Brown butter (2 sticks)']},
-    {d:-3,items:['Cake (wrapped)','Tart sauce','Pumpkin (thawing)','Chickens (store packaging)','Ice packs → freezer']},
-    {d:-2,items:['Cake, setting in the springform','Soup (in the cocotte)','Gravy, jus, tart sauce','Pumpkin (cooked down)','Chickens (store packaging)']},
-    {d:-1,peak:true,items:['Cake (boxed), tiramisu, GF minis','Casserole (9×9)','Mash (4-qt Cambro)','Soup (cocotte)','Chickens (now bagged flat)','Wagyu, pomegranate seeds','Overflow into cooler bags with ice: gravy, jus, tart sauce']}
+  // Fridge map, from Ahmad's side-by-side (fresh-food side ~18" wide). Items: [category, text, isNew]
+  // categories: d dessert, s sauce, r raw meat, m make-ahead dish, p produce, c dairy/cold, y already in there
+  var FZONES=[
+    ['top','Top shelf','tallest · ready-to-eat'],
+    ['s2','Shelf 2','sauces + coffee cream'],
+    ['s3','Shelf 3','make-ahead'],
+    ['deli','Deli drawer','wagyu, sealed'],
+    ['bottom','Bottom shelf','raw chicken on a tray'],
+    ['c1','Upper crisper','dairy + herbs'],
+    ['c2','Lower crisper','produce'],
+    ['door','Door bins','sturdy stuff'],
+    ['freezer','Freezer (left side)','overflow']
+  ];
+  var FCAT={d:['stove','Dessert'],s:['sauce','Sauce'],r:['oven','Raw meat'],m:['counter','Make-ahead dish'],p:['counter','Produce'],c:['cold','Dairy / cold'],y:['road','Already in there']};
+  var FRIDGE=[
+    {k:'sat',d:-5,label:'Sat',title:'Saturday night: after the clear-out and shopping',
+     note:'Light. The coffee cream starts infusing at the back of shelf 2, the coldest spot.',
+     z:{top:[['y','Eggs (new 2 dozen stacked behind)'],['y','Yogurt, jars']],
+        s2:[['d','Coffee cream, infusing: 2 quart delis at the back',1],['y','Kimchi']],
+        s3:[['c','Mascarpone'],['c','Heavy cream, ½ gal',1],['y','Curry, onsen eggs, leftover sauce: finish by Mon']],
+        deli:[['r','A5 wagyu, sealed (if you buy it)',1]],
+        bottom:[['p','Cranberries',1]],
+        c1:[['c','Butter, 4-lb pack',1],['y','American cheese']],
+        c2:[['p','Squash cubes',1],['p','Green beans',1],['y','Grapes, 1 box']],
+        door:[['y','Milk, egg whites'],['y','Syrups (incl. blueberry-maple)'],['p','Cold brew, mayo',1],['y','Sauces, Better Than Bouillon']],
+        freezer:[['c','Ice packs, freezing from now',1],['y','Pumpkin purée, stock cubes']]}},
+    {k:'sun',d:-4,label:'Sun',title:'Sunday night',
+     note:"Brown butter joins shelf 3. If you do rest the cake batter, its covered bowl goes on shelf 3 tonight, but resting is what flattened David's layers, so the plan skips it.",
+     z:{top:[['y','Eggs'],['y','Yogurt, jars']],
+        s2:[['d','Coffee cream, infusing (back)'],['y','Kimchi']],
+        s3:[['d','Brown butter, small deli',1],['c','Mascarpone'],['c','Heavy cream'],['y','Leftovers: finish by Mon']],
+        deli:[['r','A5 wagyu, sealed']],
+        bottom:[['p','Cranberries']],
+        c1:[['c','Butter'],['y','American cheese']],
+        c2:[['p','Squash cubes'],['p','Green beans']],
+        door:[['y','Milk, egg whites, syrups'],['p','Cold brew, mayo'],['y','Sauces, Better Than Bouillon']],
+        freezer:[['c','Ice packs'],['y','Pumpkin purée, stock cubes']]}},
+    {k:'mon',d:-3,label:'Mon',title:'Monday night',
+     note:'The chickens arrive and go straight to the bottom shelf on a quarter sheet, so nothing drips. Cake layers sit on shelf 3; or freeze them overnight, since firm layers are easier to stack.',
+     z:{top:[['y','Eggs'],['y','Yogurt, jars']],
+        s2:[['d','Coffee cream (back)'],['s','Tart sauce, deli quart',1],['y','Kimchi']],
+        s3:[['d','Cake layers ×3, wrapped, stacked on a plate',1],['m','Pumpkin purée, thawing',1],['c','Mascarpone'],['c','Heavy cream']],
+        deli:[['r','A5 wagyu, sealed']],
+        bottom:[['r','2 chickens in store packaging, on a quarter sheet',1]],
+        c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, leeks, carrots, herbs',1]],
+        c2:[['p','Squash cubes'],['p','Green beans']],
+        door:[['y','Milk, egg whites, syrups'],['p','Mayo'],['y','Sauces, Better Than Bouillon']],
+        freezer:[['c','Ice packs'],['y','Stock cubes']]}},
+    {k:'tue',d:-2,label:'Tue',title:'Tuesday night',
+     note:"The cake takes the top shelf because it needs the height. The soup goes in a 4-qt Cambro, not the cocotte: the cocotte is too wide to share shelf 3 with a chicken on Wednesday. Bring the cocotte empty and reheat in it.",
+     z:{top:[['d','Cake in the springform ring, setting',1],['y','Eggs, yogurt']],
+        s2:[['d',"Coffee cream (what's left, for batch 2)"],['s','Tart sauce'],['s','Gravy base',1],['s','Jus',1]],
+        s3:[['m','Soup, 4-qt Cambro',1],['m','Pumpkin, cooked down',1],['c','Mascarpone'],['c','Heavy cream']],
+        deli:[['r','A5 wagyu, sealed']],
+        bottom:[['r','2 chickens in packaging, on the tray']],
+        c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs']],
+        c2:[['p','Green beans']],
+        door:[['y','Kimchi (moved here)',1],['y','Milk, egg whites, syrups, mayo, Better Than Bouillon']],
+        freezer:[['c','Ice packs']]}},
+    {k:'wedday',d:-1,label:'Wed day',title:'Wednesday, 2 AM to ~6 PM: the tightest stretch',
+     note:"Both birds are on racks. Bird 1 (jelly roll pan) has the bottom shelf; bird 2 (quarter sheet) shares shelf 3 with the soup Cambro, about 17\" of an ~18\" shelf. The cream moves to the door so nothing ready-to-eat sits next to raw chicken.",
+     z:{top:[['d','Cake, setting'],['d','GF tiramisu minis',1],['y','Eggs']],
+        s2:[['d','Tiramisu 9×13, at the front',1],['s','Behind it: gravy, jus, tart sauce, coffee cream, pomegranate seeds',1]],
+        s3:[['r','Bird 2 on the quarter sheet + rack',1],['m','Soup Cambro']],
+        deli:[['r','Wagyu, cut and sealed',1]],
+        bottom:[['r','Bird 1 on the jelly roll pan + rack',1]],
+        c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs (used this afternoon)']],
+        c2:[['p','Green beans (used this afternoon)']],
+        door:[['c','Heavy cream (moved here)',1],['y','Kimchi, milk, syrups, mayo, Better Than Bouillon']],
+        freezer:[['c','Ice packs']]}},
+    {k:'wednight',d:-1,label:'Wed night',title:'Wednesday night: bagged, built, packed',
+     note:"Bag the birds around 6 PM (16 hours uncovered is plenty) and lay them flat in the emptied lower crisper. That frees shelf 3 and the bottom shelf for the casserole and the mash. If the bagged birds don't fit the crisper, put them on the bottom shelf on the tray and move the mash to shelf 3.",
+     z:{top:[['d','Cake, glazed and boxed',1],['d','GF minis'],['y','Eggs']],
+        s2:[['d','Tiramisu 9×13'],['s','Gravy, jus, tart sauce, pomegranate seeds']],
+        s3:[['m','Soup Cambro'],['m','Casserole, 9×9',1]],
+        deli:[['r','Wagyu, cut and sealed']],
+        bottom:[['m','Mash, 4-qt Cambro',1]],
+        c1:[['c','Butter'],['y','Cheese']],
+        c2:[['r','Both chickens, bagged flat (wash the drawer after)',1]],
+        door:[['c','Heavy cream (for the mash)'],['y','Milk, syrups, mayo, Better Than Bouillon']],
+        freezer:[['c','Ice packs, ready for 7:30 AM']]}}
+  ];
+  var FCLEAR=[
+    ['fc-choc','Callebaut bag, the chocolates at the back of shelf 2 and the Daim → pantry. Chocolate is fine at room temperature in November.'],
+    ['fc-water','Water bottles and the Celsius off shelf 3 → door, or out.'],
+    ['fc-ginger','Empty the deli drawer (the dried ginger).'],
+    ['fc-bottom','Bottom shelf: milk cartons, egg whites and syrups → door. Finish the rice.'],
+    ['fc-left','Finish the curry, onsen eggs and leftover sauce by Monday.'],
+    ['fc-grapes','Finish one box of grapes.'],
+    ['fc-measure','Measure a shelf: if it is under ~18" wide, the half sheet won\'t fit, so the birds dry on the jelly roll pan and quarter sheet. Check you have racks for those two.']
   ];
 
   // Recipes: steps are [when, text]; ingredients are groups of [item, qty]
@@ -606,13 +751,13 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      steps:[['Wed 2 AM','Spatchcock each bird: cut out the backbone with shears (freeze it for stock), flip it, and press down to crack the breastbone so the breast sits level with the legs.'],
        ['Wed 2 AM','Tie the ends of the legs together. Loosen the skin over the breasts and legs with your fingers, and poke the fat deposits on the breast with a skewer.'],
        ['Wed 2 AM','Weigh each bird and salt at 3 g per lb, under and over the skin. Set them uncovered on racks over the half sheet and jelly pan and refrigerate.'],
-       ['Wed night','Slide each bird flat into a 2-gallon bag for the drive.'],
+       ['Wed ~6 PM','Slide each bird flat into a 2-gallon bag and lay them in the emptied lower crisper.'],
        ['Thu 1:00','Out of the bags; pat dry; brush with melted butter. Bird 1 into the braiser, bird 2 onto the half sheet with a rack.'],
        ['Thu 1:30','Oven to 400°F.'],
        ['Thu 1:55','Bird 2 into the oven; the head start stands in for the sear. Heat the braiser with 1 tsp oil over high until it smokes, then put bird 1 in skin side up so the pan heat hits the legs first.'],
        ['Thu 2:05','Braiser into the oven.'],
        ['Thu ~2:50','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board for at least 15 minutes; it climbs the rest of the way. Save every drop of drippings for the gravy.']],
-     ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Wednesday gives about 36 hours before roasting and about 21 hours uncovered before bagging; stick to the 3 g per lb rate.'],
+     ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Wednesday gives about 36 hours before roasting and about 16 hours uncovered before bagging; stick to the 3 g per lb rate.'],
      notes:['The sear jump-starts the legs, which need more heat than the breast (ATK). Bird 2 has no pan, so it goes in first.','Thighs should read about 170°F. That number is mine, not ATK\'s.','If the host has a 12" skillet, sear both birds.']},
 
     {slug:'gravy',site:'finish',onsite:"Add the drippings and thicken, 2:55.",n:'Gravy',tags:['gf'],src:'Base made ahead, finished with the drippings',yield:'~3½ cups',when:'Tue base · Thu 2:55 finish',vessel:'Deli quart → 2-qt saucepan',
@@ -685,7 +830,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['Keeps assembled for 2 days. A metal pan can go straight from the cooler into the oven.'],
      notes:['Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes. Baking from cold under foil is our adaptation.','Not gluten-free: there is flour in the sauce and in the fried onions.']},
 
-    {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Tue make · Thu 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → pumpkin cocotte',
+    {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Tue make · Thu 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → 4-qt Cambro → pumpkin cocotte',
      vids:[['Chef John: roasted butternut squash soup','https://www.youtube.com/watch?v=AlRqh21CfHI'],["Thomas Keller's butternut squash soup (Food52)",'https://www.youtube.com/watch?v=xIeIlWTorl8'],["Keller's written recipe (Food52)",'https://food52.com/recipes/32241-thomas-keller-s-butternut-soup-with-brown-butter-sage-and-nutmeg-creme-fraiche']],
      ing:[{h:'Roast (Chef John)',items:[['Butternut squash, pre-cubed (or 2 medium, halved and seeded)','~3½ lb'],['Yellow onion, chopped','1 large'],['Carrots, sliced','1½ cups (~3)'],['Garlic, whole peeled cloves','8'],['Olive oil','2 Tbsp'],['Kosher salt','2 tsp']]},
           {h:'Pot (Keller)',items:[['Butter','2 Tbsp'],['Leeks, thinly sliced, white and light green','1½ cups (~2)'],['Shallots, thinly sliced','¾ cup (~3)'],['Honey or maple syrup','2–3 Tbsp'],['Water','9 cups'],['Vegetable Better Than Bouillon','3 Tbsp'],['Bouquet garni: thyme, parsley, bay, peppercorns','8 sprigs, 2 sprigs, 2 leaves, ½ tsp']]},
@@ -699,8 +844,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Tue','Fish out the bundle. Blend until completely smooth: a few minutes with the stick blender, or in batches in the blender.'],
        ['Tue','Push it through the fine sieve. Both recipes say this is what makes it silky.'],
        ['Tue','Adjust: thin with water if it\'s heavy, then season with the vinegar, salt, a pinch of cayenne and a little nutmeg. Taste; it should be sweet, then bright.'],
-       ['Tue','Cool, into the pumpkin cocotte (overflow in deli quarts), refrigerate.'],
-       ['Thu 2:45','Reheat low in the cocotte, stirring now and then. Taste for salt and vinegar once more, and serve. No garnish.']],
+       ['Tue','Cool, into a 4-qt Cambro, refrigerate. The cocotte is too wide for the fridge plan, so it travels empty.'],
+       ['Thu 2:45','Pour into the cocotte and reheat low, stirring now and then. Taste for salt and vinegar once more, and serve. No garnish.']],
      ahead:['Keeps 3–4 days and gets sweeter after a day in the fridge (Food52 on Keller\'s). Freezes well.'],
      notes:['No dairy beyond the butter: Keller\'s crème fraîche and Chef John\'s crème fraîche and chives were garnishes, and both are dropped.','Vegetarian and gluten-free with Vegetable Better Than Bouillon.']},
 
@@ -907,14 +1052,38 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     document.getElementById('shop-groups').innerHTML=h;
   }
 
-  function renderNights(){
-    var h='';
-    NIGHTS.forEach(function(n){
-      h+='<div class="card night'+(n.peak?' peak':'')+'"><div class="dayhead"><h3>'+short(relDate(n.d))+' night</h3><span class="eyebrow">'+(n.peak?'Fullest':relLabel(n.d))+'</span></div><ul>';
-      n.items.forEach(function(i){h+='<li>'+esc(i)+'</li>';});
-      h+='</ul></div>';
+  var fridgeSel=load('tg26-fridge',null);
+  function defaultMoment(){
+    var rel=dayDiff(today(),dinnerDate());
+    var m=FRIDGE.filter(function(f){return f.d===rel;});
+    if(m.length)return m[0].k;
+    return rel<FRIDGE[0].d?FRIDGE[0].k:FRIDGE[FRIDGE.length-1].k;
+  }
+  function fridgeZone(mom,id){
+    var z=FZONES.filter(function(x){return x[0]===id;})[0], items=mom.z[id]||[];
+    var h='<div class="zone z-'+id+'"><div class="zl"><b>'+esc(z[1])+'</b><span>'+esc(z[2])+'</span></div><div class="zi">';
+    if(!items.length)h+='<span class="fi empty">free</span>';
+    items.forEach(function(it){
+      var c=FCAT[it[0]];
+      h+='<span class="fi g-'+c[0]+(it[2]?' new':'')+(it[0]==='y'?' yours':'')+'" title="'+esc(c[1])+'"><i class="dot"></i>'+esc(it[1])+'</span>';
     });
-    document.getElementById('nights').innerHTML=h;
+    return h+'</div></div>';
+  }
+  function renderNights(){
+    if(!fridgeSel||!FRIDGE.some(function(f){return f.k===fridgeSel;}))fridgeSel=defaultMoment();
+    var mom=FRIDGE.filter(function(f){return f.k===fridgeSel;})[0];
+    var b='';
+    FRIDGE.forEach(function(f){
+      b+='<button type="button" class="mom" data-mom="'+f.k+'" aria-pressed="'+(f.k===fridgeSel?'true':'false')+'"><span>'+esc(f.label)+'</span><span class="d">'+short(relDate(f.d))+'</span></button>';
+    });
+    document.getElementById('fridge-moments').innerHTML=b;
+    document.getElementById('fridge').innerHTML=
+      '<div class="fr-main">'+['top','s2','s3','deli','bottom','c1','c2'].map(function(id){return fridgeZone(mom,id);}).join('')+'</div>'+
+      '<div class="fr-door">'+fridgeZone(mom,'door')+'</div>';
+    document.getElementById('freezer').innerHTML=fridgeZone(mom,'freezer');
+    document.getElementById('fridge-note').innerHTML='<h3>'+esc(mom.title)+'</h3><p>'+esc(mom.note)+'</p>';
+    var c='';FCLEAR.forEach(function(x){c+=checkItem('f',x[0],'',x[1]);});
+    document.getElementById('clear-list').innerHTML=c;
   }
 
   var SITE={
@@ -987,6 +1156,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   document.addEventListener('click',function(e){
     var chip=e.target.closest&&e.target.closest('.chip');
     if(chip){var id=chip.getAttribute('data-id');setDone(id,!isDone(id));return;}
+    var mom=e.target.closest&&e.target.closest('.mom');
+    if(mom){fridgeSel=mom.getAttribute('data-mom');save('tg26-fridge',fridgeSel);renderNights();return;}
     var tab=e.target.closest&&e.target.closest('.tabs button');
     if(tab){var v=tab.getAttribute('data-view');try{history.replaceState(null,'','#'+v);}catch(_){}show(v);window.scrollTo({top:0});return;}
   });
