@@ -246,7 +246,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       <div class="block">
         <h3>After dinner</h3>
         <div class="card"><ul class="checks" id="after-list"></ul></div>
-        <p class="note">Chickens: pull at <b class="tnum">160°F</b> in the breast and <b class="tnum">175°F</b> in the thigh, and let carryover finish them on the board. If both pans don't fit on one oven rack, use two racks and swap halfway.</p>
+        <p class="note">Chickens: pull each bird when its breast reads <b class="tnum">150°F</b> (ATK) and rest it at least 15 minutes; carryover finishes it. Thighs should read about <b class="tnum">170°F</b> (my number; the video doesn't give one). If both pans don't fit on one oven rack, use two racks and swap halfway.</p>
       </div>
     </div>
   </section>
@@ -406,7 +406,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'tira-coffee',k:'tira',d:-1,w:'am',t:'Brew 480 g espresso; sous-vide 8 yolks at 60°C for 30 min; cool both'},
     {id:'tira-build',k:'tira',d:-1,w:'am',t:'Build the 9×13 + gluten-free minis; fridge 24 h+'},
     {id:'tira-serve',k:'tira',d:0,w:'pm',t:'Dust with cocoa just before serving'},
-    {id:'chix-brine',k:'chix',d:-2,w:'eve',t:'Spatchcock, salt, uncovered on racks'},
+    {id:'chix-brine',k:'chix',d:-2,w:'eve',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; uncovered on racks'},
     {id:'chix-bag',k:'chix',d:-1,w:'late',t:'Bag each bird flat'},
     {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: braiser + half sheet (see Day-of)'},
     {id:'wagyu-cut',k:'wagyu',d:-1,w:'pm',t:'Cut cold into bite-size pieces; wrap on an eighth sheet'},
@@ -442,12 +442,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['am-eat','12:30','Eat something. This is your buffer.']
   ];
   var COOK=[
-    ['cw-birds','1:00','Birds out of their bags and patted dry. Bird 1 into the braiser; bird 2 onto the half sheet + rack.'],
+    ['cw-birds','1:00','Birds out of their bags and patted dry. Bird 1 into the braiser; bird 2 onto the half sheet + rack. Brush both with melted butter.'],
     ['cw-oven','1:30','Oven on, hot, for the chickens.'],
-    ['cw-sear','1:55','Sear bird 1 in the braiser (and bird 2 too, if the host has a 12" skillet).'],
-    ['cw-roast','2:05','Braiser and sheet pan into the oven. Check bird 2 early; unseared, it can run a little behind.'],
+    ['cw-sear','1:55','Bird 2 into the oven: a 10-minute head start makes up for skipping the sear. Sear bird 1 in the braiser (1 tsp oil, smoking hot), or both birds if the host has a 12" skillet.'],
+    ['cw-roast','2:05','Braiser into the oven. Pull each bird on its own when its breast hits 150°F.'],
     ['cw-low','2:45','Mash (4-qt Dutch oven) and soup (pumpkin pot) on low. Stir now and then; loosen the mash with a splash of cream.'],
-    ['cw-pull','2:50','Pull the birds at temperature; rest on a board. Oven down to 375°F.'],
+    ['cw-pull','2:50','Birds out at 150°F in the breast; rest 15+ min on a board. Oven down to 375°F.'],
     ['cw-gravy','2:55','Pour off and skim the drippings, deglaze both pans, add it all to the hot gravy base. Whisk in the cornstarch slurry a bit at a time; simmer 1 min.'],
     ['cw-gbc','3:00','Casserole in, foil on.'],
     ['cw-wout','3:20','Wagyu out of the fridge. Foil off the casserole.'],
@@ -465,7 +465,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   ];
   var T0=780, T1=990;
   var LANES=[
-    {n:'Oven',g:'oven',b:[[810,845,'Preheat'],[845,890,'Chickens'],[890,900,'→ 375°F'],[900,940,'Casserole']]},
+    {n:'Oven',g:'oven',b:[[810,835,'Preheat'],[835,890,'Chickens (bird 2 at 1:55, bird 1 at 2:05)'],[890,900,'→ 375°F'],[900,940,'Casserole']]},
     {n:'Burner 1',g:'stove',b:[[835,845,'Sear bird 1'],[885,960,'Mash, low']]},
     {n:'Burner 2',g:'stove',b:[[950,980,'Wagyu, 10" cast iron']]},
     {n:'Burner 3',g:'stove',b:[[885,960,'Soup, low']]},
@@ -561,7 +561,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   ];
 
   var DISHCARDS=[
-    {n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',items:['2 air-chilled birds, 4–5 lb','Tuesday evening: spatchcock, salt per the recipe, uncovered on racks','Wednesday night: bag each bird flat for the drive','Bird 1: sear in the 12" braiser, then roast in it','Bird 2: roast on the half sheet + rack (or sear in the host\'s 12" skillet, if there is one)','Pull at 160°F breast / 175°F thigh; rest 20+ min']},
+    {n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza (from the transcript)',items:['2 air-chilled birds, 4–5 lb','Tuesday evening: spatchcock, flatten the breastbone, truss the legs, loosen the skin, poke the fat pockets with a skewer','Salt: 1 tsp Diamond Crystal (3 g) per lb, under and over the skin; uncovered on racks. ATK says 12–24 h minimum; ours runs ~40 h, so keep to that rate','Wednesday night: bag each bird flat for the drive','On site: brush with melted butter. Bird 2 goes in 10 min early on the half sheet; bird 1 sears in the braiser in 1 tsp smoking-hot oil, then into the oven','Pull at 150°F in the breast; rest at least 15 min while carryover finishes it']},
     {n:'Gravy',tags:['gf'],src:'Base made ahead, thickened on site',items:['Tuesday: dissolve the chicken stock cubes into ~3 cups; season; leave it thin; deli quart','On site: heat the base, add the skimmed drippings + the deglazed fond','Thicken with a cornstarch slurry: ~1 Tbsp per cup of liquid, mixed with equal cold water','Whisk it in gradually, simmer 1 min, stop when it coats a spoon','Thicken on the day: cornstarch gravy made ahead can go thin when reheated']},
     {n:'A5 wagyu',tags:['gf'],src:'Costco · you or the host buys',items:['~1½ lb (about 2½ oz each)','Cut while cold on Wednesday','Out of the fridge at 3:20','Dry, ripping-hot 10" cast iron, 30–45 s a side, in batches','Flaky salt; with the jus, tart sauce and wasabi']},
     {n:'Wagyu jus',tags:['gf'],src:'Your sous-vide juices',items:['Bring to a boil so the grey proteins clump','Strain through a coffee filter','Reduce with ~½ cup red wine by about half; salt','Warm on burner 4 at 3:40; a knob of butter in at the end']},
