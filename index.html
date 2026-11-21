@@ -484,10 +484,10 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
   // d = days relative to dinner
   var TASKS=[
-    {id:'shop-costco',k:'shop',d:-5,w:'day',t:'Costco: butter, cream, eggs, Yukons, squash, green beans, cold brew (+ wagyu if it\'s on you)'},
-    {id:'shop-tj',k:'shop',d:-5,w:'day',t:"Trader Joe's: cranberries, pomegranates, pomegranate juice, oranges, shallots, fried onions"},
-    {id:'shop-gear',k:'shop',d:-4,w:'day',t:'2-gallon zip bags; set aside a box or big bowl to cover the cake'},
-    {id:'shop-chix',k:'shop',d:-3,w:'day',t:'2 air-chilled chickens, mushrooms, leeks, carrots, thyme, sage, parsley, onion, garlic'},
+    {id:'shop-costco',k:'shop',d:-6,w:'day',t:'Costco: butter, cream, eggs, Yukons, squash, green beans, cold brew (+ wagyu if it\'s on you)'},
+    {id:'shop-tj',k:'shop',d:-6,w:'day',t:"Trader Joe's: cranberries, pomegranates + juice, oranges, shallots, fried onions, mushrooms, leeks, carrots, herbs, onion, garlic"},
+    {id:'shop-gear',k:'shop',d:-6,w:'day',t:'2-gallon zip bags; set aside a box or big bowl to cover the cake'},
+    {id:'shop-chix',k:'shop',d:-3,w:'day',t:'2 air-chilled chickens, about 4 lb each'},
     {id:'cake-infuse',k:'cake',d:-5,w:'eve',t:'Coffee cream: ~880 g cream + ~90 g whole beans, into the fridge'},
     {id:'cake-bbutter',k:'cake',d:-4,w:'day',t:'Brown 2 sticks of butter; cool and refrigerate'},
     {id:'cake-bake',k:'cake',d:-3,w:'day',t:'Bake: whipped eggs + brown sugar, brown butter, cold brew; half sheet + jelly roll at 350°F; cut 9" rounds'},
@@ -568,7 +568,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   ];
 
   var SHOP=[
-    {h:'Costco',when:'This weekend',items:[
+    {h:'Costco',when:'Today (Sat)',items:[
       ['s-butter','Butter: cake 2 sticks, mash ~2⅓, casserole ¾, soup + sauces ~¾','~6 sticks (1½ lb)'],
       ['s-cream','Heavy cream: mousse 880 g (some soaks into the beans), ganache 340, mash + reheat 275, casserole 95','~1.6 L → ½ gal'],
       ['s-eggs','Eggs: 3 whole (cake) + yolks: mousse 9, tiramisu 8, GF minis 2','22'],
@@ -578,23 +578,23 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-coldbrew','Cold brew (cake batter)','1½ cups + 2 Tbsp'],
       ['s-wagyu','A5 wagyu, if it\'s on you rather than the host','~1½ lb']
     ]},
-    {h:"Trader Joe's",when:'This weekend',items:[
+    {h:"Trader Joe's",when:'Today (Sat)',items:[
       ['s-cran','Fresh cranberries','12 oz'],
       ['s-pom','Pomegranates (1 for the sauce, 1 spare)','2'],
       ['s-pomjuice','Pomegranate juice, e.g. POM (tart sauce)','¾ cup'],
       ['s-orange','Oranges (zest + ½ cup juice)','2'],
       ['s-shallot','Shallots: tart sauce 1 + soup ~3','4'],
-      ['s-onions','Fried onions (casserole topping)','1 container']
-    ]},
-    {h:'Tuesday',when:'Perishables',items:[
-      ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2'],
-      ['s-mush','Cremini mushrooms (casserole)','12 oz'],
+      ['s-onions','Fried onions (casserole topping)','1 container'],
+      ['s-mush','Cremini mushrooms (casserole). Costco packs are about double what you need. Keep them unwashed in their box','12 oz'],
       ['s-leeks','Leeks (soup)','2'],
       ['s-carrots','Carrots (soup, 1½ cups sliced)','3'],
-      ['s-thyme','Fresh thyme: casserole ~1½ Tbsp leaves, soup 8 sprigs, sauce 1 sprig','2 packs'],
+      ['s-thyme','Fresh thyme: sauce 1 sprig, soup 8 sprigs, casserole ~1½ Tbsp leaves','2 packs'],
       ['s-sage','Fresh sage (soup, ~12 leaves)','1 pack'],
       ['s-parsley','Flat-leaf parsley (soup bundle, 2 sprigs; optional)','1 small bunch'],
       ['s-aromatics','Yellow onion (soup) + garlic (soup 8, casserole 3)','1 + 1 head']
+    ]},
+    {h:'Tuesday',when:'Chickens only',items:[
+      ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2']
     ]},
     {h:'Gear',when:'By Thursday',items:[
       ['s-cakebox','Cake cover, nothing to buy: a spare shipping box at least 11" square and 6" tall, or your biggest bowl upturned','have'],
@@ -671,8 +671,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         s3:[['c','Mascarpone'],['c','Heavy cream, ½ gal',1],['y','Curry, onsen eggs, leftover sauce: finish by Tue']],
         deli:[['r','A5 wagyu, sealed (if you buy it)',1]],
         bottom:[['p','Cranberries',1]],
-        c1:[['c','Butter, 4-lb pack',1],['y','American cheese']],
-        c2:[['p','Squash cubes',1],['p','Green beans',1],['y','Grapes, 1 box']],
+        c1:[['c','Butter, 4-lb pack',1],['y','American cheese'],['p','Mushrooms (in their box), herbs in a damp towel',1]],
+        c2:[['p','Squash cubes',1],['p','Green beans',1],['p','Leeks, carrots',1],['y','Grapes, 1 box']],
         door:[['y','Milk, egg whites'],['y','Syrups (incl. blueberry-maple)'],['p','Cold brew, mayo',1],['y','Sauces, Better Than Bouillon']],
         freezer:[['c','Ice packs, freezing from now',1],['y','Pumpkin purée, stock cubes']]}},
     {k:'sun',d:-4,label:'Mon',title:'Monday night',
@@ -682,8 +682,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         s3:[['d','Brown butter, small deli',1],['c','Mascarpone'],['c','Heavy cream'],['y','Leftovers: finish by Tue']],
         deli:[['r','A5 wagyu, sealed']],
         bottom:[['p','Cranberries']],
-        c1:[['c','Butter'],['y','American cheese']],
-        c2:[['p','Squash cubes'],['p','Green beans']],
+        c1:[['c','Butter'],['y','American cheese'],['p','Mushrooms, herbs']],
+        c2:[['p','Squash cubes'],['p','Green beans'],['p','Leeks, carrots']],
         door:[['y','Milk, egg whites, syrups'],['p','Cold brew, mayo'],['y','Sauces, Better Than Bouillon']],
         freezer:[['c','Ice packs'],['y','Pumpkin purée, stock cubes']]}},
     {k:'mon',d:-3,label:'Tue',title:'Tuesday night',
@@ -693,8 +693,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         s3:[['d','Cake layers ×3, wrapped, stacked on a plate',1],['m','Pumpkin purée, thawing',1],['c','Mascarpone'],['c','Heavy cream']],
         deli:[['r','A5 wagyu, sealed']],
         bottom:[['r','2 chickens in store packaging, on a quarter sheet',1]],
-        c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, leeks, carrots, herbs',1]],
-        c2:[['p','Squash cubes'],['p','Green beans']],
+        c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs']],
+        c2:[['p','Squash cubes'],['p','Green beans'],['p','Leeks, carrots']],
         door:[['y','Milk, egg whites, syrups'],['p','Mayo'],['y','Sauces, Better Than Bouillon']],
         freezer:[['c','Ice packs'],['y','Stock cubes']]}},
     {k:'tue',d:-2,label:'Wed',title:'Wednesday night',
@@ -705,7 +705,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         deli:[['r','A5 wagyu, sealed']],
         bottom:[['r','2 chickens in packaging, on the tray']],
         c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs']],
-        c2:[['p','Green beans']],
+        c2:[['p','Green beans'],['p','Leeks, carrots (into the soup today)']],
         door:[['y','Kimchi (moved here)',1],['y','Milk, egg whites, syrups, mayo, Better Than Bouillon']],
         freezer:[['c','Ice packs']]}},
     {k:'wedday',d:-1,label:'Thu day',title:'Thursday, 2 AM to ~6 PM: both birds drying',
