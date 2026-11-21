@@ -337,7 +337,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
             <tr><td>Green bean casserole</td><td>4-qt saucepan for the sauce</td><td>9×9 metal pan, covered</td><td>Same 9×9: metal goes straight from cold into the oven</td></tr>
             <tr><td>Pumpkin tiramisu</td><td>9×13 ceramic</td><td>Same, covered</td><td>Same</td></tr>
             <tr><td>GF tiramisu</td><td>Glass minis</td><td>Same, lidded</td><td>Same</td></tr>
-            <tr><td>Chocolate cake</td><td>Springform</td><td>Cake box, flat on the car floor</td><td>Cake board / plate</td></tr>
+            <tr><td>Chocolate cake</td><td>Springform</td><td>Springform base under a shipping box or an upturned bowl, flat on the car floor</td><td>Cake board / plate</td></tr>
             <tr><td>Gravy base (thin)</td><td>4-qt saucepan</td><td>Deli quart</td><td>2-qt saucepan, thickened on site</td></tr>
             <tr><td>Wagyu jus</td><td>1.5-qt saucepan</td><td>Small deli</td><td>1.5-qt saucepan</td></tr>
             <tr><td>Tart sauce</td><td>2-qt saucepan, then blender + sieve</td><td>Deli quart</td><td>1.5-qt saucepan or a bowl</td></tr>
@@ -391,7 +391,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         <h2>Thursday cold chain</h2>
         <div class="card night">
           <h3>Host's fridge shelf</h3>
-          <ul><li>Chickens (bagged)</li><li>Wagyu</li><li>Cake box</li><li>Tiramisu + GF minis</li></ul>
+          <ul><li>Chickens (bagged)</li><li>Wagyu</li><li>Cake (covered)</li><li>Tiramisu + GF minis</li></ul>
         </div>
         <div class="card night">
           <h3>Cooler bags with ice</h3>
@@ -424,7 +424,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
           <table style="min-width:0">
             <tbody>
               <tr><td>Arrival</td><td><span class="tnum">~10:00 AM</span>, <span class="hostdate"></span></td></tr>
-              <tr><td>Fridge</td><td>One full shelf, cleared by 10:00: sealed raw chickens, wagyu, a cake box, a 9×13 tiramisu. Plus a little freezer room for ice packs.</td></tr>
+              <tr><td>Fridge</td><td>One full shelf, cleared by 10:00: sealed raw chickens, wagyu, a covered 9" cake, a 9×13 tiramisu. Plus a little freezer room for ice packs.</td></tr>
               <tr><td>Oven</td><td><span class="tnum">1:30–4:00 PM</span>. Starts hot for the chickens, then 375°F for the casserole.</td></tr>
               <tr><td>Stove</td><td>All four burners, <span class="tnum">1:50–4:20 PM</span>.</td></tr>
               <tr><td>Counter</td><td>One stretch near the stove for carving and plating.</td></tr>
@@ -486,13 +486,13 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var TASKS=[
     {id:'shop-costco',k:'shop',d:-5,w:'day',t:'Costco: butter, cream, eggs, Yukons, squash, green beans, cold brew (+ wagyu if it\'s on you)'},
     {id:'shop-tj',k:'shop',d:-5,w:'day',t:"Trader Joe's: cranberries, pomegranates, oranges, shallots, fried onions"},
-    {id:'shop-gear',k:'shop',d:-4,w:'day',t:'Cake box + 2-gallon zip bags'},
+    {id:'shop-gear',k:'shop',d:-4,w:'day',t:'2-gallon zip bags; set aside a box or big bowl to cover the cake'},
     {id:'shop-chix',k:'shop',d:-3,w:'day',t:'2 air-chilled chickens, mushrooms, leeks, carrots, thyme, sage, parsley, onion, garlic'},
     {id:'cake-infuse',k:'cake',d:-5,w:'eve',t:'Coffee cream: ~880 g cream + ~90 g whole beans, into the fridge'},
     {id:'cake-bbutter',k:'cake',d:-4,w:'day',t:'Brown 2 sticks of butter; cool and refrigerate'},
     {id:'cake-bake',k:'cake',d:-3,w:'day',t:'Bake: whipped eggs + brown sugar, brown butter, cold brew; half sheet + jelly roll at 350°F; cut 9" rounds'},
     {id:'cake-mousse',k:'cake',d:-2,w:'day',t:'Soak + mousse batch 1; build 3 layers in the 9" ring; set overnight'},
-    {id:'cake-glaze',k:'cake',d:-1,w:'eve',t:'Unmould; mousse batch 2 on the outside; ganache over the top; chocolate on the sides; box'},
+    {id:'cake-glaze',k:'cake',d:-1,w:'eve',t:'Unmould; mousse batch 2 on the outside; ganache over the top; chocolate on the sides; cover'},
     {id:'cake-serve',k:'cake',d:0,w:'pm',t:'Out of fridge 4:45; candles; serve ~5:15'},
     {id:'tira-thaw',k:'tira',d:-3,w:'eve',t:'Move pumpkin purée to the fridge to thaw'},
     {id:'tira-pumpkin',k:'tira',d:-2,w:'eve',t:'Cook the pumpkin down until thick; chill'},
@@ -527,7 +527,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
   var MORNING=[
     ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (Cambro), gravy, jus, tart sauce, extra cream.'],
-    ['am-car','8:00','Cake box flat on the car floor, tiramisu beside it, ice packs tucked around both. Pans and bring kit in the trunk.'],
+    ['am-car','8:00','Cake on its springform base, covered, flat on a damp towel on the car floor; tiramisu beside it, ice packs tucked around both. Pans and bring kit in the trunk.'],
     ['am-leave','8:30','Leave San Jose.'],
     ['am-arrive','10:00','Arrive. Fridge shelf first: chickens, wagyu, cake, tiramisu, then whatever else fits. Spare ice packs into the freezer.'],
     ['am-setup','10:30','Set up: pans out, burners assigned, serving dishes picked, table set.'],
@@ -596,7 +596,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-aromatics','Yellow onion (soup) + garlic (soup 8, casserole 3)','1 + 1 head']
     ]},
     {h:'Gear',when:'By Wednesday',items:[
-      ['s-cakebox','Cake box or carrier','1'],
+      ['s-cakebox','Cake cover, nothing to buy: a spare shipping box at least 11" square and 6" tall, or your biggest bowl upturned','have'],
       ['s-collar','Acetate cake collar, 4" tall (or make a parchment collar)','1 roll'],
       ['s-bags','2-gallon zip bags (chickens)','1 box'],
       ['s-ice','Bag of ice for the cooler bags, Thursday morning','1–2'],
@@ -722,7 +722,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         freezer:[['c','Ice packs']]}},
     {k:'wednight',d:-1,label:'Wed night',title:'Wednesday night: bagged, built, packed',
      note:"The casserole joins the soup on shelf 3 around 6 PM, and the cream moves to the door to make room. Bag the birds around 11 PM (about 21 hours uncovered) and lay them flat in the emptied lower crisper; the mash then takes the bottom shelf. If the bagged birds don't fit the crisper, keep them on the bottom shelf on a quarter sheet with the mash beside them.",
-     z:{top:[['d','Cake, glazed and boxed',1],['d','GF minis'],['y','Eggs']],
+     z:{top:[['d','Cake, glazed and covered',1],['d','GF minis'],['y','Eggs']],
         s2:[['d','Tiramisu 9×13'],['s','Gravy, jus, tart sauce, pomegranate seeds']],
         s3:[['m','Soup Cambro'],['m','Casserole, 9×9',1]],
         deli:[['r','Wagyu, cut and sealed']],
@@ -900,9 +900,9 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Tue','Wrap and refrigerate overnight.'],
        ['Wed','Make batch 2 the same way. Unmould the cake, peel off the collar, and smooth batch 2 over the top and sides. Chill 1 hour.'],
        ['Wed','Ganache: pour the hot cream over the 12 oz of chocolate, wait a minute, and stir smooth. Stand the cake on something narrower than it is and pour the ganache over the top so it runs down the edges.'],
-       ['Wed','Press the callets around the sides. Chill, then box it.'],
+       ['Wed','Press the callets around the sides. Chill uncovered until firm, then cover with the box or the upturned bowl.'],
        ['Thu 4:45','Out of the fridge 30 minutes before serving. Candles.']],
-     ahead:['Keeps 2–3 days in the fridge, boxed.'],
+     ahead:['Keeps 2–3 days in the fridge, covered. Chill it hard before the drive so the mousse and ganache travel firm.'],
      notes:['Mousse made a day ahead is too firm to spread, so the outside gets a fresh batch. David ran into the same problem.','No gelatin. The layers have flour, so the cake is not gluten-free.']}
   ];
   var RMAP={}; RECIPES.forEach(function(r){RMAP[r.slug]=r;});
