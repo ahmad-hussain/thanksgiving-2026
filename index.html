@@ -62,10 +62,7 @@ a{color:var(--accent)}
 .facts{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.86rem;color:var(--muted)}
 .facts b{color:var(--ink);font-weight:600}
 .facts .count{color:var(--accent);font-weight:600}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--bg)}
-.seg span{font-size:.78rem;color:var(--muted);padding:0 8px 0 6px;align-self:center}
-.seg button{font:inherit;font-size:.82rem;font-weight:600;border:0;background:transparent;color:var(--muted);padding:5px 12px;border-radius:999px;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.assume{font-size:.8rem;font-weight:600;color:var(--ink);background:var(--today);border:1px solid var(--today-line);border-radius:999px;padding:4px 12px}
 .tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:0 -4px}
 .tabs::-webkit-scrollbar{display:none}
 .tabs button{font:inherit;font-size:.9rem;font-weight:600;white-space:nowrap;border:0;background:none;color:var(--muted);padding:10px 10px 11px;border-bottom:2px solid transparent;cursor:pointer}
@@ -205,11 +202,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   <div class="wrap">
     <div class="titlerow">
       <h1>Thanksgiving Run Sheet</h1>
-      <div class="seg" role="group" aria-label="Dinner day">
-        <span>Dinner</span>
-        <button type="button" id="pick-thu" data-day="thu">Thu 26</button>
-        <button type="button" id="pick-fri" data-day="fri">Fri 27</button>
-      </div>
+      <span class="assume">Assuming dinner on Thursday, Nov 26 · date not final</span>
     </div>
     <p class="facts">
       <span class="count" id="countdown"></span>
@@ -401,7 +394,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   function load(k,f){try{var v=localStorage.getItem(k);return v==null?f:JSON.parse(v);}catch(e){return f;}}
   function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
   var done=load(KEY_DONE,{}); if(typeof done!=='object'||!done) done={};
-  var day=load(KEY_DAY,'thu'); if(day!=='thu'&&day!=='fri') day='thu';
+  var day='thu'; // dinner date not final yet: switch to 'fri' here once it's confirmed
 
   var START=new Date(2026,10,21);
   var DINNER={thu:new Date(2026,10,26),fri:new Date(2026,10,27)};
@@ -798,8 +791,6 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   function tasksOn(rel){return TASKS.filter(function(t){return t.d===rel;}).sort(function(a,b){return WORDER[a.w]-WORDER[b.w];});}
 
   function renderHeader(){
-    document.getElementById('pick-thu').setAttribute('aria-pressed',day==='thu'?'true':'false');
-    document.getElementById('pick-fri').setAttribute('aria-pressed',day==='fri'?'true':'false');
     var dd=dayDiff(dinnerDate(),today());
     var c=dd>1?dd+' days to go':dd===1?'Tomorrow':dd===0?'Today':'Done. Leftovers?';
     document.getElementById('countdown').textContent=c;
@@ -987,8 +978,6 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     if(chip){var id=chip.getAttribute('data-id');setDone(id,!isDone(id));return;}
     var tab=e.target.closest&&e.target.closest('.tabs button');
     if(tab){var v=tab.getAttribute('data-view');try{history.replaceState(null,'','#'+v);}catch(_){}show(v);window.scrollTo({top:0});return;}
-    var pick=e.target.closest&&e.target.closest('.seg button');
-    if(pick){day=pick.getAttribute('data-day');save(KEY_DAY,day);renderAll();}
   });
   window.addEventListener('hashchange',function(){show(fromHash());window.scrollTo(0,0);});
 
