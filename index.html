@@ -334,7 +334,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
             <tr><td>Chickens</td><td>Half sheet + rack, both birds</td><td>2-gallon zip bags, flat</td><td>12" braiser (bird 1) + half sheet on a rack (bird 2)</td></tr>
             <tr><td>Mash</td><td>Pot + fine sieve</td><td>4-qt Cambro, plastic on the surface</td><td>4-qt Dutch oven</td></tr>
             <tr><td>Soup</td><td>7-qt Dutch oven</td><td>4-qt Cambro (the cocotte travels empty)</td><td>Pumpkin cocotte</td></tr>
-            <tr><td>Green bean casserole</td><td>4-qt saucepan for the sauce</td><td>9×9 metal pan, covered</td><td>Same 9×9: metal goes straight from cold into the oven</td></tr>
+            <tr><td>Green bean casserole</td><td>4-qt saucepan for the sauce</td><td>9×9 metal pan + oven-safe glass minis, covered</td><td>Same dishes. The metal pan goes straight from cold into the oven; let the glass sit out 30 min first</td></tr>
             <tr><td>Pumpkin tiramisu</td><td>9×13 ceramic</td><td>Same, covered</td><td>Same</td></tr>
             <tr><td>GF tiramisu</td><td>Glass minis</td><td>Same, lidded</td><td>Same</td></tr>
             <tr><td>Chocolate cake</td><td>Springform</td><td>Springform base under a shipping box or an upturned bowl, flat on the car floor</td><td>Cake board / plate</td></tr>
@@ -513,7 +513,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'soup-reheat',k:'soup',d:0,w:'pm',t:'Reheat in the pumpkin pot from 2:45'},
     {id:'mash-make',k:'mash',d:-1,w:'late',t:'Cook, mash, sieve; into the 4-qt Cambro'},
     {id:'mash-reheat',k:'mash',d:0,w:'pm',t:'Reheat low in the 4-qt Dutch oven from 2:45'},
-    {id:'gbc-build',k:'gbc',d:-1,w:'pm',t:'Blanch beans, make the mushroom sauce, assemble in the 9×9 (no topping)'},
+    {id:'gbc-build',k:'gbc',d:-1,w:'pm',t:'Blanch beans, make the mushroom sauce; fill the 9×9, overflow into glass minis (no topping)'},
     {id:'gbc-bake',k:'gbc',d:0,w:'pm',t:'Bake at 375°F from 3:00; onions on at 3:35'},
     {id:'pack-ice',k:'pack',d:-3,w:'eve',t:'Freeze every ice pack (plus a few water bottles)'},
     {id:'pack-kit',k:'pack',d:-1,w:'late',t:'Pack the bring kit + pans; fridge overflow into cooler bags with ice'},
@@ -542,7 +542,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['cw-low','2:45','Mash (4-qt Dutch oven) and soup (pumpkin pot) on low. Stir now and then; loosen the mash with a splash of cream.'],
     ['cw-pull','2:50','Birds out at 150°F in the breast; rest 15+ min on a board. Oven down to 375°F.'],
     ['cw-gravy','2:55','Pour off and skim the drippings, deglaze both pans, add it all to the hot gravy base. Whisk in the cornstarch slurry a bit at a time; simmer 1 min.'],
-    ['cw-gbc','3:00','Casserole in, foil on.'],
+    ['cw-gbc','3:00','Casserole and glass minis in, foil on (minis came out of the cooler at 2:30).'],
     ['cw-wout','3:20','Wagyu out of the fridge. Foil off the casserole.'],
     ['cw-carve','3:25','Carve both birds.'],
     ['cw-onions','3:35','Fried onions on the casserole.'],
@@ -569,10 +569,10 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
   var SHOP=[
     {h:'Costco',when:'Today (Sat)',items:[
-      ['s-cream','Heavy cream: mousse 880 g (some soaks into the beans), ganache 340, mash + reheat 275, casserole 95','~1.6 L → ½ gal'],
+      ['s-cream','Heavy cream: mousse 880 g (some soaks into the beans), ganache 340, mash + reheat 275, casserole 125','~1.6 L → ½ gal'],
       ['s-eggs','Eggs: 3 whole (cake) + yolks: mousse 9, tiramisu 8, GF minis 2','22'],
       ['s-yukon','Yukon Gold potatoes','5 lb'],
-      ['s-beans','Green beans, trimmed (the ¾ casserole uses 1½ lb)','2-lb bag'],
+      ['s-beans','Green beans, trimmed (full casserole)','2 lb'],
       ['s-coldbrew','Cold brew (cake batter)','1½ cups + 2 Tbsp'],
       ['s-wagyu','A5 wagyu, if it\'s on you rather than the host','~1½ lb']
     ]},
@@ -583,7 +583,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-pomjuice','Pomegranate juice, e.g. POM (tart sauce)','¾ cup'],
       ['s-orange','Oranges (zest + ½ cup juice)','2'],
       ['s-onions','Fried onions (casserole topping)','1 container'],
-      ['s-mush','Cremini mushrooms (casserole). Costco packs are about double what you need. Keep them unwashed in their box','12 oz'],
+      ['s-mush','Cremini mushrooms (casserole). Keep them unwashed in their box','1 lb'],
       ['s-leeks','Leeks (soup)','2'],
       ['s-carrots','Carrots (soup, 1½ cups sliced)','3'],
       ['s-thyme','Fresh thyme: sauce 1 sprig, soup 8 sprigs, casserole ~1½ Tbsp leaves','2 packs'],
@@ -607,7 +607,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['p-bsugar','Brown sugar: cake 1½ cups, mousse 45 g, soak 1 Tbsp','~1¾ cups (380 g)'],
       ['p-sugar','White sugar: tiramisu 160 g, tart sauce only if needed','~1 cup'],
       ['p-psugar','Powdered sugar (mousse)','90 g'],
-      ['p-flour','Flour: cake 1½ cups + casserole 50 g','~240 g'],
+      ['p-flour','Flour: cake 1½ cups + casserole 65 g','~250 g'],
       ['p-cornstarch','Cornstarch (gravy)','~3 Tbsp'],
       ['p-soda','Baking soda 1½ tsp + baking powder ½ tsp (cake)',''],
       ['p-espresso','Instant espresso powder (cake)','1 Tbsp'],
@@ -620,14 +620,14 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['p-wasabi','Wasabi (wagyu)','1 tube']
     ]},
     {h:'Already have',when:'Confirmed',items:[
-      ['h-butter','Kerrygold butter: need ~733 g (cake 227, mash 268, casserole 86, soup 85, chicken 28, sauces 28, greasing ~10). Optional: one 8 oz block as a buffer','850 g'],
+      ['h-butter','Kerrygold butter: need ~762 g (cake 227, mash 268, casserole 115, soup 85, chicken 28, sauces 28, greasing ~10), leaving under a stick spare. Grab one 8 oz block as a buffer','850 g'],
       ['h-onion','Minced red onion, frozen: soup ~1½ cups, tart sauce ¼ cup (top up with a fresh onion if short)','~1¾ cups'],
       ['h-choc','Callebaut callets: batter 4 oz, mousse 600 g, soak 2 oz, ganache 12 oz, sides ~300 g','~1.4 kg'],
       ['h-masc','Mascarpone: 9×13 640 g + GF minis 160 g','800 g'],
       ['h-lady','Ladyfingers + GF ladyfingers','32 + 8'],
-      ['h-btb','Vegetable Better Than Bouillon: soup 3 Tbsp + casserole 1¼ tsp','~3½ Tbsp'],
+      ['h-btb','Vegetable Better Than Bouillon: soup 3 Tbsp + casserole 1⅔ tsp','~3½ Tbsp'],
       ['h-pumpkin','Pumpkin purée (freezer), before cooking down','~1¼ cups'],
-      ['h-parm','Parm (casserole), pecorino','~40 g'],
+      ['h-parm','Parm (casserole), pecorino','~50 g'],
       ['h-gravy','Chicken stock cubes (gravy)',''],
       ['h-juices','Sous-vide beef juices (jus)',''],
       ['h-syrup','Blueberry-maple syrup (tart sauce)','~½ cup']
@@ -721,7 +721,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         freezer:[['c','Ice packs']]}},
     {k:'wednight',d:-1,label:'Thu night',title:'Thursday night: bagged, built, packed',
      note:"The casserole joins the soup on shelf 3 around 6 PM, and the cream moves to the door to make room. Bag the birds around 11 PM (about 21 hours uncovered) and lay them flat in the emptied lower crisper; the mash then takes the bottom shelf. If the bagged birds don't fit the crisper, keep them on the bottom shelf on a quarter sheet with the mash beside them.",
-     z:{top:[['d','Cake, glazed and covered',1],['d','GF minis'],['y','Eggs']],
+     z:{top:[['d','Cake, glazed and covered',1],['d','GF minis'],['m','Casserole overflow, glass minis',1],['y','Eggs']],
         s2:[['d','Tiramisu 9×13'],['s','Gravy, jus, tart sauce, pomegranate seeds']],
         s3:[['m','Soup Cambro'],['m','Casserole, 9×9',1]],
         deli:[['r','Wagyu, cut and sealed']],
@@ -813,21 +813,23 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['Keeps 2–3 days. Reheats from cold in about 45 minutes on low.'],
      notes:['5 lb is about ½ lb a head. Lagerstrom says 10 lb feeds 12; Ragusea says 1 lb is 4 sides. Make 6 lb if you want leftovers.']},
 
-    {slug:'casserole',site:'finish',onsite:"Bake 3:00–3:40; onions on at 3:35.",n:'Green bean casserole',tags:['v'],src:'Lagerstrom, ¾ batch for the 9×9',yield:'9×9 pan, ~8 sides',when:'Thu build · Fri 3:00 bake',vessel:'9×9 metal pan',
+    {slug:'casserole',site:'finish',onsite:"Glass minis out at 2:30; bake 3:00–3:40; onions on at 3:35.",n:'Green bean casserole',tags:['v'],src:'Lagerstrom, full batch: 9×9 + glass minis',yield:'9×9 pan + 2–3 glass minis, 10–12 sides',when:'Thu build · Fri 3:00 bake',vessel:'9×9 metal pan + oven-safe glass minis',
      vids:[['Lagerstrom: green bean casserole (10:52)',YT_LAG+'&t=652s']],
-     ing:[{h:'Beans',items:[['Green beans, trimmed, cut 1–1½"','1½ lb'],['Salt for the water','generous']]},
-          {h:'Mushroom sauce',items:[['Butter','¾ stick (85 g)'],['Mushrooms, pulsed fine in a food processor','12 oz'],['Garlic, minced','2–3 cloves'],['Salt','~1 tsp (8 g)'],['Fresh thyme leaves, chopped','1½ Tbsp'],['Flour','50 g (⅓ cup + 1 tsp)'],['Water','1¼ cups'],['Vegetable Better Than Bouillon','1¼ tsp'],['Heavy cream','95 g (⅓ cup + 1 Tbsp)'],['Parmesan, grated','40 g'],['Black pepper','1 tsp']]},
-          {h:'On site',items:[["Trader Joe's fried onions",'~1½ cups']]}],
-     steps:[['Thu','Boil the beans in well-salted water for about 5 minutes, until tender but not soft. Drain.'],
+     ing:[{h:'Beans',items:[['Green beans, trimmed, cut 1–1½"','2 lb'],['Salt for the water','generous']]},
+          {h:'Mushroom sauce',items:[['Butter','1 stick (115 g)'],['Mushrooms, pulsed fine in a food processor','1 lb'],['Garlic, minced','3–4 cloves'],['Salt','1–2 tsp (10–12 g)'],['Fresh thyme leaves, chopped','2 Tbsp'],['Flour','65 g (½ cup)'],['Water','1⅔ cups'],['Vegetable Better Than Bouillon','1⅔ tsp'],['Heavy cream','125 g (½ cup)'],['Parmesan, grated','50 g'],['Black pepper','1½ tsp']]},
+          {h:'On site',items:[["Trader Joe's fried onions",'~2 cups']]}],
+     steps:[['Thu','Boil the beans in well-salted water for about 5 minutes, until tender but not soft. Drain into a big bowl.'],
        ['Thu','Melt the butter over medium. Add the mushrooms, garlic and salt and cook 5–6 minutes, until the mushrooms colour.'],
        ['Thu','Stir in the thyme for a minute, then the flour for another, scraping the bottom.'],
        ['Thu','Whisk the Better Than Bouillon into the water and add it with the cream. Simmer 2–3 minutes until thick; loosen with a splash of water if it gets pasty.'],
-       ['Thu','Off the heat, stir in the beans, Parmesan and pepper. Spread in the 9×9, cool, cover. No topping yet.'],
-       ['Fri 3:00','Into the 375°F oven straight from cold, foil on.'],
-       ['Fri 3:20','Foil off.'],
-       ['Fri 3:35','Fried onions on; 5 more minutes.']],
-     ahead:['Keeps assembled for 2 days. A metal pan can go straight from the cooler into the oven.'],
-     notes:['Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes. Baking from cold under foil is our adaptation.','Not gluten-free: there is flour in the sauce and in the fried onions.']},
+       ['Thu','Pour the sauce over the beans in the bowl and fold in the Parmesan and pepper.'],
+       ['Thu','Fill the 9×9 to just below the rim (about ⅔ of the batch) and divide the rest between the glass minis. Cool, cover. No topping yet.'],
+       ['Fri 2:30','Glass minis out of the cooler to lose their chill. Glass can crack going straight from cold into a hot oven; the metal pan cannot.'],
+       ['Fri 3:00','The 9×9 and the minis into the 375°F oven, foil on.'],
+       ['Fri 3:20','Foil off. Check the minis: smaller dishes heat through faster, so they may be ready before the 9×9.'],
+       ['Fri 3:35','Fried onions on everything; 5 more minutes.']],
+     ahead:['Keeps assembled for 2 days.'],
+     notes:['Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes. Baking from cold under foil is our adaptation.','The glass minis also hold the gluten-free tiramisu, so check you have enough for both.','Not gluten-free: there is flour in the sauce and in the fried onions.']},
 
     {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Wed make · Fri 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → 4-qt Cambro → pumpkin cocotte',
      vids:[['Chef John: roasted butternut squash soup','https://www.youtube.com/watch?v=AlRqh21CfHI'],["Thomas Keller's butternut squash soup (Food52)",'https://www.youtube.com/watch?v=xIeIlWTorl8'],["Keller's written recipe (Food52)",'https://food52.com/recipes/32241-thomas-keller-s-butternut-soup-with-brown-butter-sage-and-nutmeg-creme-fraiche']],
