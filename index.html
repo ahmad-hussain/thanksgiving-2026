@@ -824,9 +824,9 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Thursday gives about 36 hours before roasting and about 21 hours uncovered before bagging; stick to the 3 g per lb rate.'],
      notes:['The sear jump-starts the legs, which need more heat than the breast (ATK). Bird 2 has no pan, so it goes in first.','Thighs should read about 170°F. That number is mine, not ATK\'s.','If the host has a 12" skillet, sear both birds.']},
 
-    {slug:'gravy',site:'finish',onsite:"Reheat from 2:40; drippings and fond 2:55–3:05.",n:'Gravy',tags:['gf'],src:'Mochiko roux base made ahead and frozen; finished on site with the drippings',yield:'~1½ quarts (about 6 cups with the drippings)',when:'Mon make + freeze · Wed night thaw · Fri 2:40 finish',vessel:'4-qt saucepan → 2 quart delis (frozen) → 4-qt saucepan',
+    {slug:'gravy',site:'finish',onsite:"Reheat from 2:40; drippings and fond 2:55–3:05.",n:'Gravy',tags:['gf'],src:'Mochiko roux base made ahead and frozen; finished on site with the drippings',yield:'~1¼ quarts (about 5 cups with the drippings)',when:'Mon make + freeze · Wed night thaw · Fri 2:40 finish',vessel:'4-qt saucepan → 2 quart delis (frozen) → 4-qt saucepan',
      vids:[["ATK's pan sauce (7:10)",YT_ATK+'&t=430s']],
-     ing:[{h:'Base (Monday)',items:[['Butter','71 g (5 Tbsp)'],['Mochiko (sweet rice flour)','~53 g (about 5¾ Tbsp)'],['Your concentrated chicken stock cubes + water','to 1.18 kg (5 cups)'],['White or rice miso (not barley miso, which has gluten)','~10 g (1½–2 tsp)'],['Dijon mustard','8 g (1½ tsp)'],['Black pepper','to taste'],['Salt','only after tasting']]},
+     ing:[{h:'Base (Monday)',items:[['Butter','70 g (what you used)'],['Mochiko (sweet rice flour)','60 g (what you used)'],['Your concentrated chicken stock cubes + water','~1 L (what you used)'],['White or rice miso (not barley miso, which has gluten)','~10 g (1½–2 tsp)'],['Dijon mustard','8 g (1½ tsp)'],['Black pepper','to taste'],['Salt','only after tasting']]},
           {h:'Finish (Friday)',items:[['Drippings from both birds, fat skimmed','all'],['Water, to loosen','a splash'],['Mochiko + cold water, only if it needs thickening','3 g + 15 g (1 tsp + 1 Tbsp)'],['Rice vinegar (optional)','a splash']]}],
      steps:[['Mon','Melt the butter in the 4-qt saucepan over medium. Whisk in the mochiko and cook 2–3 minutes, until bubbling and lightly toasty; it will not brown like a wheat roux.'],
        ['Mon','Whisk in the stock a little at a time, then simmer about 5 minutes until it coats a spoon. Leave it slightly thicker than you want: the drippings thin it on Friday.'],
@@ -837,7 +837,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Fri 2:55','Pour the drippings from both pans into a cup and skim off most of the fat. Deglaze each pan with a splash of the hot gravy, scraping up the browned bits, and whisk it all in. Simmer 2 minutes.'],
        ['Fri 3:05','Adjust: thin with water, or simmer it down; whisk in the mochiko slurry only if it is still thin. Salt last, and a splash of rice vinegar if it needs lifting. Keep warm on low.']],
      ahead:['Mochiko gravy freezes and reheats cleanly; cornstarch gravy tends to thin out, which is why it moved from on-site to make-ahead.'],
-     notes:['Gluten-free as long as the stock cubes are just stock and the miso is rice or soy miso.','The miso and Dijon are the extras people swear by: savoury depth and a little tang under the drippings.']},
+     notes:['Made Monday with 60 g mochiko to about 1 L of liquid, so it is on the thick side. That is what you want: the drippings and fond thin it on Friday.','Gluten-free as long as the stock cubes are just stock and the miso is rice or soy miso.','The miso and Dijon are the extras people swear by: savoury depth and a little tang under the drippings.']},
     {slug:'wagyu',site:'onsite',onsite:"Sear in batches from 3:50. Cut on Thursday.",n:'A5 wagyu',tags:['gf'],src:'A5 from Costco (you are buying it)',yield:'~2½ oz each for 10',when:'Thu cut · Fri 3:50 sear',vessel:'10" cast iron',
      vids:[],
      ing:[{h:'',items:[['A5 wagyu','~680 g (1½ lb)'],['Flaky salt','to serve'],['Wasabi','to serve'],['Wagyu jus and tart sauce','to serve']]}],
@@ -963,7 +963,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var PROGRESS_DATE='Mon, Nov 23';
   var PROGRESS={
     chicken:{s:'todo',done:'',next:'Tue: buy 2 air-chilled birds. Thu 2 AM: spatchcock and salt.'},
-    gravy:{s:'todo',done:'',next:'Mon: mochiko roux + stock + miso + Dijon; freeze. Wed night: thaw. Fri: finish with the drippings.'},
+    gravy:{s:'done',done:'Made Mon: 70 g butter, 60 g mochiko, ~1 L stock. Into the freezer.',next:'Wed night: thaw. Fri 2:40: reheat; 2:55: whisk in the drippings and fond.'},
     wagyu:{s:'todo',done:'',next:'Tue: buy ~680 g A5 at Costco (closed Thanksgiving Day). Thu: cut while cold. Fri: sear from 3:50.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
@@ -977,6 +977,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var SRC_STATE={
     'shop-costco':'done','shop-tj':'done','shop-gear':'done',
     'cake-infuse':'done','sauce-cran':'done','sauce-jus':'done','soup-make':'done','gbc-mush':'done',
+    'sauce-gravy':'done',
     'shop-pan':'doing'
   };
   var ICON={
