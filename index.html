@@ -382,7 +382,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
             <tr><td>Pumpkin tiramisu</td><td>9×13 ceramic</td><td>Same, covered</td><td>Same</td></tr>
             <tr><td>GF tiramisu</td><td>Glass minis</td><td>Same, lidded</td><td>Same</td></tr>
             <tr><td>Chocolate cake</td><td>Springform</td><td>Springform base under a shipping box or an upturned bowl, flat on the car floor</td><td>Cake board / plate</td></tr>
-            <tr><td>Gravy</td><td>Made on site</td><td>Frozen stock cubes in a deli container</td><td>2-qt saucepan</td></tr>
+            <tr><td>Gravy</td><td>2-qt saucepan (Monday)</td><td>Quart deli: frozen, thawed from Wednesday night</td><td>2-qt saucepan</td></tr>
             <tr><td>Wagyu jus</td><td>1.5-qt saucepan</td><td>Small deli</td><td>1.5-qt saucepan</td></tr>
             <tr><td>Tart sauce</td><td>2-qt saucepan, then blender + sieve</td><td>Deli quart</td><td>1.5-qt saucepan or a bowl</td></tr>
             <tr><td>Wagyu</td><td>Board</td><td>Wrapped on an eighth sheet</td><td>10" cast iron</td></tr>
@@ -439,7 +439,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         </div>
         <div class="card night">
           <h3>Cooler bags with ice</h3>
-          <ul><li>Mash, casserole, soup (Cambro)</li><li>Frozen stock cubes, jus, tart sauce</li><li>Cream for reheating the mash</li></ul>
+          <ul><li>Mash, casserole, soup (Cambro)</li><li>Gravy, jus, tart sauce</li><li>Cream for reheating the mash</li></ul>
           <p class="hint">They hold from 7:30 AM until about 2:45 PM. Move whatever fits into the host's fridge, and top the bags up with fresh ice around noon.</p>
         </div>
         <div class="card night">
@@ -556,11 +556,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'sauce-cran',k:'sauce',d:-5,w:'pm',t:'Tart sauce: cranberry, blueberry-maple, pomegranate juice; blend and strain'},
     {id:'sauce-pom',k:'sauce',d:-1,w:'pm',t:'Seed the pomegranate into a small container'},
     {id:'sauce-jus',k:'sauce',d:-5,w:'pm',t:'Wagyu jus: boil, strain, reduce, balsamic; freeze'},
-    {id:'sauce-finish',k:'sauce',d:0,w:'pm',t:'Gravy: stock cubes into water from 2:30, then drippings and cornstarch slurry; warm the jus; seeds into the tart sauce'},
+    {id:'sauce-finish',k:'sauce',d:0,w:'pm',t:'Gravy: reheat from 2:40, then drippings and fond; warm the jus; seeds into the tart sauce'},
     {id:'soup-make',k:'soup',d:-5,w:'day',t:'Roast squash + veg; sweat leeks; brown-butter sage; simmer, blend, strain; cool fast and refrigerate'},
     {id:'soup-freeze',k:'soup',d:-4,w:'day',t:'Freeze the soup in Souper Cubes; blocks into a gallon bag'},
-    {id:'soup-thaw',k:'soup',d:-2,w:'late',t:'Soup blocks (into a 4-qt Cambro), jus and mushroom base: freezer to fridge to thaw'},
+    {id:'soup-thaw',k:'soup',d:-2,w:'late',t:'Soup blocks (into a 4-qt Cambro), gravy, jus and mushroom base: freezer to fridge to thaw'},
     {id:'gbc-mush',k:'gbc',d:-5,w:'pm',t:'Mushroom base: pulse, cook down with butter, garlic, salt, thyme; freeze'},
+    {id:'sauce-gravy',k:'sauce',d:-4,w:'pm',t:'Gravy: mochiko roux + stock cubes, miso, Dijon; freeze in a quart deli'},
     {id:'soup-reheat',k:'soup',d:0,w:'pm',t:'Reheat in the pumpkin pot from 2:45'},
     {id:'mash-make',k:'mash',d:-1,w:'late',t:'Cook, mash, sieve; into the 4-qt Cambro'},
     {id:'mash-reheat',k:'mash',d:0,w:'pm',t:'Reheat low in the 4-qt Dutch oven from 2:45'},
@@ -578,7 +579,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   };
 
   var MORNING=[
-    ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (Cambro), frozen stock cubes for the gravy, jus, tart sauce, extra cream.'],
+    ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (Cambro), gravy, jus, tart sauce, extra cream.'],
     ['am-car','8:00','Cake on its springform base, covered, flat on a damp towel on the car floor; tiramisu beside it, ice packs tucked around both. Pans and bring kit in the trunk.'],
     ['am-leave','8:30','Leave San Jose.'],
     ['am-arrive','10:00','Arrive. Fridge shelf first: chickens, wagyu, cake, tiramisu, then whatever else fits. Spare ice packs into the freezer.'],
@@ -593,8 +594,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['cw-roast','2:05','Braiser into the oven. Pull each bird on its own when its breast hits 150°F.'],
     ['cw-low','2:45','Mash (4-qt Dutch oven) and soup (pumpkin pot) on low. Stir now and then; loosen the mash with a splash of cream.'],
     ['cw-pull','2:50','Birds out at 150°F in the breast; rest 15+ min on a board. Oven down to 375°F.'],
-    ['cw-stock','2:30','Frozen stock cubes into ~710 g (3 cups) water in the 2-qt saucepan on low: the gravy base.'],
-    ['cw-gravy','2:55','Pour off and skim the drippings, deglaze both pans, add it all to the hot gravy base. Whisk in the cornstarch slurry a bit at a time; simmer 1 min.'],
+    ['cw-stock','2:40','Gravy into the 2-qt saucepan on low, whisking now and then as it heats.'],
+    ['cw-gravy','2:55','Pour off and skim the drippings, deglaze both pans with a splash of the hot gravy, and whisk it all in. Simmer 2 minutes; thin with water or reduce to taste. Salt last.'],
     ['cw-gbc','3:00','Casserole and glass minis in, foil on (minis came out of the cooler at 2:30).'],
     ['cw-wout','3:20','Wagyu out of the fridge. Foil off the casserole.'],
     ['cw-carve','3:25','Carve both birds.'],
@@ -615,7 +616,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {n:'Burner 1',g:'stove',b:[[835,845,'Sear bird 1'],[885,960,'Mash, low']]},
     {n:'Burner 2',g:'stove',b:[[950,980,'Wagyu, 10" cast iron']]},
     {n:'Burner 3',g:'stove',b:[[885,960,'Soup, low']]},
-    {n:'Burner 4',g:'stove',b:[[870,920,'Stock → gravy'],[940,950,'Jus']]},
+    {n:'Burner 4',g:'stove',b:[[880,920,'Gravy'],[940,950,'Jus']]},
     {n:'Counter',g:'counter',b:[[780,795,'Birds out'],[890,925,'Birds rest'],[925,945,'Carve'],[945,960,'Plate']]},
     {n:'Table',g:'sauce',b:[[960,990,'Dinner']]}
   ];
@@ -670,7 +671,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['p-sugar','White sugar: tiramisu 160 g, tart sauce only if needed','~1 cup'],
       ['p-psugar','Powdered sugar (mousse)','90 g'],
       ['p-flour','Flour: cake 1½ cups + casserole 65 g','~250 g'],
-      ['p-cornstarch','Cornstarch (gravy)','~3 Tbsp'],
+      ['p-cornstarch','Mochiko (sweet rice flour), for the gravy','~35 g (4 Tbsp)'],
+      ['p-miso','White or rice miso (not barley miso), for the gravy','1 tsp'],
       ['p-celerysalt','Celery salt (casserole). Target if Trader Joe\'s has none','1 tsp'],
       ['p-soda','Baking soda 1½ tsp + baking powder ½ tsp (cake)',''],
       ['p-espresso','Instant espresso powder (cake)','1 Tbsp'],
@@ -748,7 +750,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c1:[['c','Butter'],['y','American cheese'],['p','Mushrooms, herbs']],
         c2:[],
         door:[['y','Milk, egg whites, syrups'],['p','Cold brew, mayo'],['y','Sauces, Better Than Bouillon']],
-        freezer:[['c','Ice packs'],['m','Soup blocks, mushroom base'],['s','Jus'],['p','Frozen green beans'],['y','Pumpkin purée, stock cubes, minced red onion']]}},
+        freezer:[['c','Ice packs'],['m','Soup blocks, mushroom base'],['s','Jus, gravy (new tonight)',1],['p','Frozen green beans'],['y','Pumpkin purée, stock cubes, minced red onion']]}},
     {k:'mon',d:-3,label:'Tue',title:'Tuesday night',
      note:'The chickens arrive and go into the empty lower crisper, the lowest spot in the fridge. The cake batter rests overnight in its pans: the half sheet on the bottom shelf, the springform on shelf 3, both covered.',
      z:{top:[['y','Eggs, yogurt']],
@@ -763,7 +765,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {k:'tue',d:-2,label:'Wed',title:'Wednesday night',
      note:"The cake takes the top shelf because it needs the height. Tonight the soup blocks (into a 4-qt Cambro), jus and mushroom base come out of the freezer to thaw on shelf 3. The cocotte travels empty, and the soup is reheated in it on Friday.",
      z:{top:[['d','Cake, outer mousse on; chilling uncovered (ganache tomorrow)',1],['y','Eggs, yogurt']],
-        s2:[['s','Tart sauce'],['s','Jus, thawing',1]],
+        s2:[['s','Tart sauce'],['s','Jus + gravy, thawing',1]],
         s3:[['m','Soup blocks thawing in a 4-qt Cambro',1],['m','Mushroom base, thawing',1],['m','Pumpkin, cooked down',1],['c','Mascarpone'],['c','Heavy cream']],
         deli:[['r','A5 wagyu, sealed']],
         bottom:[],
@@ -774,7 +776,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {k:'wedday',d:-1,label:'Thu day',title:'Thursday, 2 AM to ~6 PM: both birds drying',
      note:"The half sheet fills the bottom shelf front to back, with both birds on its rack head to tail (about 4 lb each). That leaves shelf 3 with room to spare. If the birds come out bigger and won't share, bird 2 goes on the jelly roll pan on shelf 3 next to the soup.",
      z:{top:[['d','Cake: ganache + callets this morning, then covered',1],['d','GF tiramisu minis',1],['y','Eggs']],
-        s2:[['d','Tiramisu 9×13, at the front',1],['s','Behind it: jus, tart sauce, pomegranate seeds',1]],
+        s2:[['d','Tiramisu 9×13, at the front',1],['s','Behind it: gravy, jus, tart sauce, pomegranate seeds',1]],
         s3:[['m','Soup, 4-qt Cambro (thawed)'],['c','Heavy cream']],
         deli:[['r','Wagyu, cut and sealed',1]],
         bottom:[['r','Both birds, head to tail, on the half sheet + rack (fills the shelf)',1]],
@@ -785,7 +787,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {k:'wednight',d:-1,label:'Thu night',title:'Thursday night: bagged, built, packed',
      note:"The casserole joins the soup on shelf 3 around 6 PM, and the cream moves to the door to make room. Bag the birds around 11 PM (about 21 hours uncovered) and lay them flat in the emptied lower crisper; the mash then takes the bottom shelf. If the bagged birds don't fit the crisper, keep them on the bottom shelf on a quarter sheet with the mash beside them.",
      z:{top:[['d','Cake, finished and covered'],['d','GF minis'],['m','Casserole overflow, glass minis',1],['y','Eggs']],
-        s2:[['d','Tiramisu 9×13'],['s','Jus, tart sauce, pomegranate seeds']],
+        s2:[['d','Tiramisu 9×13'],['s','Gravy, jus, tart sauce, pomegranate seeds']],
         s3:[['m','Soup, 4-qt Cambro'],['m','Casserole, 9×9',1]],
         deli:[['r','Wagyu, cut and sealed']],
         bottom:[['m','Mash, 4-qt Cambro',1]],
@@ -822,17 +824,20 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Thursday gives about 36 hours before roasting and about 21 hours uncovered before bagging; stick to the 3 g per lb rate.'],
      notes:['The sear jump-starts the legs, which need more heat than the breast (ATK). Bird 2 has no pan, so it goes in first.','Thighs should read about 170°F. That number is mine, not ATK\'s.','If the host has a 12" skillet, sear both birds.']},
 
-    {slug:'gravy',site:'onsite',onsite:"Stock cubes into water at 2:30; drippings and slurry 2:55–3:05.",n:'Gravy',tags:['gf'],src:'Made on site from your frozen stock cubes and the drippings',yield:'~3½ cups',when:'All on site, Fri 2:30–3:05',vessel:'Frozen stock cubes in a deli container → 2-qt saucepan',
+    {slug:'gravy',site:'finish',onsite:"Reheat from 2:40; drippings and fond 2:55–3:05.",n:'Gravy',tags:['gf'],src:'Mochiko roux base made ahead and frozen; finished on site with the drippings',yield:'~1 quart',when:'Mon make + freeze · Wed night thaw · Fri 2:40 finish',vessel:'2-qt saucepan → quart deli (frozen) → 2-qt saucepan',
      vids:[["ATK's pan sauce (7:10)",YT_ATK+'&t=430s']],
-     ing:[{h:'Base',items:[['Your concentrated chicken stock cubes, frozen','enough for 3 cups'],['Water','to 710 g (3 cups)'],['Salt, pepper','lightly']]},
-          {h:'Finish',items:[['Drippings from both birds, fat skimmed','all'],['Cornstarch','~24 g (3 Tbsp)'],['Cold water','~44 g (3 Tbsp)'],['Dijon mustard (optional)','5 g (1 tsp)'],['Rice vinegar (optional)','a splash']]}],
-     steps:[['Fri 7:30','Pack the frozen stock cubes in a deli container in the cooler bag.'],
-       ['Fri 2:30','Melt the stock cubes into about 3 cups (710 g) of water in the 2-qt saucepan over low. Season lightly; the drippings bring salt.'],
-       ['Fri 2:55','Pour the drippings from both pans into a cup and skim off most of the fat. Deglaze each pan with a splash of the hot base, scraping up the browned bits, and add it all to the saucepan.'],
-       ['Fri 3:00','Stir the cornstarch into the cold water. Whisk it into the simmering gravy a third at a time, a minute apart, and stop when it coats a spoon.'],
-       ['Fri 3:05','Finish with the Dijon and a splash of vinegar if you like; ATK finishes its pan sauce that way. Taste for salt and keep warm on low.']],
-     ahead:['Nothing to make ahead: the base is just stock cubes and water, so it is quicker to do on site than to carry a quart of liquid.'],
-     notes:['Gluten-free as long as the stock cubes are just stock.']},
+     ing:[{h:'Base (Monday)',items:[['Butter','42 g (3 Tbsp)'],['Mochiko (sweet rice flour)','~32 g (3½ Tbsp)'],['Your concentrated chicken stock cubes + water','to 710 g (3 cups)'],['White or rice miso (not barley miso, which has gluten)','~6 g (1 tsp)'],['Dijon mustard','5 g (1 tsp)'],['Black pepper','to taste'],['Salt','only after tasting']]},
+          {h:'Finish (Friday)',items:[['Drippings from both birds, fat skimmed','all'],['Water, to loosen','a splash'],['Mochiko + cold water, only if it needs thickening','3 g + 15 g (1 tsp + 1 Tbsp)'],['Rice vinegar (optional)','a splash']]}],
+     steps:[['Mon','Melt the butter in the 2-qt saucepan over medium. Whisk in the mochiko and cook 2–3 minutes, until bubbling and lightly toasty; it will not brown like a wheat roux.'],
+       ['Mon','Whisk in the stock a little at a time, then simmer about 5 minutes until it coats a spoon. Leave it slightly thicker than you want: the drippings thin it on Friday.'],
+       ['Mon','Loosen the miso in a spoonful of the gravy and whisk it in with the Dijon. Taste, add pepper, and salt only if it needs it; the cubes and miso are salty.'],
+       ['Mon','Cool, then freeze in a quart deli, leaving a little headspace.'],
+       ['Wed night','Move it to the fridge to thaw.'],
+       ['Fri 2:40','Into the 2-qt saucepan on low, whisking now and then as it heats.'],
+       ['Fri 2:55','Pour the drippings from both pans into a cup and skim off most of the fat. Deglaze each pan with a splash of the hot gravy, scraping up the browned bits, and whisk it all in. Simmer 2 minutes.'],
+       ['Fri 3:05','Adjust: thin with water, or simmer it down; whisk in the mochiko slurry only if it is still thin. Salt last, and a splash of rice vinegar if it needs lifting. Keep warm on low.']],
+     ahead:['Mochiko gravy freezes and reheats cleanly; cornstarch gravy tends to thin out, which is why it moved from on-site to make-ahead.'],
+     notes:['Gluten-free as long as the stock cubes are just stock and the miso is rice or soy miso.','The miso and Dijon are the extras people swear by: savoury depth and a little tang under the drippings.']},
     {slug:'wagyu',site:'onsite',onsite:"Sear in batches from 3:50. Cut on Thursday.",n:'A5 wagyu',tags:['gf'],src:'A5 from Costco (you are buying it)',yield:'~2½ oz each for 10',when:'Thu cut · Fri 3:50 sear',vessel:'10" cast iron',
      vids:[],
      ing:[{h:'',items:[['A5 wagyu','~680 g (1½ lb)'],['Flaky salt','to serve'],['Wasabi','to serve'],['Wagyu jus and tart sauce','to serve']]}],
@@ -959,7 +964,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var PROGRESS_DATE='Mon, Nov 23';
   var PROGRESS={
     chicken:{s:'todo',done:'',next:'Tue: buy 2 air-chilled birds. Thu 2 AM: spatchcock and salt.'},
-    gravy:{s:'todo',done:'Nothing to prep at home.',next:'Fri: pack the frozen stock cubes; made on site from 2:30.'},
+    gravy:{s:'todo',done:'',next:'Mon: mochiko roux + stock + miso + Dijon; freeze. Wed night: thaw. Fri: finish with the drippings.'},
     wagyu:{s:'todo',done:'',next:'Tue: buy ~680 g A5 at Costco (closed Thanksgiving Day). Thu: cut while cold. Fri: sear from 3:50.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
