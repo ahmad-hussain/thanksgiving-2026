@@ -333,7 +333,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
           <tbody>
             <tr><td>Chickens</td><td>Half sheet + rack, both birds</td><td>2-gallon zip bags, flat</td><td>12" braiser (bird 1) + half sheet on a rack (bird 2)</td></tr>
             <tr><td>Mash</td><td>Pot + fine sieve</td><td>4-qt Cambro, plastic on the surface</td><td>4-qt Dutch oven</td></tr>
-            <tr><td>Soup</td><td>7-qt Dutch oven</td><td>Zip bags: frozen Sunday, thawed from Wednesday night (the cocotte travels empty)</td><td>Pumpkin cocotte</td></tr>
+            <tr><td>Soup</td><td>7-qt Dutch oven</td><td>Souper Cubes blocks, thawed in a 4-qt Cambro from Wednesday night (the cocotte travels empty)</td><td>Pumpkin cocotte</td></tr>
             <tr><td>Green bean casserole</td><td>4-qt saucepan for the sauce</td><td>9×9 metal pan + oven-safe glass minis, covered</td><td>Same dishes. The metal pan goes straight from cold into the oven; let the glass sit out 30 min first</td></tr>
             <tr><td>Pumpkin tiramisu</td><td>9×13 ceramic</td><td>Same, covered</td><td>Same</td></tr>
             <tr><td>GF tiramisu</td><td>Glass minis</td><td>Same, lidded</td><td>Same</td></tr>
@@ -395,7 +395,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         </div>
         <div class="card night">
           <h3>Cooler bags with ice</h3>
-          <ul><li>Mash, casserole, soup (bags)</li><li>Frozen stock cubes, jus, tart sauce</li><li>Cream for reheating the mash</li></ul>
+          <ul><li>Mash, casserole, soup (Cambro)</li><li>Frozen stock cubes, jus, tart sauce</li><li>Cream for reheating the mash</li></ul>
           <p class="hint">They hold from 7:30 AM until about 2:45 PM. Move whatever fits into the host's fridge, and top the bags up with fresh ice around noon.</p>
         </div>
         <div class="card night">
@@ -508,8 +508,9 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'sauce-pom',k:'sauce',d:-1,w:'pm',t:'Seed the pomegranate into a small container'},
     {id:'sauce-jus',k:'sauce',d:-5,w:'pm',t:'Wagyu jus: boil, strain, reduce, balsamic; freeze'},
     {id:'sauce-finish',k:'sauce',d:0,w:'pm',t:'Gravy: stock cubes into water from 2:30, then drippings and cornstarch slurry; warm the jus; seeds into the tart sauce'},
-    {id:'soup-make',k:'soup',d:-5,w:'day',t:'Roast squash + veg; sweat leeks; brown-butter sage; simmer, blend, strain; cool fast, freeze flat in zip bags'},
-    {id:'soup-thaw',k:'soup',d:-2,w:'late',t:'Soup, jus and mushroom base: freezer to fridge to thaw'},
+    {id:'soup-make',k:'soup',d:-5,w:'day',t:'Roast squash + veg; sweat leeks; brown-butter sage; simmer, blend, strain; cool fast and refrigerate'},
+    {id:'soup-freeze',k:'soup',d:-4,w:'day',t:'Freeze the soup in Souper Cubes; blocks into a gallon bag'},
+    {id:'soup-thaw',k:'soup',d:-2,w:'late',t:'Soup blocks (into a 4-qt Cambro), jus and mushroom base: freezer to fridge to thaw'},
     {id:'gbc-mush',k:'gbc',d:-5,w:'pm',t:'Mushroom base: pulse, cook down with butter, garlic, salt, thyme; freeze'},
     {id:'soup-reheat',k:'soup',d:0,w:'pm',t:'Reheat in the pumpkin pot from 2:45'},
     {id:'mash-make',k:'mash',d:-1,w:'late',t:'Cook, mash, sieve; into the 4-qt Cambro'},
@@ -528,7 +529,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   };
 
   var MORNING=[
-    ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (bags), frozen stock cubes for the gravy, jus, tart sauce, extra cream.'],
+    ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (Cambro), frozen stock cubes for the gravy, jus, tart sauce, extra cream.'],
     ['am-car','8:00','Cake on its springform base, covered, flat on a damp towel on the car floor; tiramisu beside it, ice packs tucked around both. Pans and bring kit in the trunk.'],
     ['am-leave','8:30','Leave San Jose.'],
     ['am-arrive','10:00','Arrive. Fridge shelf first: chickens, wagyu, cake, tiramisu, then whatever else fits. Spare ice packs into the freezer.'],
@@ -663,7 +664,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['top','Top shelf','tallest · ready-to-eat'],
     ['s2','Shelf 2','sauces + coffee cream'],
     ['s3','Shelf 3','make-ahead'],
-    ['deli','Deli drawer','wagyu, sealed'],
+    ['deli','Under shelf 3','drawer removed · wagyu, sealed'],
     ['bottom','Bottom shelf','raw chicken on a tray'],
     ['c1','Upper crisper','dairy + herbs'],
     ['c2','Lower crisper','produce'],
@@ -682,7 +683,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c1:[['c','Butter, 4-lb pack',1],['y','American cheese'],['p','Mushrooms (in their box), herbs in a damp towel',1]],
         c2:[['p','Leeks, carrots',1],['y','Grapes, 1 box']],
         door:[['y','Milk, egg whites'],['y','Syrups (incl. blueberry-maple)'],['p','Cold brew, mayo',1],['y','Sauces, Better Than Bouillon']],
-        freezer:[['c','Ice packs, freezing from now',1],['m','Soup, flat zip bags',1],['m','Mushroom base',1],['s','Jus',1],['p','Frozen green beans, 2 lb',1],['y','Pumpkin purée, stock cubes, minced red onion']]}},
+        freezer:[['c','Ice packs, freezing from now',1],['m','Soup blocks (Souper Cubes), from Monday',1],['m','Mushroom base',1],['s','Jus',1],['p','Frozen green beans, 2 lb',1],['y','Pumpkin purée, stock cubes, minced red onion']]}},
     {k:'sun',d:-4,label:'Mon',title:'Monday night',
      note:"Brown butter joins shelf 3. If you do rest the cake batter, its covered bowl goes on shelf 3 tonight, but resting is what flattened David's layers, so the plan skips it.",
      z:{top:[['y','Eggs'],['y','Yogurt, jars']],
@@ -693,7 +694,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c1:[['c','Butter'],['y','American cheese'],['p','Mushrooms, herbs']],
         c2:[['p','Leeks, carrots']],
         door:[['y','Milk, egg whites, syrups'],['p','Cold brew, mayo'],['y','Sauces, Better Than Bouillon']],
-        freezer:[['c','Ice packs'],['m','Soup bags, mushroom base'],['s','Jus'],['p','Frozen green beans'],['y','Pumpkin purée, stock cubes, minced red onion']]}},
+        freezer:[['c','Ice packs'],['m','Soup blocks, mushroom base'],['s','Jus'],['p','Frozen green beans'],['y','Pumpkin purée, stock cubes, minced red onion']]}},
     {k:'mon',d:-3,label:'Tue',title:'Tuesday night',
      note:'The chickens arrive and go straight to the bottom shelf on a quarter sheet, so nothing drips. Cake layers sit on shelf 3; or freeze them overnight, since firm layers are easier to stack.',
      z:{top:[['y','Eggs'],['y','Yogurt, jars']],
@@ -704,12 +705,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs']],
         c2:[['p','Leeks, carrots']],
         door:[['y','Milk, egg whites, syrups'],['p','Mayo'],['y','Sauces, Better Than Bouillon']],
-        freezer:[['c','Ice packs'],['m','Soup bags, mushroom base'],['s','Jus'],['p','Frozen green beans'],['y','Stock cubes']]}},
+        freezer:[['c','Ice packs'],['m','Soup blocks, mushroom base'],['s','Jus'],['p','Frozen green beans'],['y','Stock cubes']]}},
     {k:'tue',d:-2,label:'Wed',title:'Wednesday night',
      note:"The cake takes the top shelf because it needs the height. Tonight the soup, jus and mushroom base come out of the freezer; flat bags thaw on shelf 3 in about a day. The cocotte travels empty, and the soup is reheated in it on Friday.",
      z:{top:[['d','Cake in the springform ring, setting',1],['y','Eggs, yogurt']],
         s2:[['d',"Coffee cream (what's left, for batch 2)"],['s','Tart sauce'],['s','Jus, thawing',1]],
-        s3:[['m','Soup bags, thawing',1],['m','Mushroom base, thawing',1],['m','Pumpkin, cooked down',1],['c','Mascarpone'],['c','Heavy cream']],
+        s3:[['m','Soup blocks thawing in a 4-qt Cambro',1],['m','Mushroom base, thawing',1],['m','Pumpkin, cooked down',1],['c','Mascarpone'],['c','Heavy cream']],
         deli:[['r','A5 wagyu, sealed']],
         bottom:[['r','2 chickens in packaging, on the tray']],
         c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs']],
@@ -720,7 +721,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      note:"The half sheet fills the bottom shelf front to back, with both birds on its rack head to tail (about 4 lb each). That leaves shelf 3 with room to spare. If the birds come out bigger and won't share, bird 2 goes on the jelly roll pan on shelf 3 next to the soup.",
      z:{top:[['d','Cake, setting'],['d','GF tiramisu minis',1],['y','Eggs']],
         s2:[['d','Tiramisu 9×13, at the front',1],['s','Behind it: jus, tart sauce, coffee cream, pomegranate seeds',1]],
-        s3:[['m','Soup bags (thawed)'],['c','Heavy cream']],
+        s3:[['m','Soup, 4-qt Cambro (thawed)'],['c','Heavy cream']],
         deli:[['r','Wagyu, cut and sealed',1]],
         bottom:[['r','Both birds, head to tail, on the half sheet + rack (fills the shelf)',1]],
         c1:[['c','Butter'],['y','Cheese'],['p','Mushrooms, herbs (used this afternoon)']],
@@ -731,7 +732,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      note:"The casserole joins the soup on shelf 3 around 6 PM, and the cream moves to the door to make room. Bag the birds around 11 PM (about 21 hours uncovered) and lay them flat in the emptied lower crisper; the mash then takes the bottom shelf. If the bagged birds don't fit the crisper, keep them on the bottom shelf on a quarter sheet with the mash beside them.",
      z:{top:[['d','Cake, glazed and covered',1],['d','GF minis'],['m','Casserole overflow, glass minis',1],['y','Eggs']],
         s2:[['d','Tiramisu 9×13'],['s','Jus, tart sauce, pomegranate seeds']],
-        s3:[['m','Soup bags'],['m','Casserole, 9×9',1]],
+        s3:[['m','Soup, 4-qt Cambro'],['m','Casserole, 9×9',1]],
         deli:[['r','Wagyu, cut and sealed']],
         bottom:[['m','Mash, 4-qt Cambro',1]],
         c1:[['c','Butter'],['y','Cheese']],
@@ -796,7 +797,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Sun','For a little body, whisk in the cornstarch slurry and simmer a minute. Keep it loose, like a jus rather than a gravy.'],
        ['Sun','Finish with 1–2 tsp balsamic, then season. The stock cubes are salty, so salt last. Cool, then freeze in a small deli.'],
        ['Wed night','Move it to the fridge to thaw.'],
-       ['Fri 3:40','Warm gently on burner 4; swirl in the butter off the heat.']],
+       ['Fri 3:40','Warm gently on burner 4; loosen with a splash of water if it is thick, then swirl in the butter off the heat.']],
      ahead:['Frozen from Sunday; thawed in the fridge from Wednesday night.'],
      notes:['100 g of juices reduced on its own would give only about 3 tablespoons. Chicken stock is the usual neutral base for a jus, so the beef still leads.','A5 needs only a spoonful each, so ~¾ cup covers 10.','Gluten-free as long as you skip the roux. With a teaspoon of roux in it, it is not.']},
     {slug:'tart-sauce',site:'finish',onsite:"Loosen with water; stir in the pomegranate seeds.",n:'Cranberry, blueberry + pomegranate sauce',tags:['v','gf'],src:'One tart sauce for the chicken and the wagyu',yield:'~2½ cups',when:'Sun make · Fri finish',vessel:'Deli quart',
@@ -844,7 +845,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['The mushroom base is made Sunday and frozen. The assembled casserole keeps 2 days.'],
      notes:["The bean broth is the trick from Eric Kim: braising frozen beans hard makes them sweet and gives a flavourful broth, which replaces plain stock in the sauce.","Celery salt is his stand-in for the flavour of canned cream of mushroom soup; here it sits on top of real mushrooms.","He doesn't give his cream amount on camera, so the sauce keeps Lagerstrom's ratios.","Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes; Kim bakes 10 minutes at 350°F. Baking from cold under foil is our adaptation.","The glass minis also hold the gluten-free tiramisu, so check you have enough for both.","Not gluten-free: there is flour in the sauce and in the fried onions."]},
 
-    {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Sun make + freeze · Wed night thaw · Fri 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → zip bags (frozen) → pumpkin cocotte',
+    {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Sun make + freeze · Wed night thaw · Fri 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → Souper Cubes blocks (frozen) → 4-qt Cambro → pumpkin cocotte',
      vids:[['Chef John: roasted butternut squash soup','https://www.youtube.com/watch?v=AlRqh21CfHI'],["Thomas Keller's butternut squash soup (Food52)",'https://www.youtube.com/watch?v=xIeIlWTorl8'],["Keller's written recipe (Food52)",'https://food52.com/recipes/32241-thomas-keller-s-butternut-soup-with-brown-butter-sage-and-nutmeg-creme-fraiche']],
      ing:[{h:'Roast (Chef John)',items:[['Butternut squash, whole','2 medium (~2.0–2.3 kg)'],['Carrots, sliced','~190 g (3 carrots)'],['Garlic, whole peeled cloves','~40 g (8 cloves)'],['Olive oil','27 g (2 Tbsp)'],['Kosher salt','6 g Diamond Crystal (2 tsp)']]},
           {h:'Pot (Keller)',items:[['Butter','28 g (2 Tbsp)'],['Leeks, thinly sliced, white and light green','~135 g (2 leeks)'],['Red onion, minced (your frozen batch is fine)','~240 g (1½ cups)'],['Honey or maple syrup','40–60 g (2–3 Tbsp)'],['Water','2.13 kg (9 cups)'],['Vegetable Better Than Bouillon','54 g (3 Tbsp)'],['Bouquet garni: thyme, parsley, bay, peppercorns','8 sprigs, 2 sprigs, 2 leaves, ½ tsp']]},
@@ -858,9 +859,10 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Sun','Fish out the bundle. Blend until completely smooth: a few minutes with the stick blender, or in batches in the blender.'],
        ['Sun','Push it through the fine sieve. Both recipes say this is what makes it silky.'],
        ['Sun','Adjust: thin with water if it\'s heavy, then season with the vinegar, salt, a pinch of cayenne and a little nutmeg. Taste; it should be sweet, then bright.'],
-       ['Sun','Cool it fast over an ice bath, then freeze it flat in 2–3 zip bags.'],
-       ['Wed night','Move the bags from the freezer to the fridge; flat bags thaw in about a day. The cocotte travels empty.'],
-       ['Fri 2:45','Pour the thawed soup from the bags into the cocotte and reheat low, stirring now and then. Taste for salt and vinegar once more, and serve. No garnish.']],
+       ['Sun','Cool it fast over an ice bath, then refrigerate.'],
+       ['Mon','Freeze it in the Souper Cubes, pop out the blocks into a gallon bag, and refill until it is all frozen.'],
+       ['Wed night','Move the blocks into a 4-qt Cambro in the fridge to thaw; blocks take about a day and a half. The cocotte travels empty.'],
+       ['Fri 2:45','Pour the thawed soup from the Cambro into the cocotte and reheat low, stirring now and then. Taste for salt and vinegar once more, and serve. No garnish.']],
      ahead:['Freezes well because there is no cream: made Sunday, frozen, then thawed in the fridge from Wednesday night. Food52 notes Keller\'s version gets sweeter after a day.'],
      notes:['Your frozen minced red onion replaces both the roasted onion (Chef John) and the shallots (Keller). It goes in the pot, not on the roasting tray, where small wet pieces would steam or burn. It can make the soup a shade less bright orange.','No dairy beyond the butter: Keller\'s crème fraîche and Chef John\'s crème fraîche and chives were garnishes, and both are dropped.','Vegetarian and gluten-free with Vegetable Better Than Bouillon.']},
 
