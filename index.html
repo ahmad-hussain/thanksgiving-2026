@@ -452,7 +452,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
               <tr><td>Stove</td><td>All four burners, <span class="tnum">1:50–4:20 PM</span>.</td></tr>
               <tr><td>Counter</td><td>One stretch near the stove for carving and plating.</td></tr>
               <tr><td>A 12" skillet?</td><td>If you have a 12-inch stainless or cast-iron skillet, I'll sear the second chicken in it. If not, it roasts on a sheet pan.</td></tr>
-              <tr><td>Wagyu</td><td>Still to settle: are you buying it, or am I? About 1½ lb of A5 (Costco).</td></tr>
+              <tr><td>Wagyu</td><td>I'm buying it: about 1½ lb of A5 from Costco.</td></tr>
               <tr><td>From your cupboards</td><td>Plates, cutlery and glasses for 10, a few serving bowls, trash bags, dish soap and a sponge.</td></tr>
               <tr><td>Dinner</td><td><span class="tnum">4:00 PM</span>. Dessert around <span class="tnum">5:15</span>.</td></tr>
             </tbody>
@@ -510,7 +510,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'shop-costco',k:'shop',d:-6,w:'day',t:'Costco: cream, eggs, Yukons, cold brew (+ wagyu if it\'s on you)'},
     {id:'shop-tj',k:'shop',d:-6,w:'day',t:"Trader Joe's: 2 butternut squash, frozen green beans, cranberries, pomegranates + juice, oranges, fried onions, mushrooms, leeks, carrots, herbs, garlic"},
     {id:'shop-gear',k:'shop',d:-6,w:'day',t:'Target, after Trader Joe\'s: 2-gallon zip bags, candles, celery salt, pantry gaps; set aside a box or bowl for the cake'},
-    {id:'shop-chix',k:'shop',d:-3,w:'day',t:'2 air-chilled chickens, about 4 lb each'},
+    {id:'shop-chix',k:'shop',d:-3,w:'day',t:'Costco: ~680 g A5 wagyu. Plus 2 air-chilled chickens, about 4 lb each'},
     {id:'cake-infuse',k:'cake',d:-5,w:'am',t:'Coffee cream: ~1.25 kg cream + ~150 g whole beans, into the fridge'},
     {id:'cake-strain',k:'cake',d:-4,w:'day',t:'Strain the coffee cream after ~24 h; keep it cold'},
     {id:'cake-batter',k:'cake',d:-3,w:'eve',t:'Brown the butter, mix the batter; ~950 g into the half sheet, the rest into the springform; cover, refrigerate overnight'},
@@ -600,8 +600,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-cream','Heavy cream: mousse ~1.25 kg infused (the beans soak a lot up), plain for ganache 340, mash + reheat 275, casserole 125','~2 L of your 2 jugs'],
       ['s-eggs','Eggs: 3 whole (cake) + yolks: mousse 9, tiramisu 8, GF minis 2','22'],
       ['s-yukon','Yukon Gold potatoes','5 lb'],
-      ['s-coldbrew','Cold brew (cake batter)','1½ cups + 2 Tbsp'],
-      ['s-wagyu','A5 wagyu, if it\'s on you rather than the host','~1½ lb']
+      ['s-coldbrew','Cold brew (cake batter)','1½ cups + 2 Tbsp']
     ]},
     {h:"Trader Joe's",when:'Bought Sat',items:[
       ['s-cran','Fresh cranberries','12 oz'],
@@ -619,8 +618,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-parsley','Flat-leaf parsley (soup bundle, 2 sprigs; optional)','1 small bunch'],
       ['s-aromatics','Garlic (soup 8, casserole 3)','1 head']
     ]},
-    {h:'Tuesday',when:'Chickens only',items:[
+    {h:'Tuesday',when:'Costco + chickens',items:[
+      ['s-wagyu','A5 wagyu from Costco (you are buying it). Costco is closed on Thanksgiving Day','~680 g (1½ lb)'],
       ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2']
+    ]},
+    {h:'Amazon',when:'Overnight',items:[
+      ['s-pan','9×9 metal baking pan, about 2" deep (replaces the worn one; the casserole goes in it cold, so metal, not glass)','1']
     ]},
     {h:'Target',when:'Bought Sat',items:[
       ['s-cakebox','Cake cover, nothing to buy: a spare shipping box at least 11" square and 6" tall, or your biggest bowl upturned','have'],
@@ -803,7 +806,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Fri 3:05','Finish with the Dijon and a splash of vinegar if you like; ATK finishes its pan sauce that way. Taste for salt and keep warm on low.']],
      ahead:['Nothing to make ahead: the base is just stock cubes and water, so it is quicker to do on site than to carry a quart of liquid.'],
      notes:['Gluten-free as long as the stock cubes are just stock.']},
-    {slug:'wagyu',site:'onsite',onsite:"Sear in batches from 3:50. Cut on Thursday.",n:'A5 wagyu',tags:['gf'],src:'Costco · you or the host buys',yield:'~2½ oz each for 10',when:'Thu cut · Fri 3:50 sear',vessel:'10" cast iron',
+    {slug:'wagyu',site:'onsite',onsite:"Sear in batches from 3:50. Cut on Thursday.",n:'A5 wagyu',tags:['gf'],src:'A5 from Costco (you are buying it)',yield:'~2½ oz each for 10',when:'Thu cut · Fri 3:50 sear',vessel:'10" cast iron',
      vids:[],
      ing:[{h:'',items:[['A5 wagyu','~680 g (1½ lb)'],['Flaky salt','to serve'],['Wasabi','to serve'],['Wagyu jus and tart sauce','to serve']]}],
      steps:[['Thu',"Cut the wagyu into ¾–1\" pieces while it's fridge-cold. Wrap on an eighth sheet."],
@@ -929,11 +932,11 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var PROGRESS={
     chicken:{s:'todo',done:'',next:'Tue: buy 2 air-chilled birds. Thu 2 AM: spatchcock and salt.'},
     gravy:{s:'todo',done:'Nothing to prep at home.',next:'Fri: pack the frozen stock cubes; made on site from 2:30.'},
-    wagyu:{s:'todo',done:'',next:'Thu: cut while cold. Fri: sear from 3:50.'},
+    wagyu:{s:'todo',done:'',next:'Tue: buy ~680 g A5 at Costco (closed Thanksgiving Day). Thu: cut while cold. Fri: sear from 3:50.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
     mash:{s:'todo',done:'',next:'Thu night: make it.'},
-    casserole:{s:'doing',done:'Mushroom base made and frozen (Sun).',next:'Wed night: thaw the base. Thu: braise the beans, make the sauce, fill.'},
+    casserole:{s:'doing',done:'Mushroom base made and frozen (Sun).',next:'New 9×9 metal pan arriving from Amazon. Wed night: thaw the base. Thu: braise the beans, make the sauce, fill.'},
     soup:{s:'done',done:'Made (Sun).',next:'Mon: freeze in Souper Cubes. Wed night: thaw.'},
     tiramisu:{s:'todo',done:'',next:'Tue: thaw the pumpkin. Wed: cook it down. Thu AM: build.'},
     cake:{s:'doing',done:'Coffee cream infusing (Sun).',next:'Mon: strain. Tue eve: batter. Wed: bake and build. Thu AM: ganache.'}
