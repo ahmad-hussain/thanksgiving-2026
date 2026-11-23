@@ -638,7 +638,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['h-pumpkin','Pumpkin purée (freezer), before cooking down','~1¼ cups'],
       ['h-parm','Parm (casserole), pecorino','~50 g'],
       ['h-gravy','Chicken stock cubes (gravy)',''],
-      ['h-juices','Sous-vide beef juices + beefy roux, for the jus','~100 g + 1–2 Tbsp'],
+      ['h-juices','Sous-vide beef juices + chicken stock cubes, for the jus (the cubes also make the 3-cup gravy base)','~100 g + 1 cup'],
       ['h-syrup','Blueberry-maple syrup (tart sauce)','~½ cup']
     ]}
   ];
@@ -789,17 +789,18 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Fri 3:50','Sear in small batches, 30–45 seconds a side. Pour off fat if it pools. Salt and serve straight off the pan.']],
      ahead:[],notes:[]},
 
-    {slug:'jus',site:'finish',onsite:"Warm on burner 4, 3:40.",n:'Wagyu jus',tags:[],src:'Your ~100 g of sous-vide juices, stretched with your beefy roux',yield:'~¾ cup (about a spoonful each)',when:'Sun make + freeze · Fri 3:40 warm',vessel:'Small saucepan → small deli → 1.5-qt saucepan',
+    {slug:'jus',site:'finish',onsite:"Warm on burner 4, 3:40.",n:'Wagyu jus',tags:['gf'],src:'Your ~100 g of sous-vide juices, stretched with chicken stock',yield:'~¾ cup (about a spoonful each)',when:'Sun make + freeze · Fri 3:40 warm',vessel:'Small saucepan → small deli → 1.5-qt saucepan',
      vids:[],
-     ing:[{h:'',items:[['Saved sous-vide beef juices','~100 g'],['Your beefy roux (meat juices, fat, onion, garlic, flour)','1–2 Tbsp'],['Water, or a little dissolved chicken stock cube','~¾ cup'],['Balsamic vinegar','1–2 tsp'],['Salt','to taste'],['Cold butter (on site)','1 Tbsp']]}],
+     ing:[{h:'',items:[['Saved sous-vide beef juices','~100 g'],['Chicken stock, from your concentrated cubes','1 cup'],['Tomato paste (optional, for depth)','½ tsp'],['Cornstarch + cold water (optional, for body)','1 tsp + 1 Tbsp'],['Any beefy roux you have left (optional)','1–2 tsp'],['Balsamic vinegar','1–2 tsp'],['Salt','to taste'],['Cold butter (on site)','1 Tbsp']]}],
      steps:[['Sun','Bring the juices to a boil; the grey proteins clump on top.'],
        ['Sun','Strain through a coffee filter or a paper-towel-lined sieve.'],
-       ['Sun','In a small saucepan, whisk 1 Tbsp of the roux into ~¾ cup water with the strained juices. Simmer about 5 minutes, until it lightly coats a spoon; whisk in more roux if it is thin.'],
-       ['Sun','Finish with 1–2 tsp balsamic, then season. Keep it loose, like a jus rather than a gravy. Cool, then freeze in a small deli.'],
+       ['Sun','If using tomato paste, toast it in the small saucepan for 30 seconds. Add the strained juices and the chicken stock (and any roux) and simmer until reduced to about ¾ cup, 5–8 minutes.'],
+       ['Sun','For a little body, whisk in the cornstarch slurry and simmer a minute. Keep it loose, like a jus rather than a gravy.'],
+       ['Sun','Finish with 1–2 tsp balsamic, then season. The stock cubes are salty, so salt last. Cool, then freeze in a small deli.'],
        ['Wed night','Move it to the fridge to thaw.'],
        ['Fri 3:40','Warm gently on burner 4; swirl in the butter off the heat.']],
      ahead:['Frozen from Sunday; thawed in the fridge from Wednesday night.'],
-     notes:['100 g of juices reduced on its own would give only about 3 tablespoons. The roux is beef juices too, so it stretches the jus without diluting the flavour.','A5 needs only a spoonful each, so ~¾ cup covers 10.','The roux has flour, so the jus is not gluten-free. The gluten-free guest has the wagyu with salt, wasabi and the tart sauce. For a gluten-free jus, use the chicken stock cube and thicken with a little cornstarch slurry instead of the roux.']},
+     notes:['100 g of juices reduced on its own would give only about 3 tablespoons. Chicken stock is the usual neutral base for a jus, so the beef still leads.','A5 needs only a spoonful each, so ~¾ cup covers 10.','Gluten-free as long as you skip the roux. With a teaspoon of roux in it, it is not.']},
     {slug:'tart-sauce',site:'finish',onsite:"Loosen with water; stir in the pomegranate seeds.",n:'Cranberry, blueberry + pomegranate sauce',tags:['v','gf'],src:'One tart sauce for the chicken and the wagyu',yield:'~2½ cups',when:'Sun make · Fri finish',vessel:'Deli quart',
      vids:[],
      ing:[{h:'',items:[['Butter','1 Tbsp'],['Red onion, minced (frozen is fine)','¼ cup'],['Fresh cranberries','12 oz'],['Pomegranate juice (or unsweetened cranberry juice)','¾ cup'],['Your blueberry-maple syrup','½ cup'],['Orange juice + zest','½ cup + 1 orange'],['Thyme','1 sprig'],['Balsamic + rice vinegar','1 Tbsp each'],['Salt, lots of black pepper','to taste'],['Sugar','only if it needs it'],['Pomegranate seeds (on site)','from 1 pomegranate']]}],
@@ -925,7 +926,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
   var MENU=[
     ['Roast chicken with gravy',['gf']],
-    ['A5 wagyu with jus',['gf*']],
+    ['A5 wagyu with jus',['gf']],
     ['Cranberry, blueberry and pomegranate sauce',['v','gf']],
     ['Mashed potatoes',['v','gf']],
     ['Green bean casserole',['v']],
