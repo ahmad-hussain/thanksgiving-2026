@@ -185,6 +185,25 @@ td:first-child{font-weight:600}
 .fridge-side{display:grid;gap:12px}
 #fridge-note h3{margin-bottom:6px}
 #fridge-note p{font-size:.92rem}
+:root{--dy-m6:#5B6B82;--dy-m6b:#E6EAF0;--dy-m5:#2F7F7A;--dy-m5b:#DDF0EE;--dy-m4:#2D6A98;--dy-m4b:#DFEBF4;--dy-m3:#6B4FA3;--dy-m3b:#ECE5F5;--dy-m2:#A8740B;--dy-m2b:#FBF0D6;--dy-m1:#C25516;--dy-m1b:#FBE5D8;--dy-0:#A3163F;--dy-0b:#F8E1E7}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--dy-m6:#9AABC4;--dy-m6b:#242B36;--dy-m5:#6CC4BD;--dy-m5b:#18302E;--dy-m4:#74ACD9;--dy-m4b:#1B2C3A;--dy-m3:#B79BE0;--dy-m3b:#2B2340;--dy-m2:#E3B83A;--dy-m2b:#33290F;--dy-m1:#F08A4B;--dy-m1b:#3A2316;--dy-0:#F0668B;--dy-0b:#3A1D27}}
+:root[data-theme="dark"]{--dy-m6:#9AABC4;--dy-m6b:#242B36;--dy-m5:#6CC4BD;--dy-m5b:#18302E;--dy-m4:#74ACD9;--dy-m4b:#1B2C3A;--dy-m3:#B79BE0;--dy-m3b:#2B2340;--dy-m2:#E3B83A;--dy-m2b:#33290F;--dy-m1:#F08A4B;--dy-m1b:#3A2316;--dy-0:#F0668B;--dy-0b:#3A1D27}
+.dym6{--dc:var(--dy-m6);--db:var(--dy-m6b)} .dym5{--dc:var(--dy-m5);--db:var(--dy-m5b)} .dym4{--dc:var(--dy-m4);--db:var(--dy-m4b)} .dym3{--dc:var(--dy-m3);--db:var(--dy-m3b)} .dym2{--dc:var(--dy-m2);--db:var(--dy-m2b)} .dym1{--dc:var(--dy-m1);--db:var(--dy-m1b)} .dy0{--dc:var(--dy-0);--db:var(--dy-0b)}
+.dchip{display:inline-block;font-family:var(--f-mono);font-size:.68rem;font-weight:500;border-radius:999px;padding:1px 8px;background:var(--db);color:var(--dc);white-space:nowrap}
+.dlegend{display:flex;flex-wrap:wrap;gap:6px}
+.nextup{display:grid;gap:6px;border-color:var(--accent)}
+.nextrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ticon{width:16px;height:16px;flex:none;color:var(--muted)}
+.tcard{font:inherit;text-align:left;cursor:pointer;display:grid;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:9px 11px;color:var(--ink);font-size:.86rem;box-shadow:inset 0 3px 0 var(--dc)}
+.tcard:hover{border-color:var(--dc)}
+.tcard.is-next{border-color:var(--accent);box-shadow:inset 0 3px 0 var(--dc),0 0 0 2px var(--accent)}
+.trow{display:flex;align-items:center;gap:7px;min-width:0}
+.tdish{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ttext{line-height:1.35}
+.kday{font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600;margin-top:6px;padding:0 2px}
+.kday:first-child{margin-top:0}
+.k-done .tcard{opacity:.6}
+.k-done .ttext{text-decoration:line-through}
 .kanban{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
 @media (max-width:760px){.kanban{grid-template-columns:1fr}}
 .kcol{background:var(--chip);border-radius:12px;padding:10px;display:grid;gap:8px}
@@ -277,9 +296,11 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     </div>
 
     <div class="block">
-      <div class="dayhead"><h2>Dish progress</h2><span class="eyebrow">Updated <span id="progress-date"></span></span></div>
-      <p class="hint">"Prep done" means everything that happens at home is finished. Tell Claude what you have done and the cards move.</p>
-      <div class="kanban" id="progress"></div>
+      <div class="dayhead"><h2>Task board</h2><span class="eyebrow">Updated <span id="progress-date"></span></span></div>
+      <p class="hint">Tap a card to move it along: To do, In progress, Done. Colours show the day; the outlined card is your next task. Taps save in this browser; tell Claude and the cards move for everyone.</p>
+      <div class="card nextup" id="nextup"></div>
+      <div class="dlegend" id="day-legend"></div>
+      <div class="kanban" id="taskboard"></div>
     </div>
 
     <div class="block">
@@ -478,6 +499,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   function load(k,f){try{var v=localStorage.getItem(k);return v==null?f:JSON.parse(v);}catch(e){return f;}}
   function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
   var done=load(KEY_DONE,{}); if(typeof done!=='object'||!done) done={};
+  var state=load('tg26-state',{}); if(typeof state!=='object'||!state) state={};
+  Object.keys(done).forEach(function(k){if(!state[k])state[k]='done';});
   var day='fri'; // confirmed: Friday, Nov 27
 
   var START=new Date(2026,10,21);
@@ -510,7 +533,9 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'shop-costco',k:'shop',d:-6,w:'day',t:'Costco: cream, eggs, Yukons, cold brew (+ wagyu if it\'s on you)'},
     {id:'shop-tj',k:'shop',d:-6,w:'day',t:"Trader Joe's: 2 butternut squash, frozen green beans, cranberries, pomegranates + juice, oranges, fried onions, mushrooms, leeks, carrots, herbs, garlic"},
     {id:'shop-gear',k:'shop',d:-6,w:'day',t:'Target, after Trader Joe\'s: 2-gallon zip bags, candles, celery salt, pantry gaps; set aside a box or bowl for the cake'},
-    {id:'shop-chix',k:'shop',d:-3,w:'day',t:'Costco: ~680 g A5 wagyu. Plus 2 air-chilled chickens, about 4 lb each'},
+    {id:'shop-pan',k:'shop',d:-4,w:'day',t:'Amazon order: 9×9 metal pan + potato ricer (+ twine, brush, offset spatula if missing)'},
+    {id:'shop-wagyu',k:'wagyu',d:-3,w:'day',t:'Costco: ~680 g A5 wagyu (Costco is closed Thanksgiving Day)'},
+    {id:'shop-chix',k:'chix',d:-3,w:'day',t:'Buy 2 air-chilled chickens, about 4 lb each; into the lower crisper'},
     {id:'cake-infuse',k:'cake',d:-5,w:'am',t:'Coffee cream: ~1.25 kg cream + ~150 g whole beans, into the fridge'},
     {id:'cake-strain',k:'cake',d:-4,w:'day',t:'Strain the coffee cream after ~24 h; keep it cold'},
     {id:'cake-batter',k:'cake',d:-3,w:'eve',t:'Brown the butter, mix the batter; ~950 g into the half sheet, the rest into the springform; cover, refrigerate overnight'},
@@ -623,7 +648,9 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2']
     ]},
     {h:'Amazon',when:'Overnight',items:[
-      ['s-pan','9×9 metal baking pan, about 2" deep (replaces the worn one; the casserole goes in it cold, so metal, not glass)','1']
+      ['s-pan','9×9 metal baking pan, about 2" deep (replaces the worn one; the casserole goes in it cold, so metal, not glass)','1'],
+      ['s-ricer','Potato ricer: unpeeled potatoes go straight in and the skins stay behind','1'],
+      ['s-extras','If missing: kitchen twine, poultry shears, pastry brush, offset spatula, long serrated knife, 10" cake boards','']
     ]},
     {h:'Target',when:'Bought Sat',items:[
       ['s-cakebox','Cake cover, nothing to buy: a spare shipping box at least 11" square and 6" tall, or your biggest bowl upturned','have'],
@@ -837,14 +864,15 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Fri 3:40','It sets as it cools: loosen with a splash of water, serve warm or at room temperature, and stir in the pomegranate seeds.']],
      ahead:['Keeps a week.'],notes:[]},
 
-    {slug:'mash',site:'finish',onsite:"Reheat low from 2:45.",n:'Mashed potatoes',tags:['v','gf'],src:"Ragusea's method, Lagerstrom's ratios (halved)",yield:'~3 qt, 10 sides',when:'Thu late · Fri 2:45 reheat',vessel:'4-qt Cambro → 4-qt Dutch oven',
+    {slug:'mash',site:'finish',onsite:"Reheat low from 2:45.",n:'Mashed potatoes',tags:['v','gf'],src:"Ragusea's method, Lagerstrom's ratios (halved)",yield:'~3 qt, 10 sides',when:'Thu late · Fri 2:45 reheat',vessel:'Potato ricer (+ fine sieve, optional); 4-qt Cambro → 4-qt Dutch oven',
      vids:[['Ragusea: my best mashed potatoes','https://www.youtube.com/watch?v=kXIRe-EIQHQ'],['Lagerstrom: potato purée (0:32)',YT_LAG+'&t=32s']],
      ing:[{h:'',items:[['Yukon Gold potatoes, unpeeled, cut evenly','2.27 kg (5 lb)'],['Salt for the water','~10 g (1 Tbsp kosher)'],['Butter, melted','2 sticks (230 g)'],['Heavy cream, warm','175 g (¾ cup)'],['Salt','8–10 g'],['Butter, melted, to finish','⅓ stick (35 g)'],['Cream for reheating (Friday)','~100 g']]}],
      steps:[['Thu','Potatoes into a big pot, cold water to just cover, salt the water.'],
        ['Thu',"Bring it up slowly to a bare simmer, not a boil, and hold it there 20–30 minutes until the potatoes are completely soft. Ragusea: slow heating separates the cells instead of bursting them, so the mash isn't gluey."],
        ['Thu','Drain, keeping a cup of the water. Return to the pot over low for a minute to steam dry.'],
-       ['Thu','Add the 2 sticks of melted butter and mash, then the warm cream. Lagerstrom puts the butter in first so it coats the starch.'],
-       ['Thu','Push it through the fine sieve while hot; the skins stay behind. Cold purée turns gluey (Lagerstrom).'],
+       ['Thu','Rice the hot potatoes back into the pot. The skins stay in the ricer, so empty it every few presses.'],
+       ['Thu','Stir in the 2 sticks of melted butter, then the warm cream. Lagerstrom puts the butter in first so it coats the starch.'],
+       ['Thu','For an extra-silky purée, push it through the fine sieve as well, while hot. Cold purée turns gluey (Lagerstrom).'],
        ['Thu',"Season with salt and the finishing butter; loosen with potato water if it's stiff."],
        ['Thu','Cool, into the Cambro with plastic pressed on the surface, and refrigerate.'],
        ['Fri 2:45','Into the 4-qt Dutch oven with ~100 g cream on low. Stir every 10 minutes and whisk at the end. Never blend it.']],
@@ -935,12 +963,61 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     wagyu:{s:'todo',done:'',next:'Tue: buy ~680 g A5 at Costco (closed Thanksgiving Day). Thu: cut while cold. Fri: sear from 3:50.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
-    mash:{s:'todo',done:'',next:'Thu night: make it.'},
+    mash:{s:'todo',done:'',next:'Ricer on the Amazon order. Thu night: make it.'},
     casserole:{s:'doing',done:'Mushroom base made and frozen (Sun).',next:'New 9×9 metal pan arriving from Amazon. Wed night: thaw the base. Thu: braise the beans, make the sauce, fill.'},
     soup:{s:'done',done:'Made (Sun).',next:'Mon: freeze in Souper Cubes. Wed night: thaw.'},
     tiramisu:{s:'todo',done:'',next:'Tue: thaw the pumpkin. Wed: cook it down. Thu AM: build.'},
     cake:{s:'doing',done:'Coffee cream infusing (Sun).',next:'Mon: strain. Tue eve: batter. Wed: bake and build. Thu AM: ganache.'}
   };
+  // Task board. SRC_STATE is set by Claude as Ahmad reports progress; taps on a card override it in this browser.
+  var SRC_STATE={
+    'shop-costco':'done','shop-tj':'done','shop-gear':'done',
+    'cake-infuse':'done','sauce-cran':'done','sauce-jus':'done','soup-make':'done','gbc-mush':'done',
+    'shop-pan':'doing'
+  };
+  var ICON={
+    shop:'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 11h11L21 7H6.5"/>',
+    cake:'<path d="M4 21h16v-8H4z"/><path d="M4 16c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 4 0"/><path d="M12 13V9"/><path d="M12 6.5c.8-.8.8-1.7 0-2.5-.8.8-.8 1.7 0 2.5z"/>',
+    tira:'<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M3 15h18"/>',
+    chix:'<path d="M15.5 4.5a5 5 0 0 1 4 6.5c-1 3-4.5 4-7 3l-4.5 4.5a2 2 0 1 1-2.5-2.5L10 11.5c-1-2.5 0-6 3-7a5 5 0 0 1 2.5 0z"/>',
+    wagyu:'<path d="M5 13c0-5 4-8 9-8 4 0 6 2 6 5 0 5-6 9-11 9-2.5 0-4-2-4-6z"/><circle cx="14" cy="10" r="2"/>',
+    sauce:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',
+    soup:'<path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M8 7c0-1 1-1.5 1-2.5M12 7c0-1 1-1.5 1-2.5M16 7c0-1 1-1.5 1-2.5"/>',
+    mash:'<ellipse cx="12" cy="12" rx="8" ry="6.5" transform="rotate(-20 12 12)"/><path d="M9.5 11h.01M13.5 13.5h.01M14 9.5h.01"/>',
+    gbc:'<rect x="4" y="9" width="16" height="9" rx="2"/><path d="M2 11h2M20 11h2M7 9c1-2 3-2.5 5-2.5s4 .5 5 2.5"/>',
+    pack:'<path d="M4 8h16v12H4z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/>'
+  };
+  function icon(k){return '<svg class="ticon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICON[k]||'')+'</svg>';}
+  function dayKey(rel){return 'dy'+Math.max(-6,Math.min(0,rel)).toString().replace('-','m');}
+  function taskSort(a,b){return a.d-b.d||WORDER[a.w]-WORDER[b.w];}
+  function nextTask(){return TASKS.filter(function(t){return status(t.id)!=='done';}).sort(taskSort)[0];}
+  function renderTaskBoard(){
+    var nt=nextTask(), cols={todo:[],doing:[],done:[]};
+    TASKS.slice().sort(taskSort).forEach(function(t){cols[status(t.id)].push(t);});
+    document.getElementById('nextup').innerHTML=nt?
+      '<span class="eyebrow">Next up</span><div class="nextrow">'+icon(nt.k)+'<span class="dchip '+dayKey(nt.d)+'">'+short(relDate(nt.d))+' · '+WORD[nt.w]+'</span><b>'+esc(nt.t)+'</b></div>':
+      '<span class="eyebrow">Next up</span><b>Everything is done. Enjoy dinner.</b>';
+    var lg='';for(var r=-6;r<=0;r++){lg+='<span class="dchip '+dayKey(r)+'">'+short(relDate(r))+(r===0?' · dinner':'')+'</span>';}
+    document.getElementById('day-legend').innerHTML=lg;
+    var h='';
+    [['todo','To do'],['doing','In progress'],['done','Done']].forEach(function(c){
+      var list=cols[c[0]];
+      h+='<div class="kcol k-'+c[0]+'"><div class="khead"><span>'+c[1]+'</span><span class="kcount">'+list.length+'</span></div><div class="kcards">';
+      if(!list.length)h+='<p class="hint" style="padding:4px 2px">Nothing here.</p>';
+      var lastDay=null;
+      list.forEach(function(t){
+        if(t.d!==lastDay){h+='<div class="kday">'+long(relDate(t.d))+'</div>';lastDay=t.d;}
+        h+='<button type="button" class="tcard '+dayKey(t.d)+(nt&&t.id===nt.id?' is-next':'')+'" data-task="'+t.id+'" title="Tap to move: To do → In progress → Done">'+
+          '<span class="trow">'+icon(t.k)+'<span class="dchip '+dayKey(t.d)+'">'+short(relDate(t.d))+' · '+WORD[t.w]+'</span><span class="tdish">'+esc(DMAP[t.k].n)+'</span></span>'+
+          '<span class="ttext">'+esc(t.t)+'</span></button>';
+      });
+      h+='</div></div>';
+    });
+    document.getElementById('taskboard').innerHTML=h;
+    document.getElementById('progress-date').textContent=PROGRESS_DATE;
+  }
+  function cycleTask(id){var nx={todo:'doing',doing:'done',done:'todo'}[status(id)];state[id]=nx;save('tg26-state',state);sync(id);renderTaskBoard();}
+
   var PCOL={todo:{t:'To do',g:'road'},doing:{t:'In progress',g:'oven'},done:{t:'Prep done',g:'counter'}};
   function statusPill(slug){var p=PROGRESS[slug];if(!p)return '';var c=PCOL[p.s];return '<span class="spill g-'+c.g+'"><i class="dot"></i>'+esc(c.t)+'</span>';}
   function progressLine(slug){var p=PROGRESS[slug];if(!p)return '';
@@ -976,8 +1053,9 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     if(t==='gf*')return '<span class="pill gf" title="The wagyu is gluten-free; the jus has flour">GF*</span>';
     return '';}).join('');}
 
-  function isDone(id){return !!done[id];}
-  function setDone(id,v){if(v)done[id]=true;else delete done[id];save(KEY_DONE,done);sync(id);}
+  function status(id){return state[id]||(typeof SRC_STATE==='object'&&SRC_STATE[id])||'todo';}
+  function isDone(id){return status(id)==='done';}
+  function setDone(id,v){state[id]=v?'done':'todo';save('tg26-state',state);sync(id);if(document.getElementById('taskboard'))renderTaskBoard();}
   function sync(id){
     document.querySelectorAll('[data-id="'+id+'"]').forEach(function(el){
       if(el.tagName==='INPUT'){el.checked=isDone(id);var l=el.closest('.chk');if(l)l.classList.toggle('done',isDone(id));}
@@ -1202,10 +1280,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     return load(KEY_VIEW,'plan');
   }
 
-  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderShop();renderNights();renderDishes();renderProgress();}
+  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderShop();renderNights();renderDishes();renderTaskBoard();}
 
   document.addEventListener('change',function(e){var id=e.target&&e.target.getAttribute&&e.target.getAttribute('data-id');if(id&&e.target.tagName==='INPUT')setDone(id,e.target.checked);});
   document.addEventListener('click',function(e){
+    var tc=e.target.closest&&e.target.closest('.tcard');
+    if(tc){cycleTask(tc.getAttribute('data-task'));return;}
     var chip=e.target.closest&&e.target.closest('.chip');
     if(chip){var id=chip.getAttribute('data-id');setDone(id,!isDone(id));return;}
     var mom=e.target.closest&&e.target.closest('.mom');
