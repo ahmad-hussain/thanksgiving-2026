@@ -444,7 +444,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         </div>
         <div class="card night">
           <h3>Room temp</h3>
-          <ul><li>Fried onions, flaky salt, wasabi</li><li>Pomegranate seeds (stirred into the tart sauce on site)</li><li>Cocoa for dusting, candles</li></ul>
+          <ul><li>Fried shallots + fried garlic, flaky salt, wasabi</li><li>Pomegranate seeds (stirred into the tart sauce on site)</li><li>Cocoa for dusting, candles</li></ul>
         </div>
       </div>
       <div class="block">
@@ -566,7 +566,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'mash-make',k:'mash',d:-1,w:'late',t:'Cook, mash, sieve; into the 4-qt Cambro'},
     {id:'mash-reheat',k:'mash',d:0,w:'pm',t:'Reheat low in the 4-qt Dutch oven from 2:45'},
     {id:'gbc-build',k:'gbc',d:-1,w:'pm',t:'Braise half the frozen beans; mushroom base + flour + bean broth + cream; fill the 9×9, overflow into glass minis (no topping)'},
-    {id:'gbc-bake',k:'gbc',d:0,w:'pm',t:'Bake at 375°F from 3:00; onions on at 3:35'},
+    {id:'gbc-bake',k:'gbc',d:0,w:'pm',t:'Bake at 375°F from 3:00; fried shallots + garlic on at 3:37'},
     {id:'pack-ice',k:'pack',d:-3,w:'eve',t:'Freeze every ice pack (plus a few water bottles)'},
     {id:'pack-kit',k:'pack',d:-1,w:'late',t:'Pack the bring kit + pans; fridge overflow into cooler bags with ice'},
     {id:'pack-go',k:'pack',d:0,w:'am',t:'Load coolers 7:30, leave 8:30'}
@@ -599,7 +599,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['cw-gbc','3:00','Casserole and glass minis in, foil on (minis came out of the cooler at 2:30).'],
     ['cw-wout','3:20','Wagyu out of the fridge. Foil off the casserole.'],
     ['cw-carve','3:25','Carve both birds.'],
-    ['cw-onions','3:35','Fried onions on the casserole.'],
+    ['cw-onions','3:37','Fried shallots and garlic on the casserole for the last 2–3 minutes.'],
     ['cw-jus','3:40','Warm the jus. Casserole out. Pomegranate seeds into the tart sauce; loosen it with a splash of water if it has set.'],
     ['cw-plate','3:45','Mash into a serving dish; the soup serves from the cocotte.'],
     ['cw-wagyu','3:50','10" cast iron ripping hot. Wagyu in batches, 30–45 s a side, flaky salt.'],
@@ -635,7 +635,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['s-pom','Pomegranates (1 for the sauce, 1 spare)','2'],
       ['s-pomjuice','Pomegranate juice, e.g. POM (tart sauce)','¾ cup'],
       ['s-orange','Oranges (zest + ½ cup juice)','2'],
-      ['s-onions','Fried onions (casserole topping)','1 container'],
+      ['s-onions','Fried shallots + fried garlic, gluten-free (casserole topping; the fried onions have wheat)','bought'],
       ['s-mush','Cremini mushrooms (casserole). Keep them unwashed in their box','1 lb'],
       ['s-leeks','Leeks (soup)','2'],
       ['s-carrots','Carrots (soup, 1½ cups sliced)','3'],
@@ -670,8 +670,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['p-bsugar','Brown sugar: cake 1½ cups, mousse 45 g, soak 1 Tbsp','~1¾ cups (380 g)'],
       ['p-sugar','White sugar: tiramisu 160 g, tart sauce only if needed','~1 cup'],
       ['p-psugar','Powdered sugar (mousse)','90 g'],
-      ['p-flour','Flour: cake 1½ cups + casserole 65 g','~250 g'],
-      ['p-cornstarch','Mochiko (sweet rice flour), for the gravy','~55 g (6 Tbsp)'],
+      ['p-flour','Flour: cake 1½ cups','188 g'],
+      ['p-cornstarch','Mochiko (sweet rice flour): gravy ~55 g + casserole ~55 g','~110 g (12 Tbsp)'],
       ['p-miso','White or rice miso (not barley miso), for the gravy','1 tsp'],
       ['p-celerysalt','Celery salt (casserole). Target if Trader Joe\'s has none','1 tsp'],
       ['p-soda','Baking soda 1½ tsp + baking powder ½ tsp (cake)',''],
@@ -884,26 +884,26 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['Keeps 2–3 days. Reheats from cold in about 45 minutes on low.'],
      notes:['5 lb is about ½ lb a head. Lagerstrom says 10 lb feeds 12; Ragusea says 1 lb is 4 sides. Make 6 lb if you want leftovers.']},
 
-    {slug:'casserole',site:'finish',onsite:"Glass minis out at 2:30; bake 3:00–3:40; onions on at 3:35; rest until 4:00.",n:'Green bean casserole',tags:['v'],src:"Eric Kim's frozen-bean braise + Lagerstrom's mushroom sauce",yield:'9×9 pan + 2–3 glass minis, 10–12 sides',when:'Sun mushroom base · Thu build · Fri 3:00 bake',vessel:'Saucepan for the beans, 4-qt saucepan for the sauce, big bowl; 9×9 metal pan + oven-safe glass minis',
+    {slug:'casserole',site:'finish',onsite:"Glass minis out at 2:30; bake 3:00–3:40; shallots + garlic on at 3:37; rest until 4:00.",n:'Green bean casserole',tags:['v','gf'],src:"Eric Kim's frozen-bean braise + Lagerstrom's mushroom sauce",yield:'9×9 pan + 2–3 glass minis, 10–12 sides',when:'Sun mushroom base · Thu build · Fri 3:00 bake',vessel:'Saucepan for the beans, 4-qt saucepan for the sauce, big bowl; 9×9 metal pan + oven-safe glass minis',
      vids:[['Eric Kim: 13 green bean casseroles (final recipe at 14:00)','https://www.youtube.com/watch?v=lhqd47kHZsI&t=840s'],['Lagerstrom: green bean casserole (10:52)',YT_LAG+'&t=652s']],
      ing:[{h:'Beans + broth (Eric Kim)',items:[['Frozen cut or whole green beans (not French-cut), straight from the bag','907 g (2 lb)'],['Water','475 g (2 cups)'],['Vegetable Better Than Bouillon','12 g (2 tsp)'],['Celery salt','3 g (½ tsp)'],['Salt, black pepper','a pinch each']]},
-          {h:'Mushroom sauce (Lagerstrom; the base is made Sunday)',items:[['Butter','1 stick (115 g)'],['Leek, thinly sliced (the spare one)','~120 g (1 leek)'],['Onion, finely chopped (optional)','~75 g (½ onion)'],['Mushrooms, pulsed fine in a food processor','454 g (1 lb)'],['Garlic, minced','15–20 g (3–4 cloves)'],['Salt','~5 g (1 tsp); taste before adding more'],['Fresh thyme leaves, chopped','5 g (2 Tbsp)'],['Flour','65 g (½ cup)'],['The bean broth, topped up with water','395 g (1⅔ cups)'],['Heavy cream','125 g (½ cup)'],['Celery salt (Eric Kim)','3 g (½ tsp)'],['Nutmeg (Eric Kim)','~0.5 g (¼ tsp)'],['Parmesan, grated','50 g'],['Black pepper','3 g (1½ tsp)']]},
-          {h:'On site',items:[["Trader Joe's fried onions",'~120 g (2 cups)']]}],
+          {h:'Mushroom sauce (Lagerstrom; the base is made Sunday)',items:[['Butter','1 stick (115 g)'],['Leek, thinly sliced (the spare one)','~120 g (1 leek)'],['Onion, finely chopped (optional)','~75 g (½ onion)'],['Mushrooms, pulsed fine in a food processor','454 g (1 lb)'],['Garlic, minced','15–20 g (3–4 cloves)'],['Salt','~5 g (1 tsp); taste before adding more'],['Fresh thyme leaves, chopped','5 g (2 Tbsp)'],['Mochiko (sweet rice flour)','~55 g (about 6 Tbsp)'],['The bean broth, topped up with water','395 g (1⅔ cups)'],['Heavy cream','125 g (½ cup)'],['Celery salt (Eric Kim)','3 g (½ tsp)'],['Nutmeg (Eric Kim)','~0.5 g (¼ tsp)'],['Parmesan, grated','50 g'],['Black pepper','3 g (1½ tsp)']]},
+          {h:'On site',items:[['Fried shallots, gluten-free','~1½ cups'],['Fried garlic, gluten-free','~2 Tbsp']]}],
      steps:[['Sun','Mushroom base: melt the butter over medium. Sweat the leek (and onion, if using) with a pinch of salt for about 5 minutes, until soft. Add the pulsed mushrooms, garlic and salt and cook until their water has cooked off and they start to brown, 8–10 minutes. Stir in the thyme for a minute. Cool and freeze.'],
        ['Wed night','Move the mushroom base from the freezer to the fridge.'],
        ['Thu','Put half the beans (1 lb), still frozen, in a saucepan with the water, Better Than Bouillon, ½ tsp celery salt, and a pinch of salt and pepper. Lid on and bring to a boil; from frozen this takes a while. Simmer about 15 minutes, until very soft and sweet.'],
        ['Thu','Drain, saving the broth; it should be about 1½ cups. Top it up with water to 1⅔ cups. Tip the braised beans into a big bowl with the other 1 lb of beans, still frozen.'],
-       ['Thu','Warm the thawed mushroom base in the 4-qt saucepan over medium, then stir in the flour for a minute, scraping the bottom.'],
+       ['Thu','Warm the thawed mushroom base in the 4-qt saucepan over medium, then stir in the mochiko for a minute, scraping the bottom.'],
        ['Thu','Whisk in the bean broth, the cream, the other ½ tsp celery salt and the nutmeg. Simmer until it is about as thick as Alfredo sauce, a few minutes.'],
        ['Thu','Pour the sauce over the beans and fold in the Parmesan and pepper. The frozen half thaws in the hot sauce and keeps some bite; you end up with two textures, soft braised beans and just-cooked ones.'],
        ['Thu','Fill the 9×9 to just below the rim (about ⅔ of the batch) and divide the rest between the glass minis. Cool, cover. No topping yet.'],
        ['Fri 2:30','Glass minis out of the cooler to lose their chill. Glass can crack going straight from cold into a hot oven; the metal pan cannot.'],
        ['Fri 3:00','The 9×9 and the minis into the 375°F oven, foil on.'],
        ['Fri 3:20','Foil off. Check the minis: smaller dishes heat through faster.'],
-       ['Fri 3:35','Fried onions on everything; 5 more minutes.'],
+       ['Fri 3:37','Fried shallots and a little fried garlic on everything for the last 2–3 minutes. They are already fried and brown fast; you can also scatter them on straight out of the oven.'],
        ['Fri 3:40','Out to rest until 4:00. Eric Kim rests his 15 minutes so the sauce thickens.']],
      ahead:['The mushroom base is made Sunday and frozen. The assembled casserole keeps 2 days.'],
-     notes:["The bean broth is the trick from Eric Kim: braising frozen beans hard makes them sweet and gives a flavourful broth, which replaces plain stock in the sauce.","Celery salt is his stand-in for the flavour of canned cream of mushroom soup; here it sits on top of real mushrooms.","He doesn't give his cream amount on camera, so the sauce keeps Lagerstrom's ratios.","Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes; Kim bakes 10 minutes at 350°F. Baking from cold under foil is our adaptation.","The glass minis also hold the gluten-free tiramisu, so check you have enough for both.","Not gluten-free: there is flour in the sauce and in the fried onions."]},
+     notes:["The bean broth is the trick from Eric Kim: braising frozen beans hard makes them sweet and gives a flavourful broth, which replaces plain stock in the sauce.","Celery salt is his stand-in for the flavour of canned cream of mushroom soup; here it sits on top of real mushrooms.","He doesn't give his cream amount on camera, so the sauce keeps Lagerstrom's ratios.","Lagerstrom bakes his hot, with the shallots on, for 18–20 minutes; Kim bakes 10 minutes at 350°F. Baking from cold under foil is our adaptation.","The glass minis also hold the gluten-free tiramisu, so check you have enough for both.","Gluten-free: mochiko thickens the sauce and the topping is GF fried shallots and garlic. Check the Better Than Bouillon and topping labels for wheat.","Mochiko thickens a little more than wheat flour, so if the sauce turns pasty, loosen it with a splash of bean broth."]},
 
     {slug:'soup',site:'finish',onsite:"Reheat low from 2:45. No garnish.",n:'Butternut squash soup',tags:['v','gf'],src:"Chef John's roast and brown-butter sage, Keller's aromatics and strain",yield:'~3½ qt, 10 servings',when:'Sun make + freeze · Wed night thaw · Fri 2:45 reheat',vessel:'Half sheet + 7-qt Dutch oven → Souper Cubes blocks (frozen) → 4-qt Cambro → pumpkin cocotte',
      vids:[['Chef John: roasted butternut squash soup','https://www.youtube.com/watch?v=AlRqh21CfHI'],["Thomas Keller's butternut squash soup (Food52)",'https://www.youtube.com/watch?v=xIeIlWTorl8'],["Keller's written recipe (Food52)",'https://food52.com/recipes/32241-thomas-keller-s-butternut-soup-with-brown-butter-sage-and-nutmeg-creme-fraiche']],
@@ -1046,7 +1046,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['A5 wagyu with jus',['gf']],
     ['Cranberry, blueberry and pomegranate sauce',['v','gf']],
     ['Mashed potatoes',['v','gf']],
-    ['Green bean casserole',['v']],
+    ['Green bean casserole',['v','gf']],
     ['Butternut squash soup',['v','gf']],
     ['Pumpkin tiramisu (GF minis too)',['v']],
     ['Chocolate cake',['v']]
