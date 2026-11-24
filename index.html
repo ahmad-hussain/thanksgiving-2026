@@ -960,11 +960,11 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var RMAP={}; RECIPES.forEach(function(r){RMAP[r.slug]=r;});
 
   // Dish progress, updated by Claude as Ahmad reports back. s: todo | doing | done (home prep finished)
-  var PROGRESS_DATE='Mon, Nov 23';
+  var PROGRESS_DATE='Tue, Nov 24';
   var PROGRESS={
     chicken:{s:'todo',done:'',next:'Tue: buy 2 air-chilled birds. Thu 2 AM: spatchcock and salt.'},
     gravy:{s:'done',done:'Made Mon: 70 g butter, 60 g mochiko, ~1 L stock. Into the freezer.',next:'Wed night: thaw. Fri 2:40: reheat; 2:55: whisk in the drippings and fond.'},
-    wagyu:{s:'todo',done:'',next:'Tue: buy ~680 g A5 at Costco (closed Thanksgiving Day). Thu: cut while cold. Fri: sear from 3:50.'},
+    wagyu:{s:'doing',done:'Bought Tue (Costco); in the fridge, sealed.',next:'Thu: cut while cold. Fri: sear from 3:50.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
     mash:{s:'todo',done:'',next:'Ricer on the Amazon order. Thu night: make it.'},
@@ -977,7 +977,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var SRC_STATE={
     'shop-costco':'done','shop-tj':'done','shop-gear':'done',
     'cake-infuse':'done','sauce-cran':'done','sauce-jus':'done','soup-make':'done','gbc-mush':'done',
-    'sauce-gravy':'done',
+    'sauce-gravy':'done','shop-wagyu':'done',
     'shop-pan':'doing'
   };
   var ICON={
