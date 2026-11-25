@@ -278,7 +278,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button role="tab" id="tab-plan" data-view="plan">Prep plan</button>
       <button role="tab" id="tab-dayof" data-view="dayof">Day-of</button>
-      <button role="tab" id="tab-shop" data-view="shop">Shopping</button>
+      <button role="tab" id="tab-checklist" data-view="checklist">Checklist</button>
       <button role="tab" id="tab-dishes" data-view="dishes">Dishes</button>
       <button role="tab" id="tab-pack" data-view="pack">Fridge &amp; pack</button>
       <button role="tab" id="tab-host" data-view="host">For the host</button>
@@ -349,10 +349,10 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     </div>
   </section>
 
-  <!-- SHOPPING -->
-  <section class="view" id="v-shop" data-view="shop" hidden>
-    <p class="hint">Quantities are for 10, totalled across every dish. Tick things off as they go in the cart.</p>
-    <div class="grid2" id="shop-groups"></div>
+  <!-- CHECKLIST -->
+  <section class="view" id="v-checklist" data-view="checklist" hidden>
+    <p class="hint">Everything that goes to SF. Pack the first four groups on Thursday night; the cold food goes in at 7:30 on Friday. Raw chicken sits at the bottom of a cooler bag, with nothing ready-to-eat under it. Tick things as they go in.</p>
+    <div class="grid2" id="load-groups"></div>
   </section>
 
   <!-- DISHES -->
@@ -448,8 +448,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         </div>
       </div>
       <div class="block">
-        <h2>Bring kit</h2>
-        <div class="card"><ul class="checks" id="kit-list"></ul></div>
+        <h2>Packing</h2>
+        <div class="card"><p>Pans, tools and food for the car are all on the <a href="#checklist">Checklist</a> tab.</p></div>
       </div>
     </div>
   </section>
@@ -568,7 +568,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'gbc-build',k:'gbc',d:-2,w:'pm',t:'Braise half the frozen beans; mushroom base (from frozen) + mochiko + bean broth + cream; fill the 9×9 and glass minis, one marked GF (no topping)'},
     {id:'gbc-bake',k:'gbc',d:0,w:'pm',t:'Bake at 375°F from 3:00; toppings on at 3:37 (GF mini first)'},
     {id:'pack-ice',k:'pack',d:-3,w:'eve',t:'Freeze every ice pack (plus a few water bottles)'},
-    {id:'pack-kit',k:'pack',d:-1,w:'late',t:'Pack the bring kit + pans; fridge overflow into cooler bags with ice'},
+    {id:'pack-kit',k:'pack',d:-1,w:'late',t:'Pack the Thu-night groups on the Checklist tab (pans, tools, serving, pantry); fridge overflow into cooler bags with ice'},
     {id:'pack-go',k:'pack',d:0,w:'am',t:'Load coolers 7:30, leave 8:30'}
   ];
   var WAITS={
@@ -580,7 +580,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
   var MORNING=[
     ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (Cambro), gravy, jus, tart sauce, extra cream.'],
-    ['am-car','8:00','Cake on its springform base, covered, flat on a damp towel on the car floor; tiramisu beside it, ice packs tucked around both. Pans and bring kit in the trunk.'],
+    ['am-car','8:00','Cake on its springform base, covered, flat on a damp towel on the car floor; tiramisu beside it, ice packs tucked around both. Everything else on the Checklist tab goes in the trunk.'],
     ['am-leave','8:30','Leave San Jose.'],
     ['am-arrive','10:00','Arrive. Fridge shelf first: chickens, wagyu, cake, tiramisu, then whatever else fits. Spare ice packs into the freezer.'],
     ['am-setup','10:30','Set up: pans out, burners assigned, serving dishes picked, table set.'],
@@ -621,97 +621,66 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {n:'Table',g:'sauce',b:[[960,990,'Dinner']]}
   ];
 
-  var SHOP=[
-    {h:'Costco',when:'Bought Sat',items:[
-      ['s-cream','Heavy cream: mousse ~1.25 kg infused (the beans soak a lot up), plain for ganache 340, mash + reheat 275, casserole 125','~2 L of your 2 jugs'],
-      ['s-eggs','Eggs: 4 whole (cake) + yolks: mousse 9, tiramisu 8, GF minis 2','23'],
-      ['s-yukon','Yukon Gold potatoes','5 lb'],
-      ['s-coldbrew','Cold brew (cake batter)','2 cups + 2½ Tbsp (513 g)']
+  var LOAD=[
+    {h:'Pots and pans',when:'Thu night · trunk',items:[
+      ['lo-braiser','12" braiser','bird 1'],
+      ['lo-sheet','Half sheet + rack','bird 2'],
+      ['lo-castiron','10" cast iron','wagyu'],
+      ['lo-dutch','4-qt Dutch oven','mash'],
+      ['lo-sauce4','4-qt saucepan','gravy'],
+      ['lo-sauce15','1.5-qt saucepan','jus'],
+      ['lo-cocotte','Pumpkin cocotte, empty','soup']
     ]},
-    {h:"Trader Joe's",when:'Bought Sat',items:[
-      ['s-cran','Fresh cranberries','12 oz'],
-      ['s-squash','Butternut squash, whole. Keep it on the counter, not in the fridge','2 medium (~4½–5 lb)'],
-      ['s-beans','Frozen cut or whole green beans, not French-cut. Straight into the freezer','2 lb'],
-      ['s-pom','Pomegranates (1 for the sauce, 1 spare)','2'],
-      ['s-pomjuice','Pomegranate juice, e.g. POM (tart sauce)','¾ cup'],
-      ['s-orange','Oranges (zest + ½ cup juice)','2'],
-      ['s-onions',"Casserole toppings: Trader Joe's fried onions + fried jalapeños (main), GF fried shallots + garlic (GF mini)",'bought'],
-      ['s-mush','Cremini mushrooms (casserole). Keep them unwashed in their box','1 lb'],
-      ['s-leeks','Leeks (soup)','2'],
-      ['s-carrots','Carrots (soup, 1½ cups sliced)','3'],
-      ['s-thyme','Fresh thyme: sauce 1 sprig, soup 8 sprigs, casserole ~1½ Tbsp leaves','2 packs'],
-      ['s-sage','Fresh sage (soup, ~12 leaves)','1 pack'],
-      ['s-parsley','Flat-leaf parsley (soup bundle, 2 sprigs; optional)','1 small bunch'],
-      ['s-aromatics','Garlic (soup 8, casserole 3)','1 head']
+    {h:'Tools',when:'Thu night · trunk',items:[
+      ['lo-knives',"Chef's knife, paring knife, honing steel",''],
+      ['lo-boards','Two boards (one for raw chicken) + a carving board',''],
+      ['lo-utensils','Tongs ×2, fish spatula, whisk, ladle, silicone spatula',''],
+      ['lo-brush','Pastry brush','butter on the birds'],
+      ['lo-therm','Instant-read thermometer',''],
+      ['lo-drip','Small strainer + heatproof measuring cup','drippings'],
+      ['lo-cloth','Oven mitts, towels, paper towels',''],
+      ['lo-foil','Foil + plastic wrap','casserole, leftovers']
     ]},
-    {h:'Tuesday',when:'Costco + chickens',items:[
-      ['s-wagyu','A5 wagyu from Costco (you are buying it). Costco is closed on Thanksgiving Day','~680 g (1½ lb)'],
-      ['s-chix','Air-chilled chickens, about 4 lb each so both fit one half sheet; sell-by after dinner day','2']
+    {h:'Serving and leftovers',when:'Thu night · trunk',items:[
+      ['lo-spoons','Serving spoons',''],
+      ['lo-tartbowl','Small bowl','tart sauce'],
+      ['lo-gfplate','Small plate or tray','GF mini, on its own'],
+      ['lo-cakeplate','Cake board or plate','or serve on the springform base'],
+      ['lo-deli','Empty deli containers + zip bags','leftovers']
     ]},
-    {h:'Amazon',when:'Overnight',items:[
-      ['s-pan','9×9 metal baking pan, about 2" deep (replaces the worn one; the casserole goes in it cold, so metal, not glass)','1'],
-      ['s-ricer','Potato ricer: unpeeled potatoes go straight in and the skins stay behind','1'],
-      ['s-extras','If missing: kitchen twine, poultry shears, pastry brush, offset spatula, long serrated knife, 10" cake boards','']
+    {h:'Pantry and finishing',when:'Thu night · room temp',items:[
+      ['lo-onions','Fried onions + crispy jalapeños','casserole'],
+      ['lo-gfshallot','GF fried shallots + fried garlic','GF mini'],
+      ['lo-salt','Kosher salt, flaky salt, pepper mill',''],
+      ['lo-oil','Neutral oil','1 tsp, sear'],
+      ['lo-wasabi','Wasabi','wagyu'],
+      ['lo-vinegar','Rice vinegar','gravy, soup'],
+      ['lo-mochiko','Mochiko, a few spoonfuls','gravy, only if thin'],
+      ['lo-cocoa','Cocoa + small sieve','tiramisu'],
+      ['lo-candles','Birthday candles + lighter','']
     ]},
-    {h:'Target',when:'Bought Sat',items:[
-      ['s-cakebox','Cake cover, nothing to buy: a spare shipping box at least 11" square and 6" tall, or your biggest bowl upturned','have'],
-      ['s-bags','2-gallon zip bags (chickens)','1 box'],
-      ['s-candles','Birthday candles + a lighter','1 pack'],
-      ['s-target-gaps','Anything from Pantry check you are short on, and anything Trader Joe\'s was out of','']
+    {h:'Cooler bags',when:'Fri 7:30 · with ice',items:[
+      ['lo-chix','Chickens ×2, bagged flat, at the bottom','2-gal zip bags'],
+      ['lo-wagyu','A5 wagyu, cut (never under the chickens)','eighth sheet'],
+      ['lo-mash','Mash','4-qt Cambro'],
+      ['lo-soup','Soup, thawed','4-qt Cambro'],
+      ['lo-gbc','Green bean casserole','9×9, covered'],
+      ['lo-gbcmini','Casserole minis (GF one taped)','glass, lidded'],
+      ['lo-gravy','Gravy','2 quart delis'],
+      ['lo-jus','Wagyu jus','small deli'],
+      ['lo-tart','Tart sauce','deli quart'],
+      ['lo-pom','Pomegranate seeds','small container'],
+      ['lo-cream','Heavy cream','~100 g, mash'],
+      ['lo-butter','Butter','½ stick, birds + jus'],
+      ['lo-ice','Every ice pack, around the food',''],
+      ['lo-icebag','Bag of ice, on the way','noon top-up']
     ]},
-    {h:'Friday morning',when:'On the way',items:[
-      ['s-ice','Bag of ice for the cooler bags','1–2'],
-      ['s-wrap','Foil, plastic wrap, parchment, if low','']
-    ]},
-    {h:'Check you have enough',when:'Pantry',items:[
-      ['p-coffee','Coffee beans: tiramisu 180 g (incl. GF minis) + mousse cream ~150 g','~330 g'],
-      ['p-cocoa','Dutch cocoa: cake 1⅓ cups + dusting','~1½ cups (135 g)'],
-      ['p-mayo','Mayonnaise (cake)','⅔ cup'],
-      ['p-bsugar','Brown sugar: cake 2 cups, mousse 45 g, soak 1 Tbsp','~2¼ cups (485 g)'],
-      ['p-sugar','White sugar: tiramisu 160 g, tart sauce only if needed','~1 cup'],
-      ['p-psugar','Powdered sugar (mousse)','90 g'],
-      ['p-flour','Flour: cake 2 cups','251 g'],
-      ['p-cornstarch','Mochiko (sweet rice flour): gravy ~55 g + casserole ~55 g','~110 g (12 Tbsp)'],
-      ['p-miso','White or rice miso (not barley miso), for the gravy','1 tsp'],
-      ['p-celerysalt','Celery salt (casserole). Target if Trader Joe\'s has none','1 tsp'],
-      ['p-soda','Baking soda 2 tsp + baking powder ⅔ tsp (cake)',''],
-      ['p-espresso','Instant espresso powder (cake)','4 tsp'],
-      ['p-vanilla','Vanilla paste: cake 4 tsp + mousse 6 g','~1⅔ Tbsp'],
-      ['p-milk','Whole milk (cake soak)','10 oz'],
-            ['p-spice','Pumpkin spice (tiramisu 2 tsp), nutmeg + cayenne (soup), black pepper',''],
-      ['p-soup','Soup pantry: honey or maple 2–3 Tbsp, olive oil, 2 bay leaves, peppercorns',''],
-      ['p-salt','Kosher salt (chickens), flaky salt (wagyu)',''],
-      ['p-wasabi','Wasabi (wagyu)','1 tube']
-    ]},
-    {h:'Already have',when:'Confirmed',items:[
-      ['h-butter','Kerrygold butter: need ~838 g (cake 303, mash 268, casserole 115, soup 85, chicken 28, sauces 28, greasing ~10), so dip into the extra pack you bought','850 g'],
-      ['h-onion','Minced red onion, frozen: soup ~1½ cups, tart sauce ¼ cup (top up with a fresh onion if short)','~1¾ cups'],
-      ['h-choc','Callebaut callets: batter ~5⅓ oz (151 g), mousse 600 g, soak 2 oz, ganache 12 oz, sides ~300 g','~1.45 kg'],
-      ['h-masc','Mascarpone: 9×13 640 g + GF minis 160 g','800 g'],
-      ['h-lady','Ladyfingers + GF ladyfingers','32 + 8'],
-      ['h-vinegar','Vinegars: balsamic (tart sauce 1 Tbsp, jus 1–2 tsp) + rice vinegar (tart sauce 1 Tbsp, soup ~2 Tbsp)','have'],
-      ['h-btb','Vegetable Better Than Bouillon: soup 3 Tbsp + casserole 2 tsp','~3⅔ Tbsp'],
-      ['h-pumpkin','Pumpkin purée (freezer), before cooking down','~1¼ cups'],
-      ['h-parm','Parm (casserole), pecorino','~50 g'],
-      ['h-gravy','Chicken stock cubes (gravy)',''],
-      ['h-juices','Sous-vide beef juices + chicken stock cubes, for the jus (the cubes also make the 5-cup gravy base)','~100 g + 1 cup'],
-      ['h-syrup','Blueberry-maple syrup (tart sauce)','~½ cup']
+    {h:'Car floor',when:'Fri 8:00 · flat',items:[
+      ['lo-cake','Chocolate cake','springform base, covered'],
+      ['lo-tira','Pumpkin tiramisu','9×13, covered'],
+      ['lo-tiramini','GF tiramisu minis','glass, lidded'],
+      ['lo-towel','Damp towel under them, ice packs around','']
     ]}
-  ];
-
-  var KIT=[
-    ['k-knives','Chef\'s knife, paring knife, honing steel'],
-    ['k-boards','Two boards (one for raw chicken) + a carving board'],
-    ['k-tools','Tongs ×2, fish spatula, whisk, ladle, silicone spatula'],
-    ['k-therm','Instant-read thermometer'],
-    ['k-strain','Small strainer for the drippings'],
-    ['k-cloth','Oven mitts, towels, paper towels'],
-    ['k-pans','Braiser, half sheet + rack, 10" cast iron, 4-qt Dutch oven, 4-qt saucepan (gravy), 1.5-qt saucepan (jus), pumpkin cocotte (empty, for the soup)'],
-    ['k-salt','Kosher salt, flaky salt, pepper mill'],
-    ['k-dust','Cocoa + a small sieve for dusting'],
-    ['k-candles','Birthday candles + lighter'],
-    ['k-serve','Serving spoons'],
-    ['k-left','Empty deli containers for leftovers']
   ];
 
   // Fridge map, from Ahmad's side-by-side (fresh-food side ~18" wide). Items: [category, text, isNew]
@@ -967,18 +936,18 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     wagyu:{s:'doing',done:'Bought Tue (Costco); in the fridge, sealed.',next:'Thu: cut while cold. Fri: sear from 3:50.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
-    mash:{s:'todo',done:'',next:'Ricer on the Amazon order. Thu night: make it.'},
+    mash:{s:'todo',done:'',next:'Ricer ordered. Thu night: make it.'},
     casserole:{s:'doing',done:'Mushroom base made and frozen (Sun).',next:'New 9×9 pan arriving (Amazon). Wed: braise the beans, warm the base from frozen, make the sauce, fill.'},
     soup:{s:'done',done:'Made (Sun).',next:'Mon: freeze in Souper Cubes. Wed night: thaw.'},
     tiramisu:{s:'todo',done:'',next:'Tue: thaw the pumpkin. Wed: cook it down. Thu AM: build.'},
-    cake:{s:'doing',done:'Coffee cream made (Sun). Batter mixed Tue (4 eggs), resting in the fridge.',next:'Wed: bake, soak, mousse batch 1, stack; evening: outer mousse. Thu AM: ganache.'}
+    cake:{s:'doing',done:'Coffee cream made (Sun) and strained. Batter mixed Tue (4 eggs), resting in the fridge.',next:'Wed: bake, soak, mousse batch 1, stack; evening: outer mousse. Thu AM: ganache.'}
   };
   // Task board. SRC_STATE is set by Claude as Ahmad reports progress; taps on a card override it in this browser.
   var SRC_STATE={
     'shop-costco':'done','shop-tj':'done','shop-gear':'done',
     'cake-infuse':'done','sauce-cran':'done','sauce-jus':'done','soup-make':'done','gbc-mush':'done',
     'sauce-gravy':'done','shop-wagyu':'done','shop-chix':'done','cake-batter':'done',
-    'shop-pan':'doing'
+    'shop-pan':'done','cake-strain':'done'
   };
   var ICON={
     shop:'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 11h11L21 7H6.5"/>',
@@ -1171,20 +1140,19 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     list(MORNING,'morning-list','m');
     list(COOK,'cook-list','c');
     list(AFTER,'after-list','a');
-    var k='';KIT.forEach(function(x){k+=checkItem('k',x[0],'',x[1]);});document.getElementById('kit-list').innerHTML=k;
   }
 
-  function renderShop(){
+  function renderLoad(){
     var h='';
-    SHOP.forEach(function(g){
+    LOAD.forEach(function(g){
       h+='<div class="card"><div class="storeh"><h3>'+esc(g.h)+'</h3><span class="eyebrow">'+esc(g.when)+'</span></div><ul class="checks">';
       g.items.forEach(function(it){
         var dn=isDone(it[0]);
-        h+='<li><label class="chk'+(dn?' done':'')+'" style="grid-template-columns:22px 1fr auto"><input type="checkbox" id="s-'+it[0]+'" data-id="'+it[0]+'"'+(dn?' checked':'')+'><span class="txt">'+esc(it[1])+'</span><span class="qty">'+esc(it[2])+'</span></label></li>';
+        h+='<li><label class="chk'+(dn?' done':'')+'" style="grid-template-columns:22px 1fr auto"><input type="checkbox" id="l-'+it[0]+'" data-id="'+it[0]+'"'+(dn?' checked':'')+'><span class="txt">'+esc(it[1])+'</span><span class="qty">'+esc(it[2])+'</span></label></li>';
       });
       h+='</ul></div>';
     });
-    document.getElementById('shop-groups').innerHTML=h;
+    document.getElementById('load-groups').innerHTML=h;
   }
 
   var fridgeSel=load('tg26-fridge',null);
@@ -1269,7 +1237,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     document.title=r.n+' · Thanksgiving Run Sheet';
   }
 
-  var VIEWS=['plan','dayof','shop','dishes','pack','host'];
+  var VIEWS=['plan','dayof','checklist','dishes','pack','host'];
   function show(v){
     var recipe=typeof v==='string'&&v.indexOf('dish-')===0&&RMAP[v.slice(5)];
     if(!recipe&&VIEWS.indexOf(v)<0)v='plan';
@@ -1285,7 +1253,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     return load(KEY_VIEW,'plan');
   }
 
-  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderShop();renderNights();renderDishes();renderTaskBoard();}
+  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderLoad();renderNights();renderDishes();renderTaskBoard();}
 
   document.addEventListener('change',function(e){var id=e.target&&e.target.getAttribute&&e.target.getAttribute('data-id');if(id&&e.target.tagName==='INPUT')setDone(id,e.target.checked);});
   document.addEventListener('click',function(e){
