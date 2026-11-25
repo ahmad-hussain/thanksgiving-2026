@@ -331,7 +331,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
     <div class="block">
       <div class="dayhead"><h2>Task board</h2><span class="eyebrow">Updated <span id="progress-date"></span></span></div>
-      <p class="hint">Tap a card to move it along: To do, In progress, Done. Colours show the day; the outlined card is your next task. Taps save in this browser; tell Claude and the cards move for everyone.</p>
+      <p class="hint">Tap a card to move it along: To do, In progress, Done. Colours show the day; the outlined card is your next task. Taps save in this browser until Claude's next update, which moves the cards for everyone.</p>
       <div class="card nextup" id="nextup"></div>
       <div class="dlegend" id="day-legend"></div>
       <div class="kanban" id="taskboard"></div>
@@ -977,8 +977,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     wagyu:{s:'doing',done:'Bought Tue (Costco); in the fridge, sealed.',next:'Thu: cut while cold. Fri: sear from 3:50.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
-    mash:{s:'todo',done:'',next:'Ricer ordered. Thu night: make it.'},
-    casserole:{s:'doing',done:'Mushroom base made and frozen (Sun).',next:'New 9×9 pan arriving (Amazon). Wed: braise the beans, warm the base from frozen, make the sauce, fill.'},
+    mash:{s:'todo',done:'',next:'Thu night: make it.'},
+    casserole:{s:'doing',done:'Mushroom base made and frozen (Sun).',next:'Wed: braise the beans, warm the base from frozen, make the sauce, fill the 9×9 and the minis.'},
     soup:{s:'done',done:'Made (Sun).',next:'Mon: freeze in Souper Cubes. Wed night: thaw.'},
     tiramisu:{s:'todo',done:'',next:'Tue: thaw the pumpkin. Wed: cook it down. Thu AM: build.'},
     cake:{s:'doing',done:'Coffee cream made (Sun) and strained. Batter mixed Tue (4 eggs). Springform layer baked Tue night (pulled at 204°F, ~1 inch): staying whole, so 3 layers.',next:'Wed: bake the sheet, soak, mousse batch 1, stack; evening: outer mousse. Thu AM: ganache.'}
@@ -990,6 +990,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     'sauce-gravy':'done','shop-wagyu':'done','shop-chix':'done','cake-batter':'done',
     'shop-pan':'done','cake-strain':'done','cake-bake':'doing'
   };
+  // Statuses Claude publishes replace this browser's earlier taps on the same tasks.
+  (function(){var cur=JSON.stringify(SRC_STATE);if(load('tg26-srcver',null)!==cur){Object.keys(SRC_STATE).forEach(function(id){delete state[id];});save('tg26-state',state);save('tg26-srcver',cur);}})();
   var ICON={
     shop:'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 11h11L21 7H6.5"/>',
     cake:'<path d="M4 21h16v-8H4z"/><path d="M4 16c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 4 0"/><path d="M12 13V9"/><path d="M12 6.5c.8-.8.8-1.7 0-2.5-.8.8-.8 1.7 0 2.5z"/>',
