@@ -970,7 +970,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var RMAP={}; RECIPES.forEach(function(r){RMAP[r.slug]=r;});
 
   // Dish progress, updated by Claude as Ahmad reports back. s: todo | doing | done (home prep finished)
-  var PROGRESS_DATE='Wed, Nov 25';
+  var PROGRESS_DATE='Thu, Nov 26';
   var PROGRESS={
     chicken:{s:'doing',done:'Bought Tue (air-chilled); in the lower crisper.',next:'Thu 2 AM: spatchcock and salt. Thu ~11 PM: bag flat.'},
     gravy:{s:'done',done:'Made Mon: 70 g butter, 60 g mochiko, ~1 L stock. Into the freezer.',next:'Wed night: thaw. Fri 2:40: reheat; 2:55: whisk in the drippings and fond.'},
@@ -978,17 +978,17 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
     'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
     mash:{s:'todo',done:'',next:'Thu night: make it.'},
-    casserole:{s:'doing',done:'Mushroom base made and frozen (Sun).',next:'Wed: braise the beans, warm the base from frozen, make the sauce, fill the 9×9 and the minis.'},
+    casserole:{s:'done',done:'Built Wed: the 9×9, plus one glass container as the GF one; covered in the fridge.',next:'Fri 2:30: glass out of the cooler; 3:00: into the 375°F oven, foil on; 3:37: toppings (GF one first).'},
     soup:{s:'done',done:'Made (Sun).',next:'Mon: freeze in Souper Cubes. Wed night: thaw.'},
     tiramisu:{s:'todo',done:'',next:'Wed: pour off any water from the thawed pumpkin. Thu AM: build.'},
-    cake:{s:'doing',done:'Coffee cream made (Sun) and strained. Batter mixed Tue (4 eggs). Springform layer baked Tue night (pulled at 204°F, ~1 inch): staying whole, so 3 layers.',next:'Wed: bake the sheet, soak, mousse batch 1, stack; evening: outer mousse. Thu AM: ganache.'}
+    cake:{s:'doing',done:'Batter Tue (4 eggs); springform layer baked Tue night; sheet baked and all three layers stacked with mousse batch 1 (Wed).',next:'Outer mousse (batch 2) once the inside sets. Thu: ganache + callets.'}
   };
   // Task board. SRC_STATE is set by Claude as Ahmad reports progress; taps on a card override it in this browser.
   var SRC_STATE={
     'shop-costco':'done','shop-tj':'done','shop-gear':'done',
     'cake-infuse':'done','sauce-cran':'done','sauce-jus':'done','soup-make':'done','gbc-mush':'done',
     'sauce-gravy':'done','shop-wagyu':'done','shop-chix':'done','cake-batter':'done',
-    'shop-pan':'done','cake-strain':'done','cake-bake':'doing'
+    'shop-pan':'done','cake-strain':'done','cake-bake':'done','gbc-build':'done'
   };
   // Statuses Claude publishes replace this browser's earlier taps on the same tasks.
   (function(){var cur=JSON.stringify(SRC_STATE);if(load('tg26-srcver',null)!==cur){Object.keys(SRC_STATE).forEach(function(id){delete state[id];});save('tg26-state',state);save('tg26-srcver',cur);}})();
