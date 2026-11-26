@@ -392,7 +392,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   <!-- DISHES -->
   <section class="view" id="v-dishes" data-view="dishes" hidden>
     <p class="hint">Tap a dish for the full recipe, with links to the videos it comes from.</p>
-    <div class="legend"><span><i class="pill v">V</i> vegetarian</span><span><i class="pill gf">GF</i> gluten-free</span></div>
+    <div class="legend"><span><i class="pill v">V</i> vegetarian</span><span><i class="pill gf">GF</i> gluten-free</span><span><i class="pill gf">GF*</i> a separate gluten-free version too</span></div>
     <div class="dishgroups" id="dish-cards"></div>
 
     <div class="block" style="margin-top:28px">
@@ -939,7 +939,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['Freezes well because there is no cream: made Sunday, frozen, then thawed in the fridge from Wednesday night. Food52 notes Keller\'s version gets sweeter after a day.'],
      notes:['Your frozen minced red onion replaces both the roasted onion (Chef John) and the shallots (Keller). It goes in the pot, not on the roasting tray, where small wet pieces would steam or burn. It can make the soup a shade less bright orange.','No dairy beyond the butter: Keller\'s crème fraîche and Chef John\'s crème fraîche and chives were garnishes, and both are dropped.','Vegetarian and gluten-free with Vegetable Better Than Bouillon.']},
 
-    {slug:'tiramisu',site:'ahead',onsite:"Nothing: dusted at home before loading.",n:'Pumpkin tiramisu',tags:['v'],src:"Hoffmann's calculator: the 40-ladyfinger cream spread over 42, with 85% of the coffee",yield:'9×13 (2 layers of 15) + GF minis (2 layers of 6)',when:'Thu AM build · Fri 7:15 AM dust',vessel:'9×13 ceramic + glass minis',
+    {slug:'tiramisu',site:'ahead',onsite:"Nothing: dusted at home before loading.",n:'Pumpkin tiramisu',tags:['v','gf*'],src:"Hoffmann's calculator: the 40-ladyfinger cream spread over 42, with 85% of the coffee",yield:'9×13 (2 layers of 15) + GF minis (2 layers of 6)',when:'Thu AM build · Fri 7:15 AM dust',vessel:'9×13 ceramic + glass minis',
      vids:[['Hoffmann: the ultimate tiramisu','https://www.youtube.com/watch?v=o3AMALUTp8o'],["Hoffmann's tiramisu calculator",'https://www.jameshoffmann.co.uk/tiramisu-calculator']],
      ing:[{h:'One batch, 42 ladyfingers',items:[['Savoiardi (ladyfingers)','30 (~240 g at 8 g each)'],['Gluten-free ladyfingers','12'],['Ground coffee, OXO Rapid Brewer at your usual strength','~161 g'],['Finished coffee liquid','536 g (12.75 g per ladyfinger)'],['Saline (5 g salt in 20 g boiling water)','10 drops'],['Egg yolks','10 (~180 g)'],['Sugar','160 g'],['Mascarpone','800 g'],['Canned pumpkin purée, thawed (my addition)','~250 g'],['Pumpkin spice (my addition)','~5 g (2 tsp)'],['Cocoa powder','to finish']]},
           {h:'How it splits',items:[['9×13: coffee per layer','191 g'],['GF minis: coffee per layer','77 g'],['9×13: cream per layer','~500 g (5/7 of the batch in all)'],['GF minis: cream per layer','~200 g (2/7 in all)'],['Per ladyfinger, to rescale','12.75 g coffee, ¼ yolk, 4 g sugar, 20 g mascarpone']]}],
@@ -1145,7 +1145,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['Mashed potatoes',['v','gf']],
     ['Green bean casserole (one GF mini)',['v','gf*']],
     ['Butternut squash soup',['v','gf']],
-    ['Pumpkin tiramisu (GF minis too)',['v']],
+    ['Pumpkin tiramisu (GF minis too)',['v','gf*']],
     ['Chocolate cake',['v']],
     ['Coffee and vanilla bean mousse, a small jar for the gluten-free guest',['v','gf']]
   ];
@@ -1153,7 +1153,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   function pills(tags){return tags.map(function(t){
     if(t==='v')return '<span class="pill v">V</span>';
     if(t==='gf')return '<span class="pill gf">GF</span>';
-    if(t==='gf*')return '<span class="pill gf" title="Gluten-free version: one mini casserole has a GF topping">GF*</span>';
+    if(t==='gf*')return '<span class="pill gf" title="A separate gluten-free version is made too">GF*</span>';
     return '';}).join('');}
 
   function status(id){return state[id]||(typeof SRC_STATE==='object'&&SRC_STATE[id])||'todo';}
