@@ -484,7 +484,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         </div>
         <div class="card night">
           <h3>Room temp</h3>
-          <ul><li>Fried onions + jalapeños, GF fried shallots + garlic, flaky salt, wasabi</li><li>Pomegranate seeds (stirred into the tart sauce on site)</li><li>Cocoa for dusting, candles</li></ul>
+          <ul><li>Fried onions + jalapeños, GF fried shallots + garlic, flaky salt, wasabi</li><li>Pomegranate seeds (stirred into the tart sauce on site)</li><li>Candles</li></ul>
         </div>
       </div>
       <div class="block">
@@ -588,14 +588,14 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'tira-pumpkin',k:'tira',d:-2,w:'eve',t:'Stir the thawed pumpkin and pour off any water that separated; keep it cold (no cooking)'},
     {id:'tira-coffee',k:'tira',d:-1,w:'am',t:'Brew 600 g coffee (10 doubles) and cool; yolks + sugar over a bain-marie to 160°F (71°C), then cool'},
     {id:'tira-build',k:'tira',d:-1,w:'am',t:'Build the 9×13 (32) + gluten-free minis (8); fridge 24 h+'},
-    {id:'tira-serve',k:'tira',d:0,w:'pm',t:'Dust with cocoa just before serving'},
+    {id:'tira-serve',k:'tira',d:0,w:'am',t:'7:15, at home: dust the 9×13 and GF minis with cocoa; tent the covers'},
     {id:'chix-brine',k:'chix',d:-1,w:'early',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; both on the half sheet rack, bottom shelf'},
-    {id:'chix-bag',k:'chix',d:-1,w:'late',t:'~11 PM: bag each bird flat into the lower crisper, then the mash takes the bottom shelf'},
+    {id:'chix-bag',k:'chix',d:0,w:'early',t:'~1 AM: bag each bird flat into the lower crisper; the bottom shelf is then free for the mash'},
     {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: braiser + half sheet (see Day-of)'},
-    {id:'wagyu-cut',k:'wagyu',d:-1,w:'pm',t:'Cut cold into bite-size pieces; wrap on an eighth sheet'},
+    {id:'wagyu-cut',k:'wagyu',d:0,w:'early',t:'While the potatoes cook: cut cold into bite-size pieces; wrap on an eighth sheet'},
     {id:'wagyu-sear',k:'wagyu',d:0,w:'pm',t:'Sear in batches from 3:50'},
     {id:'sauce-cran',k:'sauce',d:-5,w:'pm',t:'Tart sauce: cranberry, blueberry-maple, pomegranate juice; blend and strain'},
-    {id:'sauce-pom',k:'sauce',d:-1,w:'pm',t:'Seed the pomegranate into a small container'},
+    {id:'sauce-pom',k:'sauce',d:0,w:'early',t:'While the potatoes cook: seed the pomegranate into a small container'},
     {id:'sauce-jus',k:'sauce',d:-5,w:'pm',t:'Wagyu jus: boil, strain, reduce, balsamic; freeze'},
     {id:'sauce-finish',k:'sauce',d:0,w:'pm',t:'Gravy: reheat from 2:40, then drippings and fond; warm the jus; seeds into the tart sauce'},
     {id:'soup-make',k:'soup',d:-5,w:'day',t:'Roast squash + veg; sweat leeks; brown-butter sage; simmer, blend, strain; cool fast and refrigerate'},
@@ -604,12 +604,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'gbc-mush',k:'gbc',d:-5,w:'pm',t:'Mushroom base: pulse, cook down with butter, garlic, salt, thyme; freeze'},
     {id:'sauce-gravy',k:'sauce',d:-4,w:'pm',t:'Gravy (5 Tbsp butter, 5 cups stock): mochiko roux, miso, Dijon; freeze in 2 quart delis'},
     {id:'soup-reheat',k:'soup',d:0,w:'pm',t:'Reheat in the pumpkin pot from 2:45'},
-    {id:'mash-make',k:'mash',d:-1,w:'late',t:'Cook, mash, sieve; into the 4-qt Cambro'},
+    {id:'mash-make',k:'mash',d:0,w:'early',t:'Cook, rice, butter, cream; cool fast in shallow containers on the bottom shelf, then into the 4-qt Cambro by 7:30'},
     {id:'mash-reheat',k:'mash',d:0,w:'pm',t:'Reheat low in the 4-qt Dutch oven from 2:45'},
     {id:'gbc-build',k:'gbc',d:-2,w:'pm',t:'Braise half the frozen beans; mushroom base (from frozen) + mochiko + bean broth + cream; fill the 9×9 and glass minis, one marked GF (no topping)'},
     {id:'gbc-bake',k:'gbc',d:0,w:'pm',t:'Bake at 375°F from 3:00; toppings on at 3:37 (GF mini first)'},
     {id:'pack-ice',k:'pack',d:-3,w:'eve',t:'Freeze every ice pack (plus a few water bottles)'},
-    {id:'pack-kit',k:'pack',d:-1,w:'late',t:'Pack the Thu-night groups on the Checklist tab (pans, tools, serving, pantry); fridge overflow into cooler bags with ice'},
+    {id:'pack-kit',k:'pack',d:0,w:'early',t:'Pack the trunk groups on the Checklist tab (pans, tools, serving, pantry)'},
     {id:'pack-go',k:'pack',d:0,w:'am',t:'Load coolers 7:30, leave 8:30'}
   ];
   var WAITS={
@@ -620,6 +620,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   };
 
   var MORNING=[
+    ['am-dust','7:15','Dust the tiramisu and GF minis with cocoa; tent the covers.'],
     ['am-load','7:30','Cooler bags with plenty of ice: chickens, wagyu, mash, casserole, soup (Cambro), gravy, jus, tart sauce, extra cream.'],
     ['am-car','8:00','Cake on its springform base, covered, flat on a damp towel on the car floor; tiramisu beside it, ice packs tucked around both. Everything else on the Checklist tab goes in the trunk.'],
     ['am-leave','8:30','Leave San Jose.'],
@@ -648,7 +649,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   ];
   var AFTER=[
     ['pm-cake','4:45','Cake out of the fridge.'],
-    ['pm-dessert','5:15','Dust the tiramisu with cocoa. Candles on the cake.'],
+    ['pm-dessert','5:15','Tiramisu out. Candles on the cake.'],
     ['pm-left','Later','Leftovers into deli containers; pans soak.']
   ];
   var T0=780, T1=990;
@@ -697,7 +698,6 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['lo-wasabi','Wasabi','wagyu'],
       ['lo-vinegar','Rice vinegar','gravy, soup'],
       ['lo-mochiko','Mochiko, a few spoonfuls','gravy, only if thin'],
-      ['lo-cocoa','Cocoa + small sieve','tiramisu'],
       ['lo-candles','Birthday candles + lighter','']
     ]},
     {h:'Cooler bags',when:'Fri 7:30 · with ice',items:[
@@ -795,8 +795,8 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         c2:[],
         door:[['c','Heavy cream (moved here)',1],['y','Kimchi, milk, syrups, mayo, Better Than Bouillon']],
         freezer:[['c','Ice packs']]}},
-    {k:'wednight',d:-1,label:'Thu night',title:'Thursday night: bagged, built, packed',
-     note:"The casserole has been on shelf 3 since 2 AM and the cream is in the door. Bag the birds around 11 PM (about 21 hours uncovered) and lay them flat in the emptied lower crisper; the mash then takes the bottom shelf. If the bagged birds don't fit the crisper, keep them on the bottom shelf on a quarter sheet with the mash beside them.",
+    {k:'wednight',d:-1,label:'Fri 1 AM',title:'Friday, 1–7 AM: bagged, mashed, packed',
+     note:"Bag the birds around 1 AM (about 24 hours uncovered) and lay them flat in the emptied lower crisper. The mash cools on the bottom shelf in shallow containers, then goes into its Cambro there. If the bagged birds don't fit the crisper, keep them on the bottom shelf on a quarter sheet beside the mash.",
      z:{top:[['d','Cake, finished and covered'],['d','GF minis'],['m','Casserole minis (one marked GF)'],['y','Eggs']],
         s2:[['d','Tiramisu 9×13'],['s','Gravy, jus, tart sauce, pomegranate seeds']],
         s3:[['m','Soup, 4-qt Cambro'],['m','Casserole, 9×9']],
@@ -826,13 +826,13 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      steps:[['Thu 2 AM','Spatchcock each bird: cut out the backbone with shears (freeze it for stock), flip it, and press down to crack the breastbone so the breast sits level with the legs.'],
        ['Thu 2 AM','Tie the ends of the legs together. Loosen the skin over the breasts and legs with your fingers, and poke the fat deposits on the breast with a skewer.'],
        ['Thu 2 AM','Weigh each bird and salt at 3 g per lb, under and over the skin. Set both head to tail, uncovered, on a rack over the half sheet on the bottom shelf. If both do not fit, bird 2 goes on the jelly roll pan on shelf 3.'],
-       ['Thu ~11 PM','Slide each bird flat into a 2-gallon bag and lay them in the emptied lower crisper.'],
+       ['Fri ~1 AM','Slide each bird flat into a 2-gallon bag and lay them in the emptied lower crisper.'],
        ['Fri 1:00','Out of the bags; pat dry; brush with melted butter. Bird 1 into the braiser, bird 2 onto the half sheet with a rack.'],
        ['Fri 1:30','Oven to 400°F.'],
        ['Fri 1:55','Bird 2 into the oven; the head start stands in for the sear. Heat the braiser with 1 tsp oil over high until it smokes, then put bird 1 in skin side up so the pan heat hits the legs first.'],
        ['Fri 2:05','Braiser into the oven.'],
        ['Fri ~2:50','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board for at least 15 minutes; it climbs the rest of the way. Save every drop of drippings for the gravy.']],
-     ahead:['ATK salts for at least 12 and ideally 24 hours. Salting at 2 AM Thursday gives about 36 hours before roasting and about 21 hours uncovered before bagging; stick to the 3 g per lb rate.'],
+     ahead:['ATK salts for at least 12 and ideally 24 hours. Salted around 1 AM Thursday: about 36 hours before roasting, and about 24 hours uncovered before bagging at 1 AM Friday.'],
      notes:['The sear jump-starts the legs, which need more heat than the breast (ATK). Bird 2 has no pan, so it goes in first.','Thighs should read about 170°F. That number is mine, not ATK\'s.','If the host has a 12" skillet, sear both birds.']},
 
     {slug:'gravy',site:'finish',onsite:"Reheat from 2:40; drippings and fond 2:55–3:05.",n:'Gravy',tags:['gf'],src:'Mochiko roux base made ahead and frozen; finished on site with the drippings',yield:'~1¼ quarts (about 5 cups with the drippings)',when:'Mon make + freeze · Wed night thaw · Fri 2:40 finish',vessel:'4-qt saucepan → 2 quart delis (frozen) → 4-qt saucepan',
@@ -849,10 +849,10 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Fri 3:05','Adjust: thin with water, or simmer it down; whisk in the mochiko slurry only if it is still thin. Taste before salting: the birds took 4 g of salt per lb, so the drippings run saltier. Salt last, and a splash of rice vinegar if it needs lifting. Keep warm on low.']],
      ahead:['Mochiko gravy freezes and reheats cleanly; cornstarch gravy tends to thin out, which is why it moved from on-site to make-ahead.'],
      notes:['Made Monday with 60 g mochiko to about 1 L of liquid, so it is on the thick side. That is what you want: the drippings and fond thin it on Friday.','Gluten-free as long as the stock cubes are just stock and the miso is rice or soy miso.','The miso and Dijon are the extras people swear by: savoury depth and a little tang under the drippings.']},
-    {slug:'wagyu',site:'onsite',onsite:"Sear in batches from 3:50. Cut on Thursday.",n:'A5 wagyu',tags:['gf'],src:'A5 from Costco (you are buying it)',yield:'~2½ oz each for 10',when:'Thu cut · Fri 3:50 sear',vessel:'10" cast iron',
+    {slug:'wagyu',site:'onsite',onsite:"Sear in batches from 3:50. Cut early Friday morning.",n:'A5 wagyu',tags:['gf'],src:'A5 from Costco (you are buying it)',yield:'~2½ oz each for 10',when:'Fri 1 AM cut · 3:50 PM sear',vessel:'10" cast iron',
      vids:[],
      ing:[{h:'',items:[['A5 wagyu','~680 g (1½ lb)'],['Flaky salt','to serve'],['Wasabi','to serve'],['Wagyu jus and tart sauce','to serve']]}],
-     steps:[['Thu',"Cut the wagyu into ¾–1\" pieces while it's fridge-cold. Wrap on an eighth sheet."],
+     steps:[['Fri ~1 AM',"Cut the wagyu into ¾–1\" pieces while it's fridge-cold. Wrap on an eighth sheet."],
        ['Fri 3:20','Out of the fridge so the fat softens.'],
        ['Fri 3:50','Heat the dry cast iron until ripping hot. No oil: A5 renders its own.'],
        ['Fri 3:50','Sear in small batches, 30–45 seconds a side. Pour off fat if it pools. Salt and serve straight off the pan.']],
@@ -880,17 +880,17 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Fri 3:40','It sets as it cools: loosen with a splash of water, serve warm or at room temperature, and stir in the pomegranate seeds.']],
      ahead:['Keeps a week.'],notes:[]},
 
-    {slug:'mash',site:'finish',onsite:"Reheat low from 2:45.",n:'Mashed potatoes',tags:['v','gf'],src:"Ragusea's method, Lagerstrom's ratios (halved)",yield:'~3 qt, 10 sides',when:'Thu late · Fri 2:45 reheat',vessel:'Potato ricer (+ fine sieve, optional); 4-qt Cambro → 4-qt Dutch oven',
+    {slug:'mash',site:'finish',onsite:"Reheat low from 2:45.",n:'Mashed potatoes',tags:['v','gf'],src:"Ragusea's method, Lagerstrom's ratios (halved)",yield:'~3 qt, 10 sides',when:'Fri 1 AM · 2:45 PM reheat',vessel:'Potato ricer (+ fine sieve, optional); 4-qt Cambro → 4-qt Dutch oven',
      vids:[['Ragusea: my best mashed potatoes','https://www.youtube.com/watch?v=kXIRe-EIQHQ'],['Lagerstrom: potato purée (0:32)',YT_LAG+'&t=32s']],
      ing:[{h:'',items:[['Yukon Gold potatoes, unpeeled, cut evenly','2.27 kg (5 lb)'],['Salt for the water','~10 g (1 Tbsp kosher)'],['Butter, melted','2 sticks (230 g)'],['Heavy cream, warm','175 g (¾ cup)'],['Salt','8–10 g'],['Butter, melted, to finish','⅓ stick (35 g)'],['Cream for reheating (Friday)','~100 g']]}],
-     steps:[['Thu','Potatoes into a big pot, cold water to just cover, salt the water.'],
-       ['Thu',"Bring it up slowly to a bare simmer, not a boil, and hold it there 20–30 minutes until the potatoes are completely soft. Ragusea: slow heating separates the cells instead of bursting them, so the mash isn't gluey."],
-       ['Thu','Drain, keeping a cup of the water. Return to the pot over low for a minute to steam dry.'],
-       ['Thu','Rice the hot potatoes back into the pot. The skins stay in the ricer, so empty it every few presses.'],
-       ['Thu','Stir in the 2 sticks of melted butter, then the warm cream. Lagerstrom puts the butter in first so it coats the starch.'],
-       ['Thu','For an extra-silky purée, push it through the fine sieve as well, while hot. Cold purée turns gluey (Lagerstrom).'],
-       ['Thu',"Season with salt and the finishing butter; loosen with potato water if it's stiff."],
-       ['Thu','Cool, into the Cambro with plastic pressed on the surface, and refrigerate.'],
+     steps:[['Fri 1 AM','Potatoes into a big pot, cold water to just cover, salt the water.'],
+       ['Fri 1 AM',"Bring it up slowly to a bare simmer, not a boil, and hold it there 20–30 minutes until the potatoes are completely soft. Ragusea: slow heating separates the cells instead of bursting them, so the mash isn't gluey."],
+       ['Fri 1 AM','Drain, keeping a cup of the water. Return to the pot over low for a minute to steam dry.'],
+       ['Fri 1 AM','Rice the hot potatoes back into the pot. The skins stay in the ricer, so empty it every few presses.'],
+       ['Fri 1 AM','Stir in the 2 sticks of melted butter, then the warm cream. Lagerstrom puts the butter in first so it coats the starch.'],
+       ['Fri 1 AM','For an extra-silky purée, push it through the fine sieve as well, while hot. Cold purée turns gluey (Lagerstrom).'],
+       ['Fri 1 AM',"Season with salt and the finishing butter; loosen with potato water if it's stiff."],
+       ['Fri 1 AM','Cool it fast so it is fridge-cold by 7:30: spread it no more than 2 inches deep in wide containers, uncovered, on the bottom shelf. Once cold (1–2 hours), pack it into the Cambro with plastic pressed on the surface.'],
        ['Fri 2:45','Into the 4-qt Dutch oven with ~100 g cream on low. Stir every 10 minutes and whisk at the end. Never blend it.']],
      ahead:['Keeps 2–3 days. Reheats from cold in about 45 minutes on low.'],
      notes:['5 lb is about ½ lb a head. Lagerstrom says 10 lb feeds 12; Ragusea says 1 lb is 4 sides. Make 6 lb if you want leftovers.']},
@@ -936,7 +936,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
      ahead:['Freezes well because there is no cream: made Sunday, frozen, then thawed in the fridge from Wednesday night. Food52 notes Keller\'s version gets sweeter after a day.'],
      notes:['Your frozen minced red onion replaces both the roasted onion (Chef John) and the shallots (Keller). It goes in the pot, not on the roasting tray, where small wet pieces would steam or burn. It can make the soup a shade less bright orange.','No dairy beyond the butter: Keller\'s crème fraîche and Chef John\'s crème fraîche and chives were garnishes, and both are dropped.','Vegetarian and gluten-free with Vegetable Better Than Bouillon.']},
 
-    {slug:'tiramisu',site:'ahead',onsite:"Dust with cocoa just before serving.",n:'Pumpkin tiramisu',tags:['v'],src:"Hoffmann's calculator, scaled to 40 biscuits",yield:'9×13 (32 biscuits) + GF minis (8)',when:'Wed pumpkin · Thu AM build · Fri dust',vessel:'9×13 ceramic + glass minis',
+    {slug:'tiramisu',site:'ahead',onsite:"Nothing: dusted at home before loading.",n:'Pumpkin tiramisu',tags:['v'],src:"Hoffmann's calculator, scaled to 40 biscuits",yield:'9×13 (32 biscuits) + GF minis (8)',when:'Thu AM build · Fri 7:15 AM dust',vessel:'9×13 ceramic + glass minis',
      vids:[['Hoffmann: the ultimate tiramisu','https://www.youtube.com/watch?v=o3AMALUTp8o'],["Hoffmann's tiramisu calculator",'https://www.jameshoffmann.co.uk/tiramisu-calculator']],
      ing:[{h:'One batch, 40 biscuits',items:[['Savoiardi (ladyfingers)','32 (~256 g at 8 g each)'],['Gluten-free ladyfingers','8'],['Ground coffee (10 double shots at 18 g)','180 g'],['Finished coffee liquid','600 g'],['Saline (5 g salt in 20 g boiling water)','10 drops'],['Egg yolks','10 (~180 g)'],['Sugar','160 g'],['Mascarpone','800 g'],['Canned pumpkin purée, thawed (my addition)','~250 g'],['Pumpkin spice (my addition)','~5 g (2 tsp)'],['Cocoa powder','to finish']]},
           {h:'How it splits',items:[['9×13: coffee per layer','240 g'],['GF minis: coffee','120 g'],['Cream: 9×13 / minis','⅘ / ⅕']]}],
@@ -949,7 +949,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Thu AM',"Spread half the 9×13's cream (⅖ of the batch). Repeat with the second 240 g of coffee and 16 more biscuits, then the rest of its cream."],
        ['Thu AM','Minis: the same with the 8 GF biscuits, the 120 g of coffee and the last ⅕ of the cream. Dip the GF biscuits even faster; they soak up coffee quickly.'],
        ['Thu AM','Cover and refrigerate for at least 8 hours; 24 is ideal, and Hoffmann says 48 is fine too.'],
-       ['Fri 5:15','Dust with cocoa right before serving.']],
+       ['Fri 7:15 AM','At home, before loading: dust the 9×13 and the GF minis with cocoa through a fine sieve. Tent the covers so they do not touch the cocoa. It darkens a little by dinner; that is fine.']],
      ahead:['Best 24–48 hours after building.'],
      notes:["160°F (71°C) is the temperature food-safety guidance gives for egg dishes, so the cooked yolks are fine for pregnant guests.","Hoffmann's numbers per biscuit: 4.5 g ground coffee, 15 g coffee liquid, 20 g mascarpone, ¼ yolk, 4 g sugar, ¼ drop saline. They assume 8 g biscuits; if yours are heavier, add coffee in proportion.","The pumpkin goes in as it is, the way you made this tiramisu before. Freezing can make it weep, so pour off any water that has separated. That part isn't Hoffmann's."]},
 
@@ -973,15 +973,15 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   // Dish progress, updated by Claude as Ahmad reports back. s: todo | doing | done (home prep finished)
   var PROGRESS_DATE='Thu, Nov 26';
   var PROGRESS={
-    chicken:{s:'doing',done:'Spatchcocked and salted early Thu: 4.5 lb each, 18 g salt each. Drying uncovered on the bottom shelf.',next:'Thu ~11 PM: bag flat into the lower crisper. Fri 1:00: pat dry, butter. No more salt on the birds.'},
+    chicken:{s:'doing',done:'Spatchcocked and salted early Thu: 4.5 lb each, 18 g salt each. Drying uncovered on the bottom shelf.',next:'Fri ~1 AM: bag flat into the lower crisper. 1 PM on site: pat dry, butter. No more salt on the birds.'},
     gravy:{s:'done',done:'Made Mon: 70 g butter, 60 g mochiko, ~1 L stock. Into the freezer.',next:'Wed night: thaw. Fri 2:40: reheat; 2:55: whisk in the drippings and fond.'},
-    wagyu:{s:'doing',done:'Bought Tue (Costco); in the fridge, sealed.',next:'Thu: cut while cold. Fri: sear from 3:50.'},
+    wagyu:{s:'doing',done:'Bought Tue (Costco); in the fridge, sealed.',next:'Fri ~1 AM: cut while cold. 3:50 PM: sear.'},
     jus:{s:'done',done:'Made and frozen (Sun).',next:'Wed night: thaw in the fridge.'},
-    'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Thu: seed the pomegranate. Fri: loosen and stir in the seeds.'},
-    mash:{s:'todo',done:'',next:'Thu night: make it.'},
+    'tart-sauce':{s:'done',done:'Made; in the fridge (Sun).',next:'Fri ~1 AM: seed the pomegranate. On site: loosen and stir in the seeds.'},
+    mash:{s:'todo',done:'',next:'Fri ~1 AM: make it, cool it fast, into the Cambro by 7:30.'},
     casserole:{s:'done',done:'Built Wed: the 9×9, plus one glass container as the GF one; covered in the fridge.',next:'Fri 2:30: glass out of the cooler; 3:00: into the 375°F oven, foil on; 3:37: toppings (GF one first).'},
     soup:{s:'done',done:'Made (Sun).',next:'Mon: freeze in Souper Cubes. Wed night: thaw.'},
-    tiramisu:{s:'todo',done:'',next:'Wed: pour off any water from the thawed pumpkin. Thu AM: build.'},
+    tiramisu:{s:'todo',done:'',next:'Thu: build. Fri 7:15 AM: dust with cocoa at home.'},
     cake:{s:'doing',done:'Batter Tue (4 eggs); springform layer baked Tue night; sheet baked and all three layers stacked with mousse batch 1 (Wed).',next:'Outer mousse (batch 2) once the inside sets. Thu: ganache + callets.'}
   };
   // Task board. SRC_STATE is set by Claude as Ahmad reports progress; taps on a card override it in this browser.
