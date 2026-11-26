@@ -366,7 +366,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
     <div class="block">
       <h2>Cook window, 1:00–4:30</h2>
-      <p class="hint">One oven, four burners. Bird 1 sears in the braiser; bird 2 roasts on the half sheet (or in the host's 12" skillet, if there is one). The 10" cast iron is kept for the wagyu.</p>
+      <p class="hint">One oven, four burners. Both chickens roast together on the half sheet, so they need no burner. The 10" cast iron is kept for the wagyu.</p>
       <div class="scrollx"><div class="tl" id="timeline"></div></div>
     </div>
 
@@ -378,7 +378,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       <div class="block">
         <h3>After dinner</h3>
         <div class="card"><ul class="checks" id="after-list"></ul></div>
-        <p class="note">Chickens: pull each bird when its breast reads <b class="tnum">150°F</b> (ATK) and rest it at least 15 minutes; carryover finishes it. Thighs should read about <b class="tnum">170°F</b> (my number; the video doesn't give one). If both pans don't fit on one oven rack, use two racks and swap halfway.</p>
+        <p class="note">Chickens: pull each bird when its breast reads <b class="tnum">150°F</b> (ATK) and rest it at least 15 minutes; carryover finishes it. Thighs should read about <b class="tnum">170°F</b> (my number; the video doesn't give one). If one end browns faster, turn the pan halfway.</p>
       </div>
     </div>
   </section>
@@ -415,7 +415,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
         <table>
           <thead><tr><th>Dish</th><th>Made in</th><th>Stored &amp; carried in</th><th>Finished / served in</th></tr></thead>
           <tbody>
-            <tr><td>Chickens</td><td>Half sheet + rack, both birds</td><td>2-gallon zip bags, flat</td><td>12" braiser (bird 1) + half sheet on a rack (bird 2)</td></tr>
+            <tr><td>Chickens</td><td>Half sheet + rack, both birds</td><td>2-gallon zip bags, flat</td><td>Half sheet + rack, both birds together</td></tr>
             <tr><td>Mash</td><td>Pot + fine sieve</td><td>4-qt Cambro, plastic on the surface</td><td>4-qt Dutch oven</td></tr>
             <tr><td>Soup</td><td>7-qt Dutch oven</td><td>Souper Cubes blocks, thawed in a 4-qt Cambro from Wednesday night (the cocotte travels empty)</td><td>Pumpkin cocotte</td></tr>
             <tr><td>Green bean casserole</td><td>4-qt saucepan for the sauce</td><td>9×9 metal pan + oven-safe glass minis, covered</td><td>Same dishes. The metal pan goes straight from cold into the oven; let the glass sit out 30 min first</td></tr>
@@ -512,7 +512,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
               <tr><td>Oven</td><td><span class="tnum">1:30–4:00 PM</span>. Starts hot for the chickens, then 375°F for the casserole.</td></tr>
               <tr><td>Stove</td><td>All four burners, <span class="tnum">1:50–4:20 PM</span>.</td></tr>
               <tr><td>Counter</td><td>One stretch near the stove for carving and plating.</td></tr>
-              <tr><td>A 12" skillet?</td><td>If you have a 12-inch stainless or cast-iron skillet, I'll sear the second chicken in it. If not, it roasts on a sheet pan.</td></tr>
+              
               <tr><td>Wagyu</td><td>Bought: about 1½ lb of A5 from Costco.</td></tr>
               <tr><td>Guests</td><td>Salad, a vegetarian main, drinks, ice and snacks are up for grabs: see the Dishes tab.</td></tr>
               <tr><td>From your cupboards</td><td>Plates, cutlery and glasses for 10, a few serving bowls, trash bags, dish soap and a sponge.</td></tr>
@@ -591,7 +591,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'tira-serve',k:'tira',d:0,w:'am',t:'7:15, at home: dust the 9×13 and GF minis with cocoa; tent the covers'},
     {id:'chix-brine',k:'chix',d:-1,w:'early',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; both on the half sheet rack, bottom shelf'},
     {id:'chix-bag',k:'chix',d:0,w:'early',t:'~1 AM: bag each bird flat into the lower crisper; the bottom shelf is then free for the mash'},
-    {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: braiser + half sheet (see Day-of)'},
+    {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: both birds on the half sheet, 425°F from 1:45 (see Day-of)'},
     {id:'wagyu-cut',k:'wagyu',d:0,w:'early',t:'While the potatoes cook: cut cold into bite-size pieces; wrap on an eighth sheet'},
     {id:'wagyu-sear',k:'wagyu',d:0,w:'pm',t:'Sear in batches from 3:50'},
     {id:'sauce-cran',k:'sauce',d:-5,w:'pm',t:'Tart sauce: cranberry, blueberry-maple, pomegranate juice; blend and strain'},
@@ -630,14 +630,13 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     ['am-eat','12:30','Eat something. This is your buffer.']
   ];
   var COOK=[
-    ['cw-birds','1:00','Birds out of their bags and patted dry. Bird 1 into the braiser; bird 2 onto the half sheet + rack. Brush both with melted butter.'],
-    ['cw-oven','1:30','Oven on, hot, for the chickens.'],
-    ['cw-sear','1:55','Bird 2 into the oven: a 10-minute head start makes up for skipping the sear. Sear bird 1 in the braiser (1 tsp oil, smoking hot), or both birds if the host has a 12" skillet.'],
-    ['cw-roast','2:05','Braiser into the oven. Pull each bird on its own when its breast hits 150°F.'],
+    ['cw-birds','1:00','Birds out of their bags and patted dry. Both onto the rack on the half sheet, head to tail, legs toward the ends of the pan. Brush with melted butter.'],
+    ['cw-oven','1:20','Oven to 425°F.'],
+    ['cw-roast','1:45','Both birds in together. Start checking the breasts at 2:20; turn the pan if one end browns faster.'],
     ['cw-low','2:45','Mash (4-qt Dutch oven) and soup (pumpkin pot) on low. Stir now and then; loosen the mash with a splash of cream.'],
-    ['cw-pull','2:50','Birds out at 150°F in the breast; rest 15+ min on a board. Oven down to 375°F.'],
+    ['cw-pull','~2:40','Birds out at 150°F in the breast (thighs about 170°F); rest 15+ min on a board. Oven down to 375°F.'],
     ['cw-stock','2:40','Gravy into the 4-qt saucepan on low, whisking now and then as it heats.'],
-    ['cw-gravy','2:55','Pour off and skim the drippings, deglaze both pans with a splash of the hot gravy, and whisk it all in. Simmer 2 minutes; thin with water or reduce to taste. Salt last.'],
+    ['cw-gravy','2:55','Pour off and skim the drippings, deglaze the sheet pan with a splash of the hot gravy, and whisk it all in. Simmer 2 minutes; thin with water or reduce to taste. Salt last.'],
     ['cw-gbc','3:00','Casserole and glass minis in, foil on (minis came out of the cooler at 2:30).'],
     ['cw-wout','3:20','Wagyu out of the fridge. Foil off the casserole.'],
     ['cw-carve','3:25','Carve both birds.'],
@@ -654,19 +653,18 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   ];
   var T0=780, T1=990;
   var LANES=[
-    {n:'Oven',g:'oven',b:[[810,835,'Preheat'],[835,890,'Chickens (bird 2 at 1:55, bird 1 at 2:05)'],[890,900,'→ 375°F'],[900,940,'Casserole']]},
-    {n:'Burner 1',g:'stove',b:[[835,845,'Sear bird 1'],[885,960,'Mash, low']]},
+    {n:'Oven',g:'oven',b:[[800,825,'Preheat 425°F'],[825,885,'Both chickens, half sheet'],[885,900,'→ 375°F'],[900,940,'Casserole']]},
+    {n:'Burner 1',g:'stove',b:[[885,960,'Mash, low']]},
     {n:'Burner 2',g:'stove',b:[[950,980,'Wagyu, 10" cast iron']]},
     {n:'Burner 3',g:'stove',b:[[885,960,'Soup, low']]},
     {n:'Burner 4',g:'stove',b:[[880,920,'Gravy'],[940,950,'Jus']]},
-    {n:'Counter',g:'counter',b:[[780,795,'Birds out'],[890,925,'Birds rest'],[925,945,'Carve'],[945,960,'Plate']]},
+    {n:'Counter',g:'counter',b:[[780,795,'Birds out'],[885,925,'Birds rest'],[925,945,'Carve'],[945,960,'Plate']]},
     {n:'Table',g:'sauce',b:[[960,990,'Dinner']]}
   ];
 
   var LOAD=[
     {h:'Pots and pans',when:'Thu night · trunk',items:[
-      ['lo-braiser','12" braiser','bird 1'],
-      ['lo-sheet','Half sheet + rack','bird 2'],
+      ['lo-sheet','Half sheet + rack','both birds'],
       ['lo-castiron','10" cast iron','wagyu'],
       ['lo-dutch','4-qt Dutch oven','mash'],
       ['lo-sauce4','4-qt saucepan','gravy'],
@@ -694,7 +692,6 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       ['lo-onions','Fried onions + crispy jalapeños','casserole'],
       ['lo-gfshallot','GF fried shallots + fried garlic','GF mini'],
       ['lo-salt','Kosher salt, flaky salt, pepper mill',''],
-      ['lo-oil','Neutral oil','1 tsp, sear'],
       ['lo-wasabi','Wasabi','wagyu'],
       ['lo-vinegar','Rice vinegar','gravy, soup'],
       ['lo-mochiko','Mochiko, a few spoonfuls','gravy, only if thin'],
@@ -820,20 +817,19 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   // Recipes: steps are [when, text]; ingredients are groups of [item, qty]
   var YT_ATK='https://www.youtube.com/watch?v=IHQirO88vuo', YT_LAG='https://www.youtube.com/watch?v=Z8J2HgaaSgQ', YT_DAVID='https://www.youtube.com/watch?v=dIuBbOV4IR4';
   var RECIPES=[
-    {slug:'chicken',site:'onsite',onsite:"Sear and roast, 1:55–2:50. Prepped and salted early Thursday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Thu ~2 AM prep · Fri roast',vessel:'Rack on the half sheet to brine (both birds); braiser + half sheet to roast',
-     vids:[['ATK: perfect roast chicken',YT_ATK],['Spatchcocking (1:28)',YT_ATK+'&t=88s'],['Salting (3:41)',YT_ATK+'&t=221s'],['Sear, then roast (5:18)',YT_ATK+'&t=318s']],
-     ing:[{h:'',items:[['Air-chilled whole chickens, about 4 lb each (two fit one half sheet)','2 (~1.8 kg each)'],['Diamond Crystal kosher salt','1 tsp (3 g) per lb'],['Butter, melted','28 g (2 Tbsp)'],['Vegetable oil','5 g (1 tsp)']]}],
+    {slug:'chicken',site:'onsite',onsite:"Roast both together on the half sheet, 1:45 to about 2:40. Prepped and salted early Thursday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Thu ~2 AM prep · Fri roast',vessel:'Rack on the half sheet, both birds: to dry-brine, then to roast',
+     vids:[['ATK: perfect roast chicken',YT_ATK],['Spatchcocking (1:28)',YT_ATK+'&t=88s'],['Salting (3:41)',YT_ATK+'&t=221s'],['Roasting (5:18)',YT_ATK+'&t=318s']],
+     ing:[{h:'',items:[['Air-chilled whole chickens, about 4 lb each (two fit one half sheet)','2 (~1.8 kg each)'],['Diamond Crystal kosher salt','1 tsp (3 g) per lb'],['Butter, melted','28 g (2 Tbsp)']]}],
      steps:[['Thu 2 AM','Spatchcock each bird: cut out the backbone with shears (freeze it for stock), flip it, and press down to crack the breastbone so the breast sits level with the legs.'],
        ['Thu 2 AM','Tie the ends of the legs together. Loosen the skin over the breasts and legs with your fingers, and poke the fat deposits on the breast with a skewer.'],
        ['Thu 2 AM','Weigh each bird and salt at 3 g per lb, under and over the skin. Set both head to tail, uncovered, on a rack over the half sheet on the bottom shelf. If both do not fit, bird 2 goes on the jelly roll pan on shelf 3.'],
        ['Fri ~1 AM','Slide each bird flat into a 2-gallon bag and lay them in the emptied lower crisper.'],
-       ['Fri 1:00','Out of the bags; pat dry; brush with melted butter. Bird 1 into the braiser, bird 2 onto the half sheet with a rack.'],
-       ['Fri 1:30','Oven to 400°F.'],
-       ['Fri 1:55','Bird 2 into the oven; the head start stands in for the sear. Heat the braiser with 1 tsp oil over high until it smokes, then put bird 1 in skin side up so the pan heat hits the legs first.'],
-       ['Fri 2:05','Braiser into the oven.'],
-       ['Fri ~2:50','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board for at least 15 minutes; it climbs the rest of the way. Save every drop of drippings for the gravy.']],
+       ['Fri 1:00','Out of the bags; pat dry; brush with melted butter. Both birds onto the rack on the half sheet, head to tail, legs toward the ends of the pan, with a little gap between them.'],
+       ['Fri 1:20','Oven to 425°F, rack in the middle.'],
+       ['Fri 1:45','Both birds in together. No sear: spatchcocking already spreads the legs out where the heat is. Start checking the breasts at 2:20; turn the pan if one end browns faster.'],
+       ['Fri ~2:40','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board for at least 15 minutes; it climbs the rest of the way. Save every drop of drippings for the gravy.']],
      ahead:['ATK salts for at least 12 and ideally 24 hours. Salted around 1 AM Thursday: about 36 hours before roasting, and about 24 hours uncovered before bagging at 1 AM Friday.'],
-     notes:['The sear jump-starts the legs, which need more heat than the breast (ATK). Bird 2 has no pan, so it goes in first.','Thighs should read about 170°F. That number is mine, not ATK\'s.','If the host has a 12" skillet, sear both birds.']},
+     notes:['ATK sears first to give the legs a head start. Here both birds skip it to keep the stove free: spatchcocking does most of that job, and 425°F does the rest.','Thighs should read about 170°F. That number is mine, not ATK\'s.','The roasting time is my estimate for two 4.5 lb birds sharing one pan. Go by the thermometer.']},
 
     {slug:'gravy',site:'finish',onsite:"Reheat from 2:40; drippings and fond 2:55–3:05.",n:'Gravy',tags:['gf'],src:'Mochiko roux base made ahead and frozen; finished on site with the drippings',yield:'~1¼ quarts (about 5 cups with the drippings)',when:'Mon make + freeze · Wed night thaw · Fri 2:40 finish',vessel:'4-qt saucepan → 2 quart delis (frozen) → 4-qt saucepan',
      vids:[["ATK's pan sauce (7:10)",YT_ATK+'&t=430s']],
@@ -845,7 +841,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Mon','Cool, then freeze in 2 quart delis, leaving a little headspace.'],
        ['Wed night','Move it to the fridge to thaw.'],
        ['Fri 2:40','Into the 4-qt saucepan on low, whisking now and then as it heats.'],
-       ['Fri 2:55','Pour the drippings from both pans into a cup and skim off most of the fat. Deglaze each pan with a splash of the hot gravy, scraping up the browned bits, and whisk it all in. Simmer 2 minutes.'],
+       ['Fri 2:55','Pour the drippings from the sheet pan into a cup and skim off most of the fat. Deglaze the pan with a splash of the hot gravy, scraping up the browned bits, and whisk it all in. Simmer 2 minutes.'],
        ['Fri 3:05','Adjust: thin with water, or simmer it down; whisk in the mochiko slurry only if it is still thin. Taste before salting: the birds took 4 g of salt per lb, so the drippings run saltier. Salt last, and a splash of rice vinegar if it needs lifting. Keep warm on low.']],
      ahead:['Mochiko gravy freezes and reheats cleanly; cornstarch gravy tends to thin out, which is why it moved from on-site to make-ahead.'],
      notes:['Made Monday with 60 g mochiko to about 1 L of liquid, so it is on the thick side. That is what you want: the drippings and fond thin it on Friday.','Gluten-free as long as the stock cubes are just stock and the miso is rice or soy miso.','The miso and Dijon are the extras people swear by: savoury depth and a little tang under the drippings.']},
