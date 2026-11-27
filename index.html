@@ -296,6 +296,28 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 .kitfig{margin:0;display:grid;gap:8px;align-content:start}
 .kitfig svg{width:100%;height:auto;display:block;color:var(--ink);font-family:var(--f-body)}
 .kitfig figcaption{font-size:.82rem;color:var(--muted)}
+/* Friday run of show */
+.runnow{display:grid;gap:10px;border-color:var(--accent)}
+.runnow .rn-row{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:baseline}
+.runnow .rn-lab{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--muted)}
+.runnow .rn-t{font-family:var(--f-mono);font-weight:700;color:var(--accent)}
+.runnow .rn-x{font-size:1.05rem;font-weight:600;line-height:1.35}
+.runnow .rn-next .rn-x{font-weight:500;font-size:.98rem}
+.runstations{display:grid;gap:4px;font-size:.85rem}
+.runstations b{font-weight:700}
+.runlist{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.rsec{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:12px 8px 2px}
+.rsec:first-child{margin-top:0}
+.runrow{display:grid;grid-template-columns:52px 9px 1fr 22px;gap:10px;align-items:center;padding:9px 8px;border-radius:10px;cursor:pointer}
+.runrow:hover{background:var(--chip)}
+.runrow .rt{font-family:var(--f-mono);font-weight:700;font-size:.92rem;white-space:nowrap}
+.runrow .dot{margin-top:0}
+.runrow .rx{font-size:.95rem;line-height:1.35;min-width:0}
+.runrow input{width:18px;height:18px;margin:0;accent-color:var(--accent);cursor:pointer}
+.runrow.past{opacity:.5}
+.runrow.now{background:var(--today);box-shadow:inset 0 0 0 2px var(--today-line);opacity:1}
+.runrow.done .rx{text-decoration:line-through;color:var(--muted)}
+@media (max-width:560px){.runrow{grid-template-columns:46px 8px 1fr 20px;gap:8px;padding:8px 6px}.runrow .rx{font-size:.92rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -313,6 +335,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       <span>Arrive SF <b>~2:30 PM</b></span>
     </p>
     <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" id="tab-run" data-view="run">Friday</button>
       <button role="tab" id="tab-plan" data-view="plan">Prep plan</button>
       <button role="tab" id="tab-dayof" data-view="dayof">Day-of</button>
       <button role="tab" id="tab-checklist" data-view="checklist">Checklist</button>
@@ -324,6 +347,18 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 </header>
 
 <main class="wrap">
+
+  <!-- FRIDAY RUN OF SHOW -->
+  <section class="view" id="v-run" data-view="run" hidden>
+    <div class="card runnow" id="run-now"></div>
+    <div class="card runstations">
+      <span><b>Oven</b> 450°F from 3:30 → 425°F at 4:20 → off 5:03. Middle rack: chickens. Rack below: casserole + GF dish.</span>
+      <span><b>Stove</b> back left: purée · back right: soup · front left: gravy · front right (strongest): wagyu.</span>
+      <span><b>Microwave</b> purée 4:15–4:45 · jus at 5:10.</span>
+    </div>
+    <div class="card"><ul class="runlist" id="run-list"></ul></div>
+    <p class="hint">Tick steps as you go; they save in this browser. Diagrams and the full step-by-step are on the Day-of tab; recipes on Dishes.</p>
+  </section>
 
   <!-- PREP PLAN -->
   <section class="view" id="v-plan" data-view="plan">
@@ -1207,6 +1242,62 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     el.innerHTML=h;
   }
 
+  // Friday run of show: one scannable list; g = colour group (road car, oven, stove, cold microwave, counter, sauce table)
+  var RUN=[
+    {s:'At home'},
+    ['run-check','12:15','road','Check: ice bags frozen, soup + gravy still frozen, probe + fried toppings packed'],
+    ['run-dust','1:00','sauce','Dust both tiramisus with cocoa; tent the covers'],
+    ['run-load','1:00','road','Cooler bags, ice on top: frozen soup, gravy, jus; wagyu; casserole + GF dish; tart sauce; pom; GF tiramisu; mousse jar; cream; butter'],
+    ['run-floor','1:15','road','Car floors, on towels: cake (dome taped), 9×13 tiramisu, purée pot'],
+    ['run-chix','1:25','road','Chicken pan into a trash bag, in last, ice bags on top'],
+    ['run-leave','1:30','road','Leave. Grab a bag of ice on the way'],
+    {s:'On site'},
+    ['run-arrive','~2:30','road','Arrive. Desserts + purée into the fridge; fresh ice in the coolers; chickens to the counter, still wrapped'],
+    ['run-setup','2:45','counter','Set up: pans out, burners, serving dishes, table'],
+    ['run-unwrap','3:10','counter','Unwrap the chickens, pat dry, brush with butter'],
+    ['run-oven','3:30','oven','Oven to 450°F. Racks: middle + one below'],
+    ['run-soup','3:45','stove','Soup: 4 blocks + ¼ cup water in the cocotte, low. Gravy: delis + a splash in the saucepan, low. Lids on'],
+    ['run-gfout','3:50','counter','GF glass casserole out of the cooler'],
+    ['run-birds','3:55','oven','Chickens in, middle rack'],
+    ['run-puree','4:15','cold','Purée pot on low; microwave ⅓ at a time (75%, 4–5 min), stir back in, until 4:45. Stir soup + gravy'],
+    ['run-gbc','4:20','oven','Casserole + GF dish in, lower rack, foil on. Oven down to 425°F'],
+    ['run-check2','4:30','oven','Turn the chicken pan; start probing the breasts. Jus into warm water'],
+    ['run-pull','~4:50','oven','Chickens out at 150°F; rest uncovered. Foil off the casserole. Wagyu out of the fridge'],
+    ['run-gravy','4:55','stove','Drippings + fond into the gravy; simmer; taste, salt last'],
+    ['run-top','5:00','oven','Casserole toppings: GF one first, clean spoon'],
+    ['run-gbcout','5:03','oven','Casserole out to rest. Oven off'],
+    ['run-carve','5:10','counter','Carve. Jus: 30–60 s in the microwave + butter. Pom seeds into the tart sauce'],
+    ['run-wagyu','5:20','stove','Wagyu: cast iron ripping hot, slices 1 min a side, rest 2, slice; flaky salt'],
+    ['run-plate','5:25','counter','Purée: stir in ~100 g warm cream. Plate up'],
+    {s:'Dinner'},
+    ['run-serve','5:30','sauce','Serve'],
+    ['run-cake','6:15','sauce','Cake out of the fridge'],
+    ['run-dessert','6:45','sauce','Dessert: tiramisu, cake + candles, GF mousse jar'],
+    ['run-left','Later','counter','Leftovers into delis; pans soak']
+  ];
+  function runMin(t){if(t==='Later')return 1e9;var p=t.replace('~','').split(':'),h=+p[0],m=+p[1];if(h<12)h+=12;return h*60+m;}
+  function renderRun(){
+    var list=document.getElementById('run-list'), card=document.getElementById('run-now'); if(!list||!card)return;
+    var steps=RUN.filter(function(x){return !x.s;});
+    var live=dayDiff(today(),dinnerDate())===0, n=new Date(), nm=n.getHours()*60+n.getMinutes();
+    var cur=-1; if(live){steps.forEach(function(x,i){if(runMin(x[1])<=nm)cur=i;});}
+    var h='';
+    RUN.forEach(function(x){
+      if(x.s){h+='<li class="rsec">'+esc(x.s)+'</li>';return;}
+      var i=steps.indexOf(x), dn=isDone(x[0]), cls=(live&&i<cur?' past':'')+(live&&i===cur?' now':'')+(dn?' done':'');
+      h+='<li><label class="runrow g-'+x[2]+cls+'"><span class="rt">'+esc(x[1])+'</span><i class="dot"></i><span class="rx">'+esc(x[3])+'</span><input type="checkbox" data-id="'+x[0]+'"'+(dn?' checked':'')+' aria-label="Done: '+esc(x[3])+'"></label></li>';
+    });
+    list.innerHTML=h;
+    var nx=steps[cur+1], now=cur>=0?steps[cur]:null, c='';
+    if(!live){c='<div class="rn-row"><span class="rn-lab">Friday</span><span class="rn-x">Dinner at 5:30, guests from 5:00. First step at 12:15.</span></div>';}
+    else{
+      if(now)c+='<div class="rn-row"><span class="rn-lab">Now</span><span class="rn-x"><span class="rn-t">'+esc(now[1])+'</span> '+esc(now[3])+'</span></div>';
+      if(nx){var mins=runMin(nx[1])-nm;c+='<div class="rn-row rn-next"><span class="rn-lab">Next'+(mins>0&&mins<600?' · '+mins+' min':'')+'</span><span class="rn-x"><span class="rn-t">'+esc(nx[1])+'</span> '+esc(nx[3])+'</span></div>';}
+      if(!nx&&!now)c='<div class="rn-row"><span class="rn-lab">Done</span><span class="rn-x">Enjoy dinner.</span></div>';
+    }
+    card.innerHTML=c;
+  }
+
   var PCOL={todo:{t:'To do',g:'road'},doing:{t:'In progress',g:'oven'},done:{t:'Prep done',g:'counter'}};
   function statusPill(slug){var p=PROGRESS[slug];if(!p)return '';var c=PCOL[p.s];return '<span class="spill g-'+c.g+'"><i class="dot"></i>'+esc(c.t)+'</span>';}
   function progressLine(slug){var p=PROGRESS[slug];if(!p)return '';
@@ -1248,7 +1339,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   function setDone(id,v){state[id]=v?'done':'todo';save('tg26-state',state);sync(id);if(document.getElementById('taskboard'))renderTaskBoard();}
   function sync(id){
     document.querySelectorAll('[data-id="'+id+'"]').forEach(function(el){
-      if(el.tagName==='INPUT'){el.checked=isDone(id);var l=el.closest('.chk');if(l)l.classList.toggle('done',isDone(id));}
+      if(el.tagName==='INPUT'){el.checked=isDone(id);var l=el.closest('.chk')||el.closest('.runrow');if(l)l.classList.toggle('done',isDone(id));}
       else el.setAttribute('aria-pressed',isDone(id)?'true':'false');
     });
   }
@@ -1453,7 +1544,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     document.title=r.n+' · Thanksgiving Run Sheet';
   }
 
-  var VIEWS=['plan','dayof','checklist','dishes','pack','host'];
+  var VIEWS=['run','plan','dayof','checklist','dishes','pack','host'];
   function show(v){
     var recipe=typeof v==='string'&&v.indexOf('dish-')===0&&RMAP[v.slice(5)];
     if(!recipe&&VIEWS.indexOf(v)<0)v='plan';
@@ -1466,10 +1557,11 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   function fromHash(){
     var h=(location.hash||'').replace('#','');
     if(VIEWS.indexOf(h)>=0||(h.indexOf('dish-')===0&&RMAP[h.slice(5)]))return h;
-    return load(KEY_VIEW,'plan');
+    return dayDiff(today(),dinnerDate())===0?'run':load(KEY_VIEW,'plan');
   }
 
-  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderLoad();renderNights();renderDishes();renderGrabs();renderTaskBoard();}
+  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderLoad();renderNights();renderDishes();renderGrabs();renderTaskBoard();renderRun();}
+  setInterval(renderRun,60000);
 
   document.addEventListener('change',function(e){var id=e.target&&e.target.getAttribute&&e.target.getAttribute('data-id');if(id&&e.target.tagName==='INPUT')setDone(id,e.target.checked);});
   document.addEventListener('click',function(e){
