@@ -329,10 +329,10 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     </div>
     <p class="facts">
       <span class="count" id="countdown"></span>
-      <span>Serve <b>5:30 PM</b></span>
+      <span>Serve <b>~5:50 PM</b></span>
       <span><b>6–10</b> people</span>
       <span>Leave SJ <b>1:30 PM</b></span>
-      <span>Arrive SF <b>~2:30 PM</b></span>
+      <span>Arrive SF <b>~3:55 PM</b></span>
     </p>
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button role="tab" id="tab-run" data-view="run">Friday</button>
@@ -352,12 +352,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   <section class="view" id="v-run" data-view="run" hidden>
     <div class="card runnow" id="run-now"></div>
     <div class="card runstations">
-      <span><b>Oven</b> 450°F from 3:30 → 425°F at 4:20 → off 5:03. Middle rack: chickens. Rack below: casserole + GF dish.</span>
+      <span><b>Oven</b> 450°F from arrival → 425°F at 4:40 → off 5:23. Middle rack: chickens. Rack below: casserole + GF dish.</span>
       <span><b>Stove</b> back left: purée · back right: soup · front left: gravy · front right (strongest): wagyu.</span>
-      <span><b>Microwave</b> purée 4:15–4:45 · jus at 5:10.</span>
+      <span><b>Microwave</b> purée 4:45–5:15 · jus at 5:30.</span>
     </div>
     <div class="card"><ul class="runlist" id="run-list"></ul></div>
-    <p class="hint">Tick steps as you go; they save in this browser. Diagrams and the full step-by-step are on the Day-of tab; recipes on Dishes.</p>
+    <p class="hint">Running late: these are the updated times (arrive ~3:55, serve ~5:50). The other tabs still show the 5:30 plan. Tick steps as you go; they save in this browser. Diagrams and the full step-by-step are on the Day-of tab; recipes on Dishes.</p>
   </section>
 
   <!-- PREP PLAN -->
@@ -1244,35 +1244,27 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 
   // Friday run of show: one scannable list; g = colour group (road car, oven, stove, cold microwave, counter, sauce table)
   var RUN=[
-    {s:'At home'},
-    ['run-check','12:15','road','Check: ice bags frozen, soup + gravy still frozen, probe + fried toppings packed'],
-    ['run-dust','1:00','sauce','Dust both tiramisus with cocoa; tent the covers'],
-    ['run-load','1:00','road','Cooler bags, ice on top: frozen soup, gravy, jus; wagyu; casserole + GF dish; tart sauce; pom; GF tiramisu; mousse jar; cream; butter'],
-    ['run-floor','1:15','road','Car floors, on towels: cake (dome taped), 9×13 tiramisu, purée pot'],
-    ['run-chix','1:25','road','Chicken pan into a trash bag, in last, ice bags on top'],
-    ['run-leave','1:30','road','Leave. Grab a bag of ice on the way'],
-    {s:'On site'},
-    ['run-arrive','~2:30','road','Arrive. Desserts + purée into the fridge; fresh ice in the coolers; chickens to the counter, still wrapped'],
-    ['run-setup','2:45','counter','Set up: pans out, burners, serving dishes, table'],
-    ['run-unwrap','3:10','counter','Unwrap the chickens, pat dry, brush with butter'],
-    ['run-oven','3:30','oven','Oven to 450°F. Racks: middle + one below'],
-    ['run-soup','3:45','stove','Soup: 4 blocks + ¼ cup water in the cocotte, low. Gravy: delis + a splash in the saucepan, low. Lids on'],
-    ['run-gfout','3:50','counter','GF glass casserole out of the cooler'],
-    ['run-birds','3:55','oven','Chickens in, middle rack'],
-    ['run-puree','4:15','cold','Purée pot on low; microwave ⅓ at a time (75%, 4–5 min), stir back in, until 4:45. Stir soup + gravy'],
-    ['run-gbc','4:20','oven','Casserole + GF dish in, lower rack, foil on. Oven down to 425°F'],
-    ['run-check2','4:30','oven','Turn the chicken pan; start probing the breasts. Jus into warm water'],
-    ['run-pull','~4:50','oven','Chickens out at 150°F; rest uncovered. Foil off the casserole. Wagyu out of the fridge'],
-    ['run-gravy','4:55','stove','Drippings + fond into the gravy; simmer; taste, salt last'],
-    ['run-top','5:00','oven','Casserole toppings: GF one first, clean spoon'],
-    ['run-gbcout','5:03','oven','Casserole out to rest. Oven off'],
-    ['run-carve','5:10','counter','Carve. Jus: 30–60 s in the microwave + butter. Pom seeds into the tart sauce'],
-    ['run-wagyu','5:20','stove','Wagyu: cast iron ripping hot, slices 1 min a side, rest 2, slice; flaky salt'],
-    ['run-plate','5:25','counter','Purée: stir in ~100 g warm cream. Plate up'],
+    {s:'On arrival'},
+    ['run-arrive','~3:55','oven','Arrive. Chicken pan straight to the counter. Oven to 450°F now if it is not already on (racks: middle + one below)'],
+    ['run-unwrap','4:00','counter','Unwrap chickens, pat dry, brush with butter. GF glass casserole out of the cooler. Cake, tiramisu, purée pot into the fridge'],
+    ['run-soup','4:10','stove','Soup: 4 blocks + ¼ cup water in the cocotte, low. Gravy: delis + a splash in the saucepan, low. Lids on'],
+    ['run-birds','4:15','oven','Chickens in, middle rack, once the oven reads 450°F'],
+    ['run-setup','4:20','counter','Finish unloading; pans out, burners, serving dishes'],
+    {s:'Cook'},
+    ['run-gbc','4:40','oven','Casserole + GF dish in, lower rack, foil on. Oven down to 425°F'],
+    ['run-puree','4:45','cold','Purée pot on low; microwave ⅓ at a time (75%, 4–5 min), stir back in, until 5:15. Stir soup + gravy'],
+    ['run-check2','4:50','oven','Turn the chicken pan; start probing the breasts. Jus into warm water'],
+    ['run-pull','~5:10','oven','Chickens out at 150°F; rest uncovered. Foil off the casserole. Wagyu out of the fridge'],
+    ['run-gravy','5:15','stove','Drippings + fond into the gravy; simmer; taste, salt last'],
+    ['run-top','5:20','oven','Casserole toppings: GF one first, clean spoon'],
+    ['run-gbcout','5:23','oven','Casserole out to rest. Oven off'],
+    ['run-carve','5:30','counter','Carve. Jus: 30–60 s in the microwave + butter. Pom seeds into the tart sauce'],
+    ['run-wagyu','5:40','stove','Wagyu: cast iron ripping hot, slices 1 min a side, rest 2, slice; flaky salt'],
+    ['run-plate','5:45','counter','Purée: stir in ~100 g warm cream. Plate up'],
     {s:'Dinner'},
-    ['run-serve','5:30','sauce','Serve'],
-    ['run-cake','6:15','sauce','Cake out of the fridge'],
-    ['run-dessert','6:45','sauce','Dessert: tiramisu, cake + candles, GF mousse jar'],
+    ['run-serve','~5:50','sauce','Serve'],
+    ['run-cake','6:35','sauce','Cake out of the fridge'],
+    ['run-dessert','7:00','sauce','Dessert: tiramisu, cake + candles, GF mousse jar'],
     ['run-left','Later','counter','Leftovers into delis; pans soak']
   ];
   function runMin(t){if(t==='Later')return 1e9;var p=t.replace('~','').split(':'),h=+p[0],m=+p[1];if(h<12)h+=12;return h*60+m;}
