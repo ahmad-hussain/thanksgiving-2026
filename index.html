@@ -982,7 +982,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   var RMAP={}; RECIPES.forEach(function(r){RMAP[r.slug]=r;});
 
   // Dish progress, updated by Claude as Ahmad reports back. s: todo | doing | done (home prep finished)
-  var PROGRESS_DATE='Thu, Nov 26';
+  var PROGRESS_DATE='Fri, Nov 27';
   var PROGRESS={
     chicken:{s:'doing',done:'Spatchcocked and salted early Thu: 4.5 lb each, 18 g salt each. Drying uncovered on the bottom shelf.',next:'Fri 8:15 AM: wrap the half sheet as is and load it last. On site: straight into the host fridge; 1 PM: unwrap, pat dry, butter. No more salt on the birds.'},
     gravy:{s:'done',done:'Made Mon: 70 g butter, 60 g mochiko, ~1 L stock. Into the freezer.',next:'Travels frozen. Fri 2:15: reheat from frozen; 2:55: whisk in the drippings and fond.'},
@@ -994,14 +994,14 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     soup:{s:'done',done:'Made (Sun); frozen in Souper Cubes.',next:'Travels frozen. Fri 2:15: reheat from frozen in the cocotte.'},
     tiramisu:{s:'done',done:'Built Thu: the 9×13 (2 × 15) and the GF minis (2 × 6), with undiluted soup-shot coffee; in the fridge.',next:'Fri 7:15 AM: dust with cocoa at home and tent the covers.'},
     'gf-mousse':{s:'done',done:'Made Wed night with the spare from mousse batch 2; in the fridge.',next:'Fri: travels with the GF minis; serve chilled with dessert.'},
-    cake:{s:'doing',done:'Three layers stacked with mousse batch 1; outer mousse on (Wed night), chilling uncovered.',next:'Fri ~1 AM: ganache + callets; chill until 7:30. Travels on its base in a cut-down box on the car floor.'}
+    cake:{s:'done',done:'Finished Fri 1 AM: three layers, coffee and vanilla bean mousse, ganache, chocolate on the sides. Setting in the fridge.',next:'8:00: on its base in a cut-down box, passenger-side floor. 4:45 PM: out of the fridge; candles.'}
   };
   // Task board. SRC_STATE is set by Claude as Ahmad reports progress; taps on a card override it in this browser.
   var SRC_STATE={
     'shop-costco':'done','shop-tj':'done','shop-gear':'done',
     'cake-infuse':'done','sauce-cran':'done','sauce-jus':'done','soup-make':'done','gbc-mush':'done',
     'sauce-gravy':'done','shop-wagyu':'done','shop-chix':'done','cake-batter':'done',
-    'shop-pan':'done','cake-strain':'done','cake-bake':'done','gbc-build':'done','chix-brine':'done','cake-mousse':'done','soup-freeze':'done','soup-thaw':'done','tira-thaw':'done','tira-pumpkin':'done','tira-coffee':'done','tira-build':'done'
+    'shop-pan':'done','cake-strain':'done','cake-bake':'done','gbc-build':'done','chix-brine':'done','cake-mousse':'done','soup-freeze':'done','soup-thaw':'done','tira-thaw':'done','tira-pumpkin':'done','tira-coffee':'done','tira-build':'done','cake-glaze':'done'
   };
   // Statuses Claude publishes replace this browser's earlier taps on the same tasks.
   (function(){var cur=JSON.stringify(SRC_STATE);if(load('tg26-srcver',null)!==cur){Object.keys(SRC_STATE).forEach(function(id){delete state[id];});save('tg26-state',state);save('tg26-srcver',cur);}})();
