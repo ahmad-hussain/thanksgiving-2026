@@ -509,7 +509,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
             <tbody>
               <tr><td>Arrival</td><td><span class="tnum">~2:30 PM</span>, <span class="hostdate"></span></td></tr>
               <tr><td>Fridge</td><td>One full shelf, cleared by 2:30: the raw chickens, wrapped on an 18×13" sheet pan (please check one fits), wagyu, a covered 9" cake, a 9×13 tiramisu. Plus a little freezer room for ice packs.</td></tr>
-              <tr><td>Oven</td><td><span class="tnum">3:30–5:05 PM</span> at 425°F: the chickens, with the casserole on a lower rack from 4:20. Two racks, please.</td></tr>
+              <tr><td>Oven</td><td><span class="tnum">3:30–5:05 PM</span>: 450°F for the chickens, then 425°F once the casserole joins them on a lower rack at 4:20. Two racks, please.</td></tr>
               <tr><td>Stove</td><td>All four burners, <span class="tnum">3:45–5:50 PM</span>.</td></tr>
               <tr><td>Microwave</td><td><span class="tnum">4:15–4:45 PM</span> for the potatoes, and a minute at <span class="tnum">5:10</span>.</td></tr>
               <tr><td>Counter</td><td>One stretch near the stove for carving and plating.</td></tr>
@@ -592,7 +592,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     {id:'tira-serve',k:'tira',d:0,w:'am',t:'1:00, at home: dust the 9×13 and GF minis with cocoa; tent the covers'},
     {id:'chix-brine',k:'chix',d:-1,w:'early',t:'Spatchcock, truss legs, loosen skin, salt 3 g per lb under and over the skin; both on the half sheet rack, bottom shelf'},
     {id:'chix-bag',k:'chix',d:0,w:'am',t:'Wrapped on the sheet pan (Fri early). 1:25: into a clean trash bag; load it last, flat, ice packs on top'},
-    {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: both birds on the half sheet, 425°F from 3:55 (see Day-of)'},
+    {id:'chix-roast',k:'chix',d:0,w:'pm',t:'Roast on site: both birds on the half sheet, 450°F from 3:55, 425°F from 4:20 (see Day-of)'},
     {id:'wagyu-cut',k:'wagyu',d:0,w:'early',t:'Cut into three slices, parchment between, in a zip bag in the fridge'},
     {id:'wagyu-sear',k:'wagyu',d:0,w:'pm',t:'5:20: sear the three slices; rest 2 min; slice into strips'},
     {id:'sauce-cran',k:'sauce',d:-5,w:'pm',t:'Tart sauce: cranberry, blueberry-maple, pomegranate juice; blend and strain'},
@@ -633,15 +633,15 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   ];
   var COOK=[
     ['cw-birds','3:10','Unwrap the sheet pan and pat the birds dry; they are already on the rack, head to tail. Brush with melted butter.'],
-    ['cw-oven','3:30','Oven to 425°F, one rack in the middle and one below it.'],
+    ['cw-oven','3:30','Oven to 450°F, one rack in the middle and one below it.'],
     ['cw-stock','3:45','Four frozen soup blocks into the cocotte with a splash of water (~¼ cup); frozen gravy into the 4-qt saucepan with a splash of water. Both lid on, low; stir as they melt.'],
     ['cw-gfout','3:50','The glass GF casserole container out of the cooler, so it is not fridge-cold going into the oven.'],
-    ['cw-roast','3:55','Both birds in on the middle rack. Start checking the breasts at 4:30; turn the pan if one end browns faster.'],
+    ['cw-roast','3:55','Both birds in on the middle rack, at 450°F. Start checking the breasts at 4:30; turn the pan if one end browns faster.'],
     ['cw-low','4:15','Soup and gravy: stir. Keep the soup at a gentle simmer once it has melted.'],
     ['cw-mash','4:15','Purée: the 7-qt Dutch oven on burner 1, low, with a splash of cream. Microwave a third at a time (75%, 4–5 min) and stir it back in, until 4:45. Then low, stirring every 5–10 min; stir in ~100 g warm cream.'],
-    ['cw-gbc','4:20','Casserole (9×9) and the GF container in on the lower rack, foil on.'],
+    ['cw-gbc','4:20','Casserole (9×9) and the GF container in on the lower rack, foil on. Oven down to 425°F for the glass dish.'],
     ['cw-justhaw','4:30','Jus container into a bowl of warm water to loosen.'],
-    ['cw-pull','~4:50','Birds out at 150°F in the breast (thighs about 170°F); rest 20 min on a board, loosely tented. Foil off the casserole. Wagyu out of the fridge.'],
+    ['cw-pull','~4:50','Birds out at 150°F in the breast (thighs about 170°F); rest 20 min on a board, uncovered so the skin stays crisp. Foil off the casserole. Wagyu out of the fridge.'],
     ['cw-gravy','4:55','Pour off and skim the drippings, deglaze the sheet pan with a splash of the hot gravy, and whisk it all in. Simmer 2 minutes; thin with water or reduce to taste. Salt last.'],
     ['cw-onions','5:00','Casserole toppings on for the last 2–3 minutes: GF shallots + garlic on the GF one first, then fried onions + jalapeños on the 9×9. Out at about 5:03 to rest; oven off.'],
     ['cw-carve','5:10','Carve both birds.'],
@@ -657,7 +657,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   ];
   var T0=870, T1=1080;
   var LANES=[
-    {n:'Oven',g:'oven',b:[[930,955,'Preheat 425°F'],[955,980,'Chickens'],[980,1010,'Chickens + casserole'],[1010,1023,'Casserole']]},
+    {n:'Oven',g:'oven',b:[[930,955,'Preheat 450°F'],[955,980,'Chickens, 450°F'],[980,1010,'Chickens + casserole, 425°F'],[1010,1023,'Casserole']]},
     {n:'Microwave',g:'counter',b:[[975,1005,'Purée jump-start'],[1030,1032,'Jus']]},
     {n:'Burner 1',g:'stove',b:[[975,1050,'Purée, low (7-qt)']]},
     {n:'Burner 2',g:'stove',b:[[1040,1060,'Wagyu, 10" cast iron']]},
@@ -822,7 +822,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
   // Recipes: steps are [when, text]; ingredients are groups of [item, qty]
   var YT_ATK='https://www.youtube.com/watch?v=IHQirO88vuo', YT_LAG='https://www.youtube.com/watch?v=Z8J2HgaaSgQ', YT_DAVID='https://www.youtube.com/watch?v=dIuBbOV4IR4';
   var RECIPES=[
-    {slug:'chicken',site:'onsite',onsite:"Roast both on the half sheet, 3:55 to about 4:50, with the casserole on the rack below from 4:20. Prepped and salted early Thursday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Thu ~2 AM prep · Fri roast',vessel:'Rack on the half sheet, both birds: to dry-brine, then to roast',
+    {slug:'chicken',site:'onsite',onsite:"Roast both on the half sheet at 450°F from 3:55, then 425°F from 4:20 with the casserole on the rack below; out about 4:50. Prepped and salted early Thursday.",n:'Roast chickens',tags:['gf'],src:'ATK · Dan Souza',yield:'2 birds; serves 10 alongside the wagyu',when:'Thu ~2 AM prep · Fri roast',vessel:'Rack on the half sheet, both birds: to dry-brine, then to roast',
      vids:[['ATK: perfect roast chicken',YT_ATK],['Spatchcocking (1:28)',YT_ATK+'&t=88s'],['Salting (3:41)',YT_ATK+'&t=221s'],['Roasting (5:18)',YT_ATK+'&t=318s']],
      ing:[{h:'',items:[['Air-chilled whole chickens, about 4 lb each (two fit one half sheet)','2 (~1.8 kg each)'],['Diamond Crystal kosher salt','1 tsp (3 g) per lb'],['Butter, melted','28 g (2 Tbsp)']]}],
      steps:[['Thu 2 AM','Spatchcock each bird: cut out the backbone with shears (freeze it for stock), flip it, and press down to crack the breastbone so the breast sits level with the legs.'],
@@ -830,11 +830,11 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Thu 2 AM','Weigh each bird and salt at 3 g per lb, under and over the skin. Set both head to tail, uncovered, on a rack over the half sheet on the bottom shelf. If both do not fit, bird 2 goes on the jelly roll pan on shelf 3.'],
        ['Fri 1:25 PM','Leave the birds on the rack on the half sheet. Wrap the whole pan tightly in plastic, several times around and under, then slide it into a clean trash bag to catch drips. It goes in the car last, flat and away from the desserts, with ice packs on top, and goes straight to the counter on arrival, still wrapped, until 3:10.'],
        ['Fri 3:10','Unwrap the sheet pan; pat the birds dry; brush with melted butter. They are already on the rack, head to tail; nudge the legs toward the ends of the pan and leave a little gap between the birds.'],
-       ['Fri 3:30','Oven to 425°F, one rack in the middle and one below it for the casserole.'],
-       ['Fri 3:55','Both birds in together on the middle rack. No sear: spatchcocking already spreads the legs out where the heat is. Start checking the breasts at 4:30; turn the pan if one end browns faster.'],
-       ['Fri ~4:50','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board about 20 minutes, loosely tented with foil; it climbs the rest of the way. Carve at 5:10. Save every drop of drippings for the gravy.']],
+       ['Fri 3:30','Oven to 450°F, one rack in the middle and one below it for the casserole.'],
+       ['Fri 3:55','Both birds in together on the middle rack, at 450°F. At 4:20, when the casserole goes in below, turn it down to 425°F: the glass GF dish should not go hotter. No sear: spatchcocking already spreads the legs out where the heat is. Start checking the breasts at 4:30; turn the pan if one end browns faster.'],
+       ['Fri ~4:50','Pull each bird when the thickest part of the breast reads 150°F. Rest on a board about 20 minutes, uncovered, so steam does not soften the skin; it climbs the rest of the way. Carve at 5:10. Save every drop of drippings for the gravy.']],
      ahead:['ATK salts for at least 12 and ideally 24 hours. Salted around 1 AM Thursday: about 39 hours before roasting at 3:55 Friday, about 25 of them uncovered before wrapping early Friday.'],
-     notes:['ATK sears first to give the legs a head start. Here both birds skip it to keep the stove free: spatchcocking does most of that job, and 425°F does the rest.','Thighs should read about 170°F. That number is mine, not ATK\'s.','The roasting time is my estimate for two 4.5 lb birds sharing one pan. Go by the thermometer.']},
+     notes:['ATK sears first to give the legs a head start. Here both birds skip it to keep the stove free: spatchcocking does most of that job, and starting at 450°F does the rest.','Thighs should read about 170°F. That number is mine, not ATK\'s.','The roasting time is my estimate for two 4.5 lb birds sharing one pan. Go by the thermometer.']},
 
     {slug:'gravy',site:'finish',onsite:"Reheat from frozen from 3:45; drippings and fond 4:55–5:05.",n:'Gravy',tags:['gf'],src:'Mochiko roux base made ahead and frozen; finished on site with the drippings',yield:'~1¼ quarts (about 5 cups with the drippings)',when:'Mon make + freeze · travels frozen · Fri 3:45 reheat',vessel:'4-qt saucepan → 2 quart delis (frozen) → 4-qt saucepan',
      vids:[["ATK's pan sauce (7:10)",YT_ATK+'&t=430s']],
@@ -913,7 +913,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
        ['Wed','Pour the sauce over the beans and fold in the Parmesan and pepper. The frozen half thaws in the hot sauce and keeps some bite; you end up with two textures, soft braised beans and just-cooked ones.'],
        ['Wed','Fill the 9×9 to just below the rim (about ⅔ of the batch) and divide the rest between the glass minis. Mark one mini as the gluten-free one, with a strip of tape on its lid. Cool, cover. No topping yet.'],
        ['Fri 3:50','The glass GF container out of the cooler to lose its chill. Glass can crack going straight from cold into a hot oven; the metal pan cannot.'],
-       ['Fri 4:20','The 9×9 and the GF container into the 425°F oven on the lower rack, under the chickens, foil on.'],
+       ['Fri 4:20','The 9×9 and the GF container in on the lower rack, under the chickens, foil on. Turn the oven down from 450°F to 425°F as they go in; the glass dish should not go hotter.'],
        ['Fri 4:50','Foil off when the chickens come out. Check the GF one: smaller dishes heat through faster.'],
        ['Fri 5:00','Toppings on for the last 2–3 minutes. GF mini first, with a clean spoon: GF fried shallots and a little fried garlic. Then the fried onions and jalapeños on the 9×9 and the other minis. Keep the GF mini on its own tray so no crumbs land in it.'],
        ['Fri 5:03','Out to rest until 5:30, and the oven off. Eric Kim rests his 15 minutes so the sauce thickens.']],
