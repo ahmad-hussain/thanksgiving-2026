@@ -291,6 +291,11 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 .grab{display:grid;gap:6px;align-content:start}
 .grab h3,.grab p{margin:0}
 .grab .meta{font-size:.8rem;color:var(--muted)}
+/* Stove + oven figures */
+.kitfigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.kitfig{margin:0;display:grid;gap:8px;align-content:start}
+.kitfig svg{width:100%;height:auto;display:block;color:var(--ink);font-family:var(--f-body)}
+.kitfig figcaption{font-size:.82rem;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -368,6 +373,86 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       <h2>Cook window, 2:30–6:00</h2>
       <p class="hint">One oven, four burners. Both chickens roast on the half sheet on the middle rack; the casserole joins them on the rack below at 4:20. The 10" cast iron is kept for the wagyu.</p>
       <div class="scrollx"><div class="tl" id="timeline"></div></div>
+    </div>
+
+    <div class="block">
+      <h2>Stove and oven</h2>
+      <div class="kitfigs">
+        <figure class="card kitfig">
+          <svg viewBox="0 0 360 285" role="img" aria-label="Stove from above: purée in the 7-quart Dutch oven back left, soup in the pumpkin cocotte back right, gravy in the 4-quart saucepan front left, wagyu in the 10-inch cast iron front right.">
+            <text x="180" y="20" text-anchor="middle" font-size="11" font-weight="600" fill="currentColor" opacity=".6" letter-spacing="1">BACK</text>
+            <rect x="20" y="30" width="320" height="220" rx="10" style="fill:var(--chip);stroke:currentColor;stroke-opacity:.25"/>
+            <!-- 1: purée, 7-qt Dutch oven, ~11 in -->
+            <rect x="44" y="84" width="8" height="12" rx="2" style="fill:var(--counter)"/>
+            <rect x="158" y="84" width="8" height="12" rx="2" style="fill:var(--counter)"/>
+            <circle cx="105" cy="90" r="55" style="fill:var(--counter-bg);stroke:var(--counter)" stroke-width="2.5"/>
+            <text x="105" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">Purée</text>
+            <text x="105" y="95" text-anchor="middle" font-size="10.5" fill="currentColor">7-qt Dutch oven</text>
+            <text x="105" y="109" text-anchor="middle" font-size="10.5" fill="currentColor">low · from 4:15</text>
+            <!-- 3: soup, pumpkin cocotte, ~9 in -->
+            <circle cx="255" cy="90" r="45" style="fill:var(--counter-bg);stroke:var(--counter)" stroke-width="2.5"/>
+            <circle cx="255" cy="52" r="4" style="fill:var(--counter)"/>
+            <text x="255" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">Soup</text>
+            <text x="255" y="97" text-anchor="middle" font-size="10.5" fill="currentColor">pumpkin cocotte</text>
+            <text x="255" y="110" text-anchor="middle" font-size="10.5" fill="currentColor">low · from 3:45</text>
+            <!-- 4: gravy, 4-qt saucepan, ~8 in, handle to the front-left -->
+            <line x1="76" y1="223" x2="38" y2="258" stroke-width="9" stroke-linecap="round" style="stroke:var(--sauce)"/>
+            <circle cx="105" cy="195" r="40" style="fill:var(--sauce-bg);stroke:var(--sauce)" stroke-width="2.5"/>
+            <text x="105" y="187" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">Gravy</text>
+            <text x="105" y="200" text-anchor="middle" font-size="10.5" fill="currentColor">4-qt saucepan</text>
+            <text x="105" y="213" text-anchor="middle" font-size="10.5" fill="currentColor">low · from 3:45</text>
+            <!-- 2: wagyu, 10 in cast iron, handle to the right -->
+            <rect x="303" y="190" width="44" height="10" rx="5" style="fill:var(--oven)"/>
+            <circle cx="255" cy="195" r="50" style="fill:var(--oven-bg);stroke:var(--oven)" stroke-width="2.5"/>
+            <text x="255" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">Wagyu</text>
+            <text x="255" y="200" text-anchor="middle" font-size="10.5" fill="currentColor">10″ cast iron</text>
+            <text x="255" y="214" text-anchor="middle" font-size="10.5" fill="currentColor">max heat · 5:20</text>
+            <!-- burner numbers, matching the timeline lanes -->
+            <g font-size="10" font-weight="700" text-anchor="middle">
+              <circle cx="40" cy="48" r="9" style="fill:var(--surface);stroke:currentColor;stroke-opacity:.4"/><text x="40" y="51.5" fill="currentColor">1</text>
+              <circle cx="320" cy="48" r="9" style="fill:var(--surface);stroke:currentColor;stroke-opacity:.4"/><text x="320" y="51.5" fill="currentColor">3</text>
+              <circle cx="40" cy="160" r="9" style="fill:var(--surface);stroke:currentColor;stroke-opacity:.4"/><text x="40" y="163.5" fill="currentColor">4</text>
+              <circle cx="320" cy="160" r="9" style="fill:var(--surface);stroke:currentColor;stroke-opacity:.4"/><text x="320" y="163.5" fill="currentColor">2</text>
+            </g>
+            <text x="180" y="276" text-anchor="middle" font-size="11" font-weight="600" fill="currentColor" opacity=".6" letter-spacing="1">FRONT · YOU</text>
+          </svg>
+          <figcaption>Stove from above, pots roughly to scale. Big, slow pots at the back on low; gravy at the front for whisking; wagyu on whichever front burner is strongest. Numbers match the timeline.</figcaption>
+        </figure>
+        <figure class="card kitfig">
+          <svg viewBox="0 0 360 330" role="img" aria-label="Oven from the front: both chickens on a half sheet on the middle rack, the 9 by 9 casserole and the glass GF dish on the rack below, the top slot empty, nothing on the lowest slot above the element.">
+            <rect x="10" y="10" width="340" height="310" rx="12" style="fill:var(--surface);stroke:currentColor;stroke-opacity:.35" stroke-width="1.5"/>
+            <rect x="10" y="10" width="340" height="38" rx="12" style="fill:var(--chip)"/>
+            <text x="180" y="34" text-anchor="middle" font-size="11.5" font-weight="600" fill="currentColor">450°F at 3:30 → 425°F at 4:20 → off ~5:03</text>
+            <rect x="30" y="60" width="300" height="245" rx="4" style="fill:var(--bg);stroke:currentColor;stroke-opacity:.3"/>
+            <!-- rack slots -->
+            <g style="stroke:currentColor;stroke-opacity:.35" stroke-width="2">
+              <line x1="30" y1="112" x2="40" y2="112"/><line x1="320" y1="112" x2="330" y2="112"/>
+              <line x1="30" y1="290" x2="40" y2="290"/><line x1="320" y1="290" x2="330" y2="290"/>
+            </g>
+            <line x1="40" y1="112" x2="320" y2="112" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+            <text x="180" y="106" text-anchor="middle" font-size="10" fill="currentColor" opacity=".6">top slot: empty</text>
+            <!-- middle rack: half sheet + both chickens -->
+            <path d="M80,163 a48,30 0 0,1 96,0 Z" style="fill:var(--oven-bg);stroke:var(--oven)" stroke-width="2"/>
+            <path d="M184,163 a48,30 0 0,1 96,0 Z" style="fill:var(--oven-bg);stroke:var(--oven)" stroke-width="2"/>
+            <rect x="68" y="163" width="224" height="7" rx="2" style="fill:var(--oven)"/>
+            <line x1="30" y1="172" x2="330" y2="172" stroke="currentColor" stroke-width="2.5"/>
+            <text x="180" y="190" text-anchor="middle" font-size="11" fill="currentColor"><tspan font-weight="700">Middle:</tspan> both chickens · in 3:55 · out ~4:50</text>
+            <!-- lower rack: 9x9 metal pan + glass GF dish -->
+            <rect x="72" y="232" width="112" height="24" rx="2" style="fill:var(--counter-bg);stroke:var(--counter)" stroke-width="2"/>
+            <line x1="70" y1="231" x2="186" y2="231" stroke="currentColor" stroke-opacity=".55" stroke-width="2.5"/>
+            <text x="128" y="248" text-anchor="middle" font-size="10.5" font-weight="600" fill="currentColor">9×9 metal</text>
+            <rect x="204" y="234" width="86" height="22" rx="4" style="fill:var(--cold-bg);stroke:var(--cold)" stroke-width="2"/>
+            <line x1="202" y1="233" x2="292" y2="233" stroke="currentColor" stroke-opacity=".55" stroke-width="2.5"/>
+            <text x="247" y="249" text-anchor="middle" font-size="10.5" font-weight="600" fill="currentColor">GF glass</text>
+            <line x1="30" y1="258" x2="330" y2="258" stroke="currentColor" stroke-width="2.5"/>
+            <text x="180" y="276" text-anchor="middle" font-size="11" fill="currentColor"><tspan font-weight="700">Lower:</tspan> casserole, foil on · in 4:20 · out ~5:03</text>
+            <!-- lowest slot + element -->
+            <text x="180" y="286" text-anchor="middle" font-size="10" fill="currentColor" opacity=".6">lowest slot: leave empty</text>
+            <polyline points="50,298 62,292 74,298 86,292 98,298 110,292 122,298 134,292 146,298 158,292 170,298 182,292 194,298 206,292 218,298 230,292 242,298 254,292 266,298 278,292 290,298 302,292 310,298" fill="none" stroke-width="2" style="stroke:var(--stove)"/>
+          </svg>
+          <figcaption>Oven from the front, door open. The foil lines on the casserole come off when the chickens come out; the glass GF dish is why the oven drops to 425°F. Turn the chicken pan front to back once, around 4:30.</figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="grid2">
