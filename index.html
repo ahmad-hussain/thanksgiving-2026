@@ -318,6 +318,22 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
 .runrow.now{background:var(--today);box-shadow:inset 0 0 0 2px var(--today-line);opacity:1}
 .runrow.done .rx{text-decoration:line-through;color:var(--muted)}
 @media (max-width:560px){.runrow{grid-template-columns:46px 8px 1fr 20px;gap:8px;padding:8px 6px}.runrow .rx{font-size:.92rem}}
+/* Nutrition labels */
+.nflist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:14px;align-items:start}
+.nfcard{display:grid;gap:8px}
+.nfcard h3{margin:0;font-size:1rem}
+.nf{border:2px solid var(--ink);padding:6px 9px 8px;background:var(--surface);color:var(--ink);font-size:.84rem;line-height:1.3}
+.nf .nft{font-family:var(--f-display);font-weight:800;font-size:1.75rem;line-height:1.05;letter-spacing:-.01em}
+.nf .r{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--ink);padding:2px 0}
+.nf .r.ind{padding-left:14px}
+.nf .thick{border-top:9px solid var(--ink)}
+.nf .med{border-top:4px solid var(--ink)}
+.nf .srv{display:flex;justify-content:space-between;gap:8px;font-weight:700}
+.nf .cal{display:flex;justify-content:space-between;align-items:baseline;font-weight:800;padding-top:2px}
+.nf .cal span:first-child{font-size:1.05rem}
+.nf .cal b{font-family:var(--f-display);font-size:2.1rem;line-height:1}
+.nf .dvh{text-align:right;font-weight:700;font-size:.74rem;border-top:4px solid var(--ink);padding:2px 0}
+.nf .foot{font-size:.7rem;color:var(--muted);border-top:4px solid var(--ink);padding-top:4px;margin-top:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -340,6 +356,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       <button role="tab" id="tab-dayof" data-view="dayof">Day-of</button>
       <button role="tab" id="tab-checklist" data-view="checklist">Checklist</button>
       <button role="tab" id="tab-dishes" data-view="dishes">Dishes</button>
+      <button role="tab" id="tab-nutrition" data-view="nutrition">Nutrition</button>
       <button role="tab" id="tab-pack" data-view="pack">Fridge &amp; pack</button>
       <button role="tab" id="tab-host" data-view="host">For the host</button>
     </nav>
@@ -520,6 +537,12 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
       <p class="hint">Everything above is covered. These would round out the table. Say what you're bringing so nothing doubles up.</p>
       <div class="grid3" id="grab-cards"></div>
     </div>
+  </section>
+
+  <!-- NUTRITION -->
+  <section class="view" id="v-nutrition" data-view="nutrition" hidden>
+    <p class="hint">Estimates, not lab results: worked out from what went into each dish, using standard USDA nutrient values, with FDA label rounding. Butter is counted as salted. Serving sizes are the usual label portions, so most people will have more than one.</p>
+    <div class="nflist" id="nutri-cards"></div>
   </section>
 
   <!-- RECIPE DETAIL -->
@@ -1290,6 +1313,28 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     card.innerHTML=c;
   }
 
+  // Nutrition per serving: estimates from the recipe amounts and standard USDA values (computed offline, FDA label rounding)
+  var NUTRI=[{"slug":"chicken","n":"Roast chicken","servings":19,"serving":"4 oz (113 g) meat and skin","note":"Roasted meat and skin, about 52% of the raw birds. Assumes 80% of the dry-brine salt stays in the meat.","kcal":280,"fat":17,"sat":5,"chol":105,"na":700,"carb":0,"fiber":0,"sugar":0,"protein":31,"dv_fat":21,"dv_sat":25,"dv_chol":34,"dv_na":30,"dv_carb":0,"dv_fiber":0},{"slug":"gravy","n":"Gravy","servings":21,"serving":"¼ cup (60 g)","note":"Includes ~150 g of skimmed drippings and ~3 g salt to taste.","kcal":60,"fat":3.5,"sat":2,"chol":10,"na":190,"carb":4,"fiber":0,"sugar":1,"protein":2,"dv_fat":5,"dv_sat":10,"dv_chol":3,"dv_na":8,"dv_carb":2,"dv_fiber":0},{"slug":"wagyu","n":"A5 wagyu","servings":10,"serving":"2⅓ oz (68 g) raw weight","note":"Raw-weight basis; some fat renders out in the pan, so actual fat and calories run lower.","kcal":310,"fat":32,"sat":11,"chol":60,"na":140,"carb":0,"fiber":0,"sugar":0,"protein":8,"dv_fat":41,"dv_sat":56,"dv_chol":19,"dv_na":6,"dv_carb":0,"dv_fiber":0},{"slug":"jus","n":"Wagyu jus","servings":12,"serving":"1 Tbsp (15 g)","note":"Reduced to about ¾ cup.","kcal":25,"fat":1.5,"sat":1,"chol":5,"na":75,"carb":1,"fiber":0,"sugar":0,"protein":1,"dv_fat":2,"dv_sat":4,"dv_chol":2,"dv_na":3,"dv_carb":0,"dv_fiber":0},{"slug":"tart-sauce","n":"Cranberry, blueberry + pomegranate sauce","servings":23,"serving":"2 Tbsp (35 g)","note":"Blueberry-maple syrup counted as maple syrup.","kcal":40,"fat":0.5,"sat":0,"chol":0,"na":25,"carb":9,"fiber":1,"sugar":7,"protein":0,"dv_fat":1,"dv_sat":2,"dv_chol":0,"dv_na":1,"dv_carb":3,"dv_fiber":3},{"slug":"mash","n":"Pommes purée","servings":31,"serving":"½ cup (120 g)","note":"3 kg Yukon Golds (skins stay in the ricer), 350 g butter, 463 g cream incl. the reheating cream.","kcal":200,"fat":15,"sat":9,"chol":40,"na":260,"carb":17,"fiber":2,"sugar":1,"protein":2,"dv_fat":19,"dv_sat":47,"dv_chol":14,"dv_na":11,"dv_carb":6,"dv_fiber":7},{"slug":"casserole","n":"Green bean casserole","servings":18,"serving":"½ cup (115 g)","note":"With the fried onion and jalapeño topping (the GF portion has fried shallots instead; very similar).","kcal":160,"fat":11,"sat":6,"chol":25,"na":410,"carb":12,"fiber":2,"sugar":2,"protein":3,"dv_fat":14,"dv_sat":30,"dv_chol":8,"dv_na":18,"dv_carb":4,"dv_fiber":7},{"slug":"soup","n":"Butternut squash soup","servings":15,"serving":"1 cup (245 g)","note":"About 3.6 kg of soup (8 blocks of 450 g).","kcal":150,"fat":7,"sat":3,"chol":10,"na":710,"carb":23,"fiber":3,"sugar":8,"protein":2,"dv_fat":9,"dv_sat":16,"dv_chol":4,"dv_na":31,"dv_carb":8,"dv_fiber":12},{"slug":"tiramisu","n":"Pumpkin tiramisu","servings":21,"serving":"1 square (1/15 of the 9×13, or 1/6 of the GF minis)","note":"Same per serving for the regular and GF versions, within a few calories.","kcal":290,"fat":21,"sat":12,"chol":160,"na":60,"carb":23,"fiber":1,"sugar":15,"protein":4,"dv_fat":27,"dv_sat":62,"dv_chol":53,"dv_na":3,"dv_carb":8,"dv_fiber":2},{"slug":"cake","n":"Chocolate cake","servings":16,"serving":"1 slice (1/16 of the cake)","note":"About 78% of the batter ended up in the layers (sheet scraps and dome trimmed off); ¾ of mousse batch 2 (the rest is the GF jar); most of the ganache; ~250 g of callets on the sides.","kcal":1060,"fat":72,"sat":41,"chol":265,"na":500,"carb":96,"fiber":8,"sugar":72,"protein":12,"dv_fat":93,"dv_sat":206,"dv_chol":89,"dv_na":22,"dv_carb":35,"dv_fiber":27},{"slug":"gf-mousse","n":"Coffee and vanilla bean mousse jar","servings":2,"serving":"½ jar (~95 g)","note":"A quarter of mousse batch 2.","kcal":390,"fat":29,"sat":17,"chol":150,"na":25,"carb":29,"fiber":2,"sugar":25,"protein":4,"dv_fat":37,"dv_sat":86,"dv_chol":50,"dv_na":1,"dv_carb":11,"dv_fiber":8}];
+  function renderNutrition(){
+    var el=document.getElementById('nutri-cards'); if(!el)return; var h='';
+    NUTRI.forEach(function(d){
+      var r=RMAP[d.slug], tg=r?pills(r.tags):'';
+      function row(lab,val,dv,cls){return '<div class="r'+(cls?' '+cls:'')+'"><span>'+lab+' '+val+'</span><b>'+(dv==null?'':dv+'%')+'</b></div>';}
+      h+='<div class="card nfcard"><h3>'+esc(d.n)+tg+'</h3><div class="nf" role="table" aria-label="Nutrition facts: '+esc(d.n)+'">'+
+        '<div class="nft">Nutrition Facts</div><div>About '+d.servings+' servings per dish</div>'+
+        '<div class="srv"><span>Serving size</span><span>'+esc(d.serving)+'</span></div>'+
+        '<div class="thick"></div><div class="cal"><span>Calories</span><b>'+d.kcal+'</b></div>'+
+        '<div class="dvh">% Daily Value*</div>'+
+        row('<b>Total Fat</b>',d.fat+'g',d.dv_fat)+row('Saturated Fat',d.sat+'g',d.dv_sat,'ind')+
+        row('<b>Cholesterol</b>',d.chol+'mg',d.dv_chol)+row('<b>Sodium</b>',d.na+'mg',d.dv_na)+
+        row('<b>Total Carbohydrate</b>',d.carb+'g',d.dv_carb)+row('Dietary Fiber',d.fiber+'g',d.dv_fiber,'ind')+row('Total Sugars',d.sugar+'g',null,'ind')+
+        '<div class="r med"><span><b>Protein</b> '+d.protein+'g</span><b></b></div>'+
+        '<div class="foot">*Percent Daily Values are based on a 2,000-calorie diet. Estimated from the recipe, not lab-tested.</div></div>'+
+        '<p class="hint">'+esc(d.note)+'</p></div>';
+    });
+    el.innerHTML=h;
+  }
+
   var PCOL={todo:{t:'To do',g:'road'},doing:{t:'In progress',g:'oven'},done:{t:'Prep done',g:'counter'}};
   function statusPill(slug){var p=PROGRESS[slug];if(!p)return '';var c=PCOL[p.s];return '<span class="spill g-'+c.g+'"><i class="dot"></i>'+esc(c.t)+'</span>';}
   function progressLine(slug){var p=PROGRESS[slug];if(!p)return '';
@@ -1536,7 +1581,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     document.title=r.n+' · Thanksgiving Run Sheet';
   }
 
-  var VIEWS=['run','plan','dayof','checklist','dishes','pack','host'];
+  var VIEWS=['run','plan','dayof','checklist','dishes','nutrition','pack','host'];
   function show(v){
     var recipe=typeof v==='string'&&v.indexOf('dish-')===0&&RMAP[v.slice(5)];
     if(!recipe&&VIEWS.indexOf(v)<0)v='plan';
@@ -1552,7 +1597,7 @@ footer.wrap{padding-block:0 32px;font-size:.8rem;color:var(--muted);display:grid
     return dayDiff(today(),dinnerDate())===0?'run':load(KEY_VIEW,'plan');
   }
 
-  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderLoad();renderNights();renderDishes();renderGrabs();renderTaskBoard();renderRun();}
+  function renderAll(){renderHeader();renderToday();renderBoard();renderDays();renderTimeline();renderLists();renderLoad();renderNights();renderDishes();renderGrabs();renderTaskBoard();renderRun();renderNutrition();}
   setInterval(renderRun,60000);
 
   document.addEventListener('change',function(e){var id=e.target&&e.target.getAttribute&&e.target.getAttribute('data-id');if(id&&e.target.tagName==='INPUT')setDone(id,e.target.checked);});
